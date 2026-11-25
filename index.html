@@ -1,14 +1,14 @@
 <!DOCTYPE html>
+<!-- Obra original: Felip Sarroca. Traducción, adaptación didáctica y revisión del corrector: SDN. CC BY-NC-SA 4.0. -->
 <html lang="es">
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Formulación inorgánica</title>
-    <meta name="description" content="Laboratori interactiu per aprendre a formular i anomenar compostos inorgànics (IUPAC 2005) a l'ESO i al batxillerat." />
+    <meta name="description" content="Laboratorio interactivo para aprender a formular y nombrar compuestos inorgánicos (IUPAC 2005) en ESO y Bachillerato." />
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWQ0ZWQ4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdjM2FlZCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjZykiLz4KICA8cmVjdCB4PSI3IiB5PSIxNyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMwIiByeD0iNiIgZmlsbD0iI2ZkZTY4YSIvPgogIDxwYXRoIGQ9Ik0zMSAyNWg1djE0aC01IiBmaWxsPSIjZmRlNjhhIi8+CiAgPHJlY3QgeD0iMzMiIHk9IjE3IiB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHJ4PSI2IiBmaWxsPSIjYmFlNmZkIi8+CiAgPHBhdGggZD0iTTMzIDI1aDR2MTRoLTQiIGZpbGw9IiMxZDRlZDgiIG9wYWNpdHk9IjAuMDAxIi8+CiAgPHRleHQgeD0iMTkiIHk9IjM4IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iODAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTI0MDBlIj5OYTwvdGV4dD4KICA8dGV4dCB4PSI0NSIgeT0iMzgiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI4MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMwNzU5ODUiPkNsPC90ZXh0PgogIDx0ZXh0IHg9IjI2IiB5PSIxNCIgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjgwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+KzwvdGV4dD4KICA8dGV4dCB4PSI1MiIgeT0iMTQiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI4MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPuKIkjwvdGV4dD4KPC9zdmc+Cg==" />
-    <style>/* Laboratorio de formulación inorgànica
-   La interfície es dissenya per a 1440 × 800 px i s'escala amb --ui-zoom (vegeu fitScale a app.js).
-   La base visual és la mateixa que la del laboratori d'igualació d'equacions. */
+    <style>
+
 
 :root {
   color-scheme: light;
@@ -89,7 +89,7 @@ svg {
   display: block;
 }
 
-/* ---------- Estructura general (una sola pantalla) ---------- */
+
 
 .app-shell {
   height: calc(100dvh / var(--ui-zoom));
@@ -108,7 +108,7 @@ svg {
   box-shadow: var(--shadow);
 }
 
-/* ---------- Barra superior ---------- */
+
 
 .topbar {
   display: flex;
@@ -329,7 +329,7 @@ svg {
   border-color: var(--blue);
 }
 
-/* ---------- Zona de treball ---------- */
+
 
 .lab {
   display: grid;
@@ -363,7 +363,9 @@ svg {
   font-size: 0.85rem;
   font-weight: 700;
   color: var(--c);
+  background: #f1f5f9;
   background: color-mix(in srgb, var(--c) 12%, white);
+  border: 1px solid #cbd5e1;
   border: 1px solid color-mix(in srgb, var(--c) 35%, white);
 }
 
@@ -421,7 +423,7 @@ svg {
   background: #d97706;
 }
 
-/* Barra del mode Reto */
+
 .challenge-bar {
   display: flex;
   align-items: center;
@@ -473,7 +475,7 @@ svg {
 }
 
 
-/* ---------- Accions i missatges ---------- */
+
 
 .action-bar {
   display: flex;
@@ -564,7 +566,7 @@ svg {
   font-weight: 800;
 }
 
-/* ---------- Panell lateral ---------- */
+
 
 .side-panel {
   display: flex;
@@ -616,7 +618,7 @@ svg {
 }
 
 
-/* ---------- Diàlegs ---------- */
+
 
 .modal {
   border: 0;
@@ -719,11 +721,12 @@ svg {
   flex-wrap: wrap;
 }
 
-/* ---------- Diàleg d'informació (taula d'ions i progrés) ---------- */
+
 
 .info-modal {
-  /* vw i vh es multipliquen pel zoom de la interfície: cal dividir-los. */
+  
   width: min(1000px, calc(94vw / var(--ui-zoom)));
+  height: min(760px, calc(88vh / var(--ui-zoom)));
   max-height: calc(88vh / var(--ui-zoom));
   overflow: hidden;
   background: #f8fbff;
@@ -866,7 +869,7 @@ svg {
   font-size: 0.95rem;
 }
 
-/* Mi progreso */
+
 
 .stat-cards {
   display: grid;
@@ -1004,7 +1007,7 @@ svg {
   flex: 1 1 320px;
 }
 
-/* ---------- Celebració ---------- */
+
 
 .confetti {
   position: fixed;
@@ -1030,7 +1033,7 @@ svg {
   }
 }
 
-/* ---------- Peu de pàgina ---------- */
+
 
 .felip-app-footer {
   position: fixed;
@@ -1086,9 +1089,7 @@ svg {
 }
 
 
-/* =====================================================================
-   Estils propis del laboratori de formulació
-   ===================================================================== */
+
 
 :root {
   --pos: #c2410c;
@@ -1097,7 +1098,7 @@ svg {
   --neg-soft: #cffafe;
 }
 
-/* El nivell de batxillerat fa servir el lila. */
+
 .level-chip.l3,
 .tag.l3,
 .level-card.l3 {
@@ -1125,8 +1126,7 @@ svg {
   line-height: 0;
 }
 
-/* Els signes + i − tipogràfics queden a l'eix matemàtic (mitja alçada de
-   la xifra); en una càrrega s'han d'alinear amb la part alta del nombre. */
+
 .sgn {
   position: relative;
   top: -0.2em;
@@ -1147,7 +1147,7 @@ svg {
   flex-wrap: wrap;
 }
 
-/* ---------- Pregunta ---------- */
+
 
 .question {
   text-align: center;
@@ -1196,7 +1196,7 @@ svg {
   padding: 4px;
 }
 
-/* Respostes escrites */
+
 
 .answer-box {
   width: min(680px, 100%);
@@ -1274,7 +1274,7 @@ svg {
   color: var(--blue);
 }
 
-/* Elige la respuesta */
+
 
 .options {
   width: min(860px, 100%);
@@ -1339,7 +1339,7 @@ svg {
   text-decoration: line-through;
 }
 
-/* Clasifica */
+
 
 .families {
   width: min(900px, 100%);
@@ -1362,7 +1362,7 @@ svg {
   color: var(--blue);
 }
 
-/* Construye con iones */
+
 
 .build {
   width: 100%;
@@ -1415,6 +1415,7 @@ svg {
   --soft: var(--pos-soft);
   min-width: 82px;
   padding: 8px 12px;
+  border: 2px solid #cbd5e1;
   border: 2px solid color-mix(in srgb, var(--c) 45%, white);
   border-radius: 12px;
   background: var(--soft);
@@ -1505,7 +1506,7 @@ svg {
   color: var(--blue);
 }
 
-/* Signes + i − dibuixats: queden centrats exactament, sigui quina sigui la font. */
+
 .pm,
 .cells i {
   position: relative;
@@ -1610,7 +1611,7 @@ svg {
   color: #1e3a8a;
 }
 
-/* ---------- Panell lateral ---------- */
+
 
 .activity-panel {
   display: flex;
@@ -1759,7 +1760,7 @@ svg {
   color: #15803d;
 }
 
-/* ---------- Mode Aprende ---------- */
+
 
 .learn {
   display: grid;
@@ -2095,7 +2096,7 @@ svg {
   padding-top: 8px;
 }
 
-/* ---------- Tabla de iones (diàleg) ---------- */
+
 
 .ion-columns {
   display: grid;
@@ -2150,7 +2151,7 @@ svg {
   font-size: 0.8rem;
 }
 
-/* ---------- Modo proyector i amplada efectiva reduïda ---------- */
+
 
 .projector .q-prompt {
   font-size: 2.5rem;
@@ -2222,7 +2223,7 @@ svg {
   margin-left: 0;
 }
 
-/* ---------- Mòbil i tauleta vertical (sense escalat, amb desplaçament) ---------- */
+
 
 @media (max-width: 899px) {
   :root {
@@ -2362,6 +2363,8 @@ svg {
 
   .info-modal {
     width: 96vw;
+    height: min(760px, 88vh);
+    height: min(760px, 88dvh);
     max-height: 92dvh;
   }
 
@@ -2417,14 +2420,14 @@ svg {
   </head>
   <body>
     <div class="app-shell">
-      <!-- Barra superior: títol, mode, filtres i accions -->
+      
       <header class="topbar">
         <div class="brand">
           <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWQ0ZWQ4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdjM2FlZCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjZykiLz4KICA8cmVjdCB4PSI3IiB5PSIxNyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMwIiByeD0iNiIgZmlsbD0iI2ZkZTY4YSIvPgogIDxwYXRoIGQ9Ik0zMSAyNWg1djE0aC01IiBmaWxsPSIjZmRlNjhhIi8+CiAgPHJlY3QgeD0iMzMiIHk9IjE3IiB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHJ4PSI2IiBmaWxsPSIjYmFlNmZkIi8+CiAgPHBhdGggZD0iTTMzIDI1aDR2MTRoLTQiIGZpbGw9IiMxZDRlZDgiIG9wYWNpdHk9IjAuMDAxIi8+CiAgPHRleHQgeD0iMTkiIHk9IjM4IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iODAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTI0MDBlIj5OYTwvdGV4dD4KICA8dGV4dCB4PSI0NSIgeT0iMzgiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI4MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMwNzU5ODUiPkNsPC90ZXh0PgogIDx0ZXh0IHg9IjI2IiB5PSIxNCIgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjgwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+KzwvdGV4dD4KICA8dGV4dCB4PSI1MiIgeT0iMTQiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI4MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPuKIkjwvdGV4dD4KPC9zdmc+Cg==" alt="" class="brand-logo" />
           <h1 class="brand-title">Laboratorio de formulación</h1>
         </div>
 
-        <div class="mode-tabs" role="tablist" aria-label="Mode de treball">
+        <div class="mode-tabs" role="tablist" aria-label="Modo de trabajo">
           <button type="button" role="tab" class="mode-tab" data-mode="apren" aria-selected="false">Aprende</button>
           <button type="button" role="tab" class="mode-tab active" data-mode="practica" aria-selected="true">Practica</button>
           <button type="button" role="tab" class="mode-tab" data-mode="repte" aria-selected="false">Reto</button>
@@ -2434,7 +2437,7 @@ svg {
           <div class="level-chips" id="levelChips" role="group" aria-label="Niveles"></div>
           <div class="dropdown" id="familyDropdown">
             <button type="button" class="dropdown-trigger" id="familyTrigger" aria-haspopup="true" aria-expanded="false">Todas las familias</button>
-            <div class="dropdown-menu" id="familyMenu" role="group" aria-label="Famílies de compostos"></div>
+            <div class="dropdown-menu" id="familyMenu" role="group" aria-label="Familias de compuestos"></div>
           </div>
         </div>
 
@@ -2446,19 +2449,19 @@ svg {
           <button type="button" class="icon-btn" id="progressBtn" title="Mi progreso" aria-label="Mi progreso" aria-haspopup="dialog">
             <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
           </button>
-          <button type="button" class="icon-btn" id="projectorBtn" aria-pressed="false" title="Modo proyector: lletra més gran per a la pissarra digital" aria-label="Modo proyector">
+          <button type="button" class="icon-btn" id="projectorBtn" aria-pressed="false" title="Modo proyector: letra más grande para la pizarra digital" aria-label="Modo proyector">
             <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></svg>
           </button>
         </div>
       </header>
 
-      <!-- Mode Aprende: fitxes per mòduls -->
+      
       <main class="learn" id="learnView" hidden>
         <nav class="learn-nav panel" id="moduleNav" aria-label="Módulos"></nav>
         <article class="learn-card" id="moduleCard" aria-live="polite"></article>
       </main>
 
-      <!-- Modes Practica i Reto -->
+      
       <main class="lab" id="practiceView">
         <section class="lab-card" aria-label="Pregunta">
           <div class="lab-head">
@@ -2496,34 +2499,35 @@ svg {
         <aside class="side-panel">
           <section class="panel activity-panel" aria-labelledby="activityTitle">
             <h2 class="panel-title" id="activityTitle">Actividad</h2>
-            <div class="activity-list" id="activityList" role="radiogroup" aria-label="Tipus d'activitat"></div>
+            <div class="activity-list" id="activityList" role="radiogroup" aria-label="Tipo de actividad"></div>
           </section>
 
           <section class="panel help-panel" aria-labelledby="helpTitle">
-            <h2 class="panel-title" id="helpTitle">Ajuda</h2>
+            <h2 class="panel-title" id="helpTitle">Ayuda</h2>
             <div class="help-body" id="helpBody"></div>
           </section>
 
           <section class="panel score-panel" aria-label="Marcador">
-            <div class="score"><span class="score-label">Intents</span><span class="score-value" id="attemptCount">0</span></div>
+            <div class="score"><span class="score-label">Intentos</span><span class="score-value" id="attemptCount">0</span></div>
             <div class="score"><span class="score-label">Aciertos</span><span class="score-value" id="correctCount">0</span></div>
-            <div class="score"><span class="score-label">Ratxa</span><span class="score-value" id="streakCount">0</span></div>
+            <div class="score"><span class="score-label">Racha</span><span class="score-value" id="streakCount">0</span></div>
           </section>
         </aside>
       </main>
 
       <footer class="felip-app-footer">
-        <a class="felip-license-image-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer" aria-label="Llicència Creative Commons BY-NC-SA 4.0">
+        <a class="felip-license-image-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank" rel="noopener noreferrer" aria-label="Licencia Creative Commons BY-NC-SA 4.0">
           <img class="felip-license-image" src="data:image/png;base64,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" alt="Creative Commons BY-NC-SA" />
         </a>
         <div class="felip-footer-text">
-          <p>Aplicación creada por <a href="https://ja.cat/felipsarroca" target="_blank" rel="noopener noreferrer">Felip Sarroca</a> con ayuda de la IA</p>
-          <p>Obra bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></p>
-        <p>Adaptació tècnica per a ús local, sense canvis en el contingut. <a href="https://felipsarroca.github.io/edu-apps/FormulacioInorganica/">Aplicació original</a>.</p></div>
+          <p>Aplicación creada por <a href="https://ja.cat/felipsarroca" target="_blank" rel="noopener noreferrer">Felip Sarroca</a> con asistencia de IA</p>
+          <p>Traducción y adaptación al castellano para uso educativo (SDN). <a href="https://felipsarroca.github.io/edu-apps/FormulacioInorganica/" rel="noopener noreferrer" target="_blank">Aplicación original</a>.</p>
+          <p>Obra y adaptación bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></p>
+        </div>
       </footer>
     </div>
 
-    <!-- Tabla de iones i progrés -->
+    
     <dialog class="modal info-modal" id="infoDialog" aria-labelledby="infoTitle">
       <div class="info-head">
         <div class="info-title">
@@ -2531,15 +2535,15 @@ svg {
             <svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 15h9"/></svg>
           </span>
           <div>
-            <h2 id="infoTitle">Quadern de formulació</h2>
-            <p>Consulta els ions i segueix el teu progrés.</p>
+            <h2 id="infoTitle">Cuaderno de formulación</h2>
+            <p>Consulta los iones y sigue tu progreso.</p>
           </div>
         </div>
-        <button type="button" class="icon-btn close" data-close aria-label="Cerrar">
+        <button type="button" class="icon-btn close" data-close aria-label="Cierra">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
         </button>
       </div>
-      <div class="info-tabs" role="tablist" aria-label="Seccions">
+      <div class="info-tabs" role="tablist" aria-label="Secciones">
         <button type="button" role="tab" class="info-tab" id="tab-ions" data-tab="ions" aria-controls="pane-ions" aria-selected="true">
           <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></svg>Tabla de iones
         </button>
@@ -2549,150 +2553,47 @@ svg {
       </div>
       <div class="info-body">
         <section class="info-pane" id="pane-ions" role="tabpanel" aria-labelledby="tab-ions">
-          <p class="pane-intro">Els cations (positius) s'anomenen amb el nom de l'element; si en pot tenir més d'una càrrega, s'hi afegeixen xifres romanes. Els anions (negatius) acaben en <span class="nowrap">-ur</span>, <span class="nowrap">-at</span> o <span class="nowrap">-it</span>.</p>
+          <p class="pane-intro">Los cationes (positivos) monoatómicos toman el nombre del elemento. Si hay que distinguir sus estados de oxidación, se indican con números romanos. Muchos nombres de aniones (negativos) terminan en <span class="nowrap">-uro</span>, <span class="nowrap">-ato</span> o <span class="nowrap">-ito</span>.</p>
           <div id="ionTables"></div>
         </section>
         <section class="info-pane" id="pane-progres" role="tabpanel" aria-labelledby="tab-progres" hidden>
           <div class="stat-cards" id="statCards"></div>
-          <h3 class="pane-title">Per nivells</h3>
+          <h3 class="pane-title">Por niveles</h3>
           <div class="level-cards" id="levelCards"></div>
-          <h3 class="pane-title">Per famílies</h3>
+          <h3 class="pane-title">Por familias</h3>
           <div class="type-progress" id="familyProgress"></div>
           <div class="progress-foot">
-            <p class="muted">Compten els compostos resolts sense mirar la solució. El progrés es desa només en aquest navegador.</p>
-            <button type="button" class="action-btn ghost small" id="resetProgressBtn">Esborra el progrés i el marcador</button>
+            <p class="muted">Se cuentan los compuestos resueltos sin mirar la solución. El progreso se guarda en este navegador.</p>
+            <button type="button" class="action-btn ghost small" id="resetProgressBtn">Borra el progreso y el marcador</button>
           </div>
         </section>
       </div>
     </dialog>
 
-    <!-- Resultat del repte -->
+    
     <dialog class="modal small" id="resultDialog" aria-labelledby="resultTitle">
       <div class="modal-head">
-        <h2 id="resultTitle">Reto acabat!</h2>
+        <h2 id="resultTitle">¡Reto completado!</h2>
       </div>
       <div class="modal-body result-body">
         <div class="stars" id="resultStars" aria-hidden="true"></div>
         <p class="result-points" id="resultPoints"></p>
         <p class="muted" id="resultDetail"></p>
         <div class="result-actions">
-          <button type="button" class="primary-btn" id="playAgainBtn">Torna a jugar</button>
-          <button type="button" class="action-btn ghost" id="backPracticeBtn">Volver a practicar</button>
+          <button type="button" class="primary-btn" id="playAgainBtn">Vuelve a jugar</button>
+          <button type="button" class="action-btn ghost" id="backPracticeBtn">Vuelve a practicar</button>
         </div>
       </div>
     </dialog>
 
     <script>
-const mod_formula = (()=>{
-// Lectura i escriptura de fórmules: recompte d'àtoms, validació de símbols i format HTML.
-// No depèn del DOM: el fan servir l'app i l'script de validació (scripts/valida-dades.mjs).
-//
-// Notació: subíndexs com a dígits (H2O, Ca(OH)2, Fe2(SO4)3) i càrrega amb «^» (Fe^3+, SO4^2-).
+(()=>{
+"use strict";
+const chemistry = (() => {
 
-const SYMBOLS = new Set(
-  (
-    "H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr " +
-    "Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu " +
-    "Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr"
-  ).split(" ")
-);
 
-const SUB_DIGITS = "₀₁₂₃₄₅₆₇₈₉";
 
-// Neteja el que escriu l'alumne: espais, subíndexs Unicode i signes.
-function cleanFormulaInput(text) {
-  return String(text ?? "")
-    .trim()
-    .replace(/\s+/g, "")
-    .replace(/[₀-₉]/g, (d) => String(SUB_DIGITS.indexOf(d)))
-    .replace(/[−–]/g, "-");
-}
 
-// Recompte d'àtoms: { Fe: 2, S: 3, O: 12 }. Llança un error si la fórmula no és vàlida.
-function parseFormula(formula) {
-  const body = cleanFormulaInput(formula).replace(/\^\d*[+-]$/, "");
-  if (!body) throw new Error("La fórmula és buida.");
-  let index = 0;
-  const stack = [{}];
-  const readNumber = () => {
-    const start = index;
-    while (index < body.length && /\d/.test(body[index])) index += 1;
-    return index > start ? Number.parseInt(body.slice(start, index), 10) : 1;
-  };
-  while (index < body.length) {
-    const char = body[index];
-    if (char === "(") {
-      index += 1;
-      stack.push({});
-    } else if (char === ")") {
-      index += 1;
-      if (stack.length < 2) throw new Error("Hi ha un parèntesi de tancament de més.");
-      const factor = readNumber();
-      const group = stack.pop();
-      Object.entries(group).forEach(([el, n]) => {
-        const top = stack[stack.length - 1];
-        top[el] = (top[el] ?? 0) + n * factor;
-      });
-    } else if (/[A-Z]/.test(char)) {
-      let symbol = char;
-      index += 1;
-      while (index < body.length && /[a-z]/.test(body[index])) {
-        symbol += body[index];
-        index += 1;
-      }
-      if (!SYMBOLS.has(symbol)) throw new Error(`«${symbol}» no és el símbol de cap element.`);
-      const amount = readNumber();
-      const top = stack[stack.length - 1];
-      top[symbol] = (top[symbol] ?? 0) + amount;
-    } else {
-      throw new Error(`No s'entén el caràcter «${char}».`);
-    }
-  }
-  if (stack.length !== 1) throw new Error("Falta tancar un parèntesi.");
-  return stack[0];
-}
-
-function sameCounts(a, b) {
-  const keys = new Set([...Object.keys(a), ...Object.keys(b)]);
-  return [...keys].every((k) => (a[k] ?? 0) === (b[k] ?? 0));
-}
-
-// Si b és un múltiple de a, retorna el factor (2, 3…); si no, 0.
-function multipleOf(a, b) {
-  const keys = Object.keys(a);
-  if (keys.length !== Object.keys(b).length || !keys.every((k) => b[k])) return 0;
-  const factor = b[keys[0]] / a[keys[0]];
-  return Number.isInteger(factor) && factor > 1 && keys.every((k) => b[k] === a[k] * factor) ? factor : 0;
-}
-
-// Fórmula en HTML amb subíndexs i càrrega en superíndex.
-function formulaHTML(formula) {
-  const text = String(formula ?? "");
-  const match = text.match(/\^(\d*)([+-])$/);
-  const body = match ? text.slice(0, match.index) : text;
-  let html = body.replace(/([A-Za-z)])(\d+)/g, "$1<sub>$2</sub>");
-  if (match) html += `<sup>${match[1] === "1" ? "" : match[1]}<span class="sgn">${match[2] === "+" ? "+" : "−"}</span></sup>`;
-  return html;
-}
-
-// Fórmula en text pla amb subíndexs Unicode (per a missatges i aria-label).
-function formulaText(formula) {
-  const SUP = { 0: "⁰", 1: "¹", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹", "+": "⁺", "-": "⁻" };
-  const text = String(formula ?? "");
-  const match = text.match(/\^(\d*)([+-])$/);
-  const body = match ? text.slice(0, match.index) : text;
-  let out = body.replace(/([A-Za-z)])(\d+)/g, (_, a, d) => a + [...d].map((c) => SUB_DIGITS[c]).join(""));
-  if (match) out += [...(match[1] === "1" ? "" : match[1]), match[2]].map((c) => SUP[c]).join("");
-  return out;
-}
-
-return {cleanFormulaInput,parseFormula,sameCounts,multipleOf,formulaHTML,formulaText};
-})();
-const mod_nomenclatura = (()=>{
-// Catàleg de compostos inorgànics amb els seus noms (recomanacions IUPAC del 2005, versió catalana).
-// Els compostos iònics es generen a partir dels ions; la resta (substàncies simples, òxids de no-metalls,
-// compostos entre no-metalls i hidrurs progenitors) són llistes revisades a mà.
-// No depèn del DOM: el fan servir l'app i l'script de validació.
 
 const LEVELS = [
   { id: 1, name: "Fácil", course: "3.º de ESO" },
@@ -2701,23 +2602,23 @@ const LEVELS = [
 ];
 
 const FAMILIES = [
-  { id: "simple", name: "Sustancia simple", plural: "Sustancias simples", level: 1, module: 1, rule: "Està formada per un sol element." },
-  { id: "oxid", name: "Óxido", plural: "Óxidos", level: 1, module: 2, rule: "Un element (metall o no-metall) combinat amb oxígeno, que actua com a O²⁻." },
-  { id: "hidrur", name: "Hidruro", plural: "Hidruroos", level: 1, module: 2, rule: "Hidrogen combinat amb un altre element: un metall (hidruro metàl·lic) o un no-metall (hidràcids i hidrurs progenitors)." },
-  { id: "salBinaria", name: "Sal binaria", plural: "Sales binarias", level: 1, module: 2, rule: "Un metall (o l'amonio) combinat amb un no-metall que no és oxígeno ni hidrógeno." },
-  { id: "nometalls", name: "Compuesto entre no metales", plural: "Compuestos entre no metales", level: 1, module: 2, rule: "Dos no-metalls units, sense oxígeno ni hidrógeno. S'anomenen amb prefixos." },
-  { id: "peroxid", name: "Peróxido", plural: "Peróxidos", level: 3, module: 2, rule: "Un metall o l'hidrógeno combinat amb el grup peróxido, O₂²⁻, que no es pot simplificar." },
-  { id: "hidroxid", name: "Hidróxido", plural: "Hidróxidos", level: 2, module: 3, rule: "Un metall combinat amb l'ió hidróxido, OH⁻." },
-  { id: "oxoacid", name: "Oxoácido", plural: "Oxoácidos", level: 2, module: 4, rule: "Hidrogen + no-metall (o metall de transició) + oxígeno: H + oxoanió." },
-  { id: "oxosal", name: "Oxosal", plural: "Oxosales", level: 2, module: 5, rule: "Un metall (o l'amonio) combinat amb un oxoanió." },
-  { id: "salAcida", name: "Sal ácida", plural: "Sales ácidas", level: 3, module: 5, rule: "Un metall (o l'amonio) combinat amb un anió que conserva algun hidrógeno." },
+  { id: "simple", name: "Sustancia simple", plural: "Sustancias simples", level: 1, module: 1, rule: "Está formada por un solo elemento." },
+  { id: "oxid", name: "Óxido", plural: "Óxidos", level: 1, module: 2, rule: "Un elemento combinado con oxígeno, que tiene número de oxidación −2." },
+  { id: "hidrur", name: "Hidruro", plural: "Hidruros", level: 1, module: 2, rule: "Hidrógeno combinado con otro elemento. Incluye hidruros metálicos, hidrácidos e hidruros progenitores." },
+  { id: "salBinaria", name: "Sal binaria", plural: "Sales binarias", level: 1, module: 2, rule: "Un metal (o el amonio) combinado con un no metal distinto del oxígeno y del hidrógeno." },
+  { id: "nometalls", name: "Compuesto entre no metales", plural: "Compuestos entre no metales", level: 1, module: 2, rule: "Dos no metales combinados. Se incluyen aquí los halogenuros de oxígeno y se estudian aparte los óxidos y los hidruros." },
+  { id: "peroxid", name: "Peróxido", plural: "Peróxidos", level: 3, module: 2, rule: "Un metal o el hidrógeno combinado con el grupo peróxido O₂²⁻, que se conserva entero." },
+  { id: "hidroxid", name: "Hidróxido", plural: "Hidróxidos", level: 2, module: 3, rule: "Un metal combinado con el ion hidróxido OH⁻." },
+  { id: "oxoacid", name: "Oxoácido", plural: "Oxoácidos", level: 2, module: 4, rule: "Hidrógeno + no metal (o metal de transición) + oxígeno. Se puede formular a partir de H⁺ y el oxoanión." },
+  { id: "oxosal", name: "Oxosal", plural: "Oxosales", level: 2, module: 5, rule: "Un metal (o el amonio) combinado con un oxoanión." },
+  { id: "salAcida", name: "Sal ácida", plural: "Sales ácidas", level: 3, module: 5, rule: "Un metal (o el amonio) combinado con un anión que conserva uno o más hidrógenos." },
 ];
 
 const KINDS = {
   comp: "Composición",
-  ox: "Nombre de oxidació",
+  ox: "Número de oxidación",
   trad: "Tradicional",
-  hid: "D'hidrógeno",
+  hid: "De hidrógeno",
   com: "Nombre común",
   acc: "Nombre aceptado",
   elem: "Nombre del elemento",
@@ -2725,21 +2626,16 @@ const KINDS = {
 
 const ELEMENT_NAMES = {
   H: "hidrógeno", Li: "litio", Na: "sodio", K: "potasio", Mg: "magnesio", Ca: "calcio", Sr: "estroncio", Ba: "bario",
-  Al: "aluminio", Zn: "zinc", Ag: "plata", Fe: "hierro", Co: "cobalto", Ni: "níquel", Cu: "cobre", Au: "or",
+  Al: "aluminio", Zn: "zinc", Ag: "plata", Fe: "hierro", Co: "cobalto", Ni: "níquel", Cu: "cobre", Au: "oro",
   Hg: "mercurio", Pb: "plomo", Sn: "estaño", Cr: "cromo", Mn: "manganeso", B: "boro", C: "carbono", Si: "silicio",
   N: "nitrógeno", P: "fósforo", O: "oxígeno", S: "azufre", Se: "selenio", F: "flúor", Cl: "cloro", Br: "bromo", I: "yodo",
   He: "helio", Ne: "neón", Ar: "argón",
 };
 
 const PREFIX = ["", "mono", "di", "tri", "tetra", "penta", "hexa", "hepta", "octa"];
-const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII"];
+const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII", "VIII"];
 
-/* ---------- Regles de llengua ---------- */
 
-// S'apostrofa davant de vocal o h + vocal, però no davant de i/u semivocals (de iode).
-function elides(word) {
-  return /^h?([aeoàèéòó]|[iíuú](?![aeiouàèéíòóú]))/i.test(word);
-}
 
 const de = (word) => `de ${word}`;
 
@@ -2747,7 +2643,7 @@ const prefixed = (n, word) => (n === 1 ? word : PREFIX[n] + word);
 const monoWord = (word) => (word === "óxido" ? "monóxido" : `mono${word}`);
 const dePrefixed = (n, word) => (n === 1 ? de(word) : `de ${PREFIX[n]}${word}`);
 
-/* ---------- Ions ---------- */
+
 
 const gcd = (a, b) => (b ? gcd(b, a % b) : Math.abs(a));
 
@@ -2791,7 +2687,6 @@ const byFormula = (list, f) => list.find((a) => a.formula === f);
 const OH = anion("OH", 1, "hidróxido", 2);
 const PEROXIDE = { ...anion("O2", 2, "peróxido", 3), poly: true };
 
-// Oxoanions: fórmula, càrrega, anió, àcid, arrel per a la nomenclatura d'hidrogen, nivell.
 const OXOANIONS = [
   ["SO4", 2, "sulfato", "sulfúrico", "tetraoxidosulfato", 2],
   ["SO3", 2, "sulfito", "sulfuroso", "trioxidosulfato", 2],
@@ -2800,7 +2695,7 @@ const OXOANIONS = [
   ["CO3", 2, "carbonato", "carbónico", "trioxidocarbonato", 2],
   ["PO4", 3, "fosfato", "fosfórico", "tetraoxidofosfato", 2],
   ["BO3", 3, "borato", "bórico", "trioxidoborato", 2],
-  ["SiO4", 4, "silicato", "silícico", "tetraoxidosilicato", 2],
+  ["SiO4", 4, "ortosilicato", "ortosilícico", "tetraoxidosilicato", 2],
   ["ClO", 1, "hipoclorito", "hipocloroso", "oxidoclorato", 2],
   ["ClO2", 1, "clorito", "cloroso", "dioxidoclorato", 2],
   ["ClO3", 1, "clorato", "clórico", "trioxidoclorato", 2],
@@ -2819,14 +2714,13 @@ const OXOANIONS = [
   ["MnO4", 1, "permanganato", "permangánico", "tetraoxidomanganato", 3],
 ].map(([f, q, name, acid, hydro, level]) => anion(f, q, name, level, { acid, hydro, oxo: true }));
 
-// Anions amb hidrogen (sals àcides). S'accepta també la grafia «hidrogeno-».
 const ACID_ANIONS = [
   ["HCO3", 1, "hidrogenocarbonato"],
   ["HSO4", 1, "hidrogenosulfato"],
   ["HSO3", 1, "hidrogenosulfito"],
   ["H2PO4", 1, "dihidrogenofosfato"],
   ["HPO4", 2, "hidrogenofosfato"],
-  ["HS", 1, "hidrogenosulfur"],
+  ["HS", 1, "hidrogenosulfuro"],
 ].map(([f, q, name]) => anion(f, q, name, 3, { acidSalt: true }));
 
 function ionLabel(ion) {
@@ -2837,7 +2731,7 @@ function ionLabel(ion) {
 const cationName = (c) => (c.variable ? `${c.name}(${ROMAN[c.charge]})` : c.name);
 const ionName = (ion) => (ion.charge > 0 ? `ion ${cationName(ion)}` : `ion ${ion.name}`);
 
-/* ---------- Construcció de compostos ---------- */
+
 
 function ionCounts(cat, an) {
   const g = gcd(cat.charge, -an.charge);
@@ -2871,7 +2765,6 @@ function record(data) {
   };
 }
 
-// Óxidos, hidrurs metàl·lics, sals binàries i hidròxids: nom amb nombre d'oxidació i de composició.
 function binaryIonic(cat, an, family) {
   const { nC, nA } = ionCounts(cat, an);
   const formula = ionicFormula(cat, an, nC, nA);
@@ -2883,7 +2776,7 @@ function binaryIonic(cat, an, family) {
       const plain = `${an.name} ${dePrefixed(nC, cat.name)}`;
       if (cat.variable && nC === 1) {
         names.push(nm(mono, "comp"));
-        accept.push(plain);
+        
       } else {
         names.push(nm(plain, "comp"));
         accept.push(mono);
@@ -2914,7 +2807,7 @@ function oxosalt(cat, an, family) {
   const { nC, nA } = ionCounts(cat, an);
   const formula = ionicFormula(cat, an, nC, nA);
   const name = `${an.name} ${de(cationName(cat))}`;
-  const accept = an.acidSalt ? [name.replace(/hidrogen(?=[a-z])/g, "hidrogeno")] : [];
+  const accept = [];
   const names = [nm(name, "trad")];
   if (formula === "NaHCO3") names.push(nm("bicarbonato de sodio", "com"));
   return record({
@@ -2930,11 +2823,10 @@ function oxosalt(cat, an, family) {
 function oxoacid(an) {
   const { nC } = ionCounts(H_CATION, an);
   const formula = ionicFormula(H_CATION, an, nC, 1, true);
-  const names = [nm(`ácido ${an.acid}`, "trad"), nm(`${nC === 1 ? "" : PREFIX[nC]}hidrógeno(${an.hydro})`, "hid", 3)];
+  const names = [nm(`ácido ${an.acid}`, "trad"), nm(`${nC === 1 ? "" : PREFIX[nC]}hidrogeno(${an.hydro})`, "hid", 3)];
   return record({ formula, family: "oxoacid", level: an.level, names, ions: { cat: H_CATION, an, nC, nA: 1, acid: true } });
 }
 
-// Hidràcids: HCl, H2S… Noms de composició i, en dissolució aquosa, «àcid …hídric».
 function hydracid(an, acidName, level = 1) {
   const { nC } = ionCounts(H_CATION, an);
   const formula = ionicFormula(H_CATION, an, nC, 1, true);
@@ -2946,7 +2838,7 @@ function hydracid(an, acidName, level = 1) {
     level: Math.max(level, an.level),
     names,
     accept,
-    note: "El nom «ácido …hídric» s'usa quan està dissolt en agua.",
+    note: "El nombre «ácido …hídrico» se usa para la disolución acuosa.",
     ions: { cat: H_CATION, an, nC, nA: 1, acid: true },
   });
 }
@@ -2955,7 +2847,7 @@ function familyLevel(id) {
   return FAMILIES.find((f) => f.id === id).level;
 }
 
-/* ---------- Llistes revisades a mà ---------- */
+
 
 const SIMPLES = [
   ["H2", [["dihidrógeno", "comp"], ["hidrógeno", "com"]]],
@@ -2966,19 +2858,18 @@ const SIMPLES = [
   ["Cl2", [["dicloro", "comp"], ["cloro", "com"]]],
   ["Br2", [["dibromo", "comp"], ["bromo", "com"]]],
   ["I2", [["diyodo", "comp"], ["yodo", "com"]]],
-  ["P4", [["tetrafósforo", "comp"], ["fósforo blanc", "com"]]],
+  ["P4", [["tetrafósforo", "comp"], ["fósforo blanco", "com"]]],
   ["S8", [["octaazufre", "comp"], ["azufre", "com"]]],
   ["He", [["helio", "elem"]]],
   ["Ne", [["neón", "elem"]]],
   ["Ar", [["argón", "elem"]]],
   ["Fe", [["hierro", "elem"]]],
   ["Cu", [["cobre", "elem"]]],
-  ["Au", [["or", "elem"]]],
+  ["Au", [["oro", "elem"]]],
   ["Hg", [["mercurio", "elem"]]],
   ["Na", [["sodio", "elem"]]],
 ];
 
-// Óxidos de no-metalls: fórmula, composició, nombre d'oxidació.
 const NONMETAL_OXIDES = [
   ["CO", "monóxido de carbono", "óxido de carbono(II)"],
   ["CO2", "dióxido de carbono", "óxido de carbono(IV)"],
@@ -2989,21 +2880,21 @@ const NONMETAL_OXIDES = [
   ["NO", "monóxido de nitrógeno", "óxido de nitrógeno(II)"],
   ["N2O3", "trióxido de dinitrógeno", "óxido de nitrógeno(III)"],
   ["NO2", "dióxido de nitrógeno", "óxido de nitrógeno(IV)"],
-  ["N2O5", "pentóxido de dinitrógeno", "óxido de nitrógeno(V)"],
+  ["N2O5", "pentaóxido de dinitrógeno", "óxido de nitrógeno(V)"],
   ["P2O3", "trióxido de difósforo", "óxido de fósforo(III)"],
-  ["P2O5", "pentóxido de difósforo", "óxido de fósforo(V)"],
+  ["P2O5", "pentaóxido de difósforo", "óxido de fósforo(V)"],
   ["B2O3", "trióxido de diboro", "óxido de boro"],
-  ["Cl2O", "óxido de dicloro", "óxido de cloro(I)"],
-  ["Cl2O3", "trióxido de dicloro", "óxido de cloro(III)"],
-  ["Cl2O5", "pentóxido de dicloro", "óxido de cloro(V)"],
-  ["Cl2O7", "heptóxido de dicloro", "óxido de cloro(VII)"],
-  ["Br2O", "óxido de dibromo", "óxido de bromo(I)"],
-  ["I2O5", "pentóxido de diyodo", "óxido de yodo(V)"],
   ["SeO2", "dióxido de selenio", "óxido de selenio(IV)", 3],
 ];
 
-// Compuestos entre no metales: fórmula, composició, nombre d'oxidació (si n'hi ha).
 const NONMETAL_BINARIES = [
+  ["OCl2", "dicloruro de oxígeno", null],
+  ["O3Cl2", "dicloruro de trioxígeno", null],
+  ["O5Cl2", "dicloruro de pentaoxígeno", null],
+  ["O7Cl2", "dicloruro de heptaoxígeno", null],
+  ["OBr2", "dibromuro de oxígeno", null],
+  ["O5I2", "diyoduro de pentaoxígeno", null],
+
   ["PCl3", "tricloruro de fósforo", "cloruro de fósforo(III)"],
   ["PCl5", "pentacloruro de fósforo", "cloruro de fósforo(V)"],
   ["CCl4", "tetracloruro de carbono", "cloruro de carbono(IV)"],
@@ -3018,82 +2909,80 @@ const NONMETAL_BINARIES = [
   ["IF5", "pentafluoruro de yodo", "fluoruro de yodo(V)", 3],
 ];
 
-// Hidruroos progenitors: nom comú acceptat i nom sistemàtic.
 const PARENT_HYDRIDES = [
-  ["H2O", [["agua", "com"]], 1],
-  ["NH3", [["amoníaco", "com"], ["azano", "acc"]], 1],
-  ["CH4", [["metano", "acc"]], 1],
-  ["PH3", [["fosfano", "acc"]], 3, ["fosfina"]],
-  ["SiH4", [["silano", "acc"]], 3],
+  ["H2O", [["agua", "com"], ["monóxido de dihidrógeno", "comp"]], 1],
+  ["NH3", [["amoníaco", "com"], ["azano", "acc"], ["trihidruro de nitrógeno", "comp"]], 1],
+  ["CH4", [["metano", "acc"], ["tetrahidruro de carbono", "comp"]], 1],
+  ["PH3", [["fosfano", "acc"], ["trihidruro de fósforo", "comp"]], 3, ["fosfina"]],
+  ["SiH4", [["silano", "acc"], ["tetrahidruro de silicio", "comp"]], 3],
 ];
 
-// Contextos de la vida quotidiana.
 const CONTEXT = {
-  NaCl: "Sal de cuina.",
-  KCl: "Substitut de la sal de cuina.",
-  KI: "S'afegeix a la sal iodada.",
-  CaCl2: "Sal per desglaçar les carreteres.",
-  NaF: "Pasta de dents.",
+  NaCl: "Sal de mesa.",
+  KCl: "Sustituto de la sal de mesa.",
+  KI: "Se añade a la sal yodada.",
+  CaCl2: "Sal para deshelar carreteras.",
+  NaF: "Pasta de dientes.",
   CaF2: "Fluorita, un mineral.",
-  AgBr: "Pel·lícules fotogràfiques antigues.",
-  PbS: "Galena, el mineral del plomo.",
-  HgS: "Cinabri, el mineral del mercurio.",
-  NH4Cl: "Piles seques i soldadura.",
-  Fe2O3: "Rovell: el hierro s'oxida a l'aire humit.",
-  CaO: "Calç viva, per fer morter.",
-  Al2O3: "Corindó: els robins i els safirs.",
-  ZnO: "Cremes solars de protecció.",
-  SnO2: "Cassiterita, el mineral de l'estaño.",
-  MnO2: "Piles alcalines.",
-  Cu2O: "Pigment vermell.",
-  MgO: "Magnèsia dels gimnastes i escaladors.",
-  CO2: "Bombolles de les begudes i gas de la respiració.",
-  CO: "Gas tòxic de les combustions incompletes.",
-  SO2: "Conservant del vi i causa de la pluja àcida.",
-  NO2: "Fum marronós de la contaminació del trànsit.",
-  N2O: "Gas hilarant, anestèsic.",
-  SiO2: "Sorra i quars.",
-  H2O: "Aigua.",
-  NH3: "Netejadors amoniacals i adobs.",
-  CH4: "Gas natural.",
-  HCl: "Salfumant (dissolt en agua) i suc gàstric.",
-  H2S: "Olor de ous podrits.",
-  NaH: "Agent reductor al laboratori.",
-  H2O2: "Aigua oxigenada, desinfectant.",
-  NaOH: "Sosa càustica, per fer sabó.",
-  KOH: "Fabricació de sabons tous.",
-  "Ca(OH)2": "Calç apagada, per fer morter.",
-  "Mg(OH)2": "Antiàcid (llet de magnèsia).",
-  "Al(OH)3": "Antiàcid per a l'estómac.",
-  H2SO4: "Àcid de les bateries dels cotxes.",
-  HNO3: "Fabricació de adobs i explosius.",
-  H3PO4: "Refrescs de cola.",
-  H2CO3: "Es forma quan el CO₂ es dissol a l'agua amb gas.",
-  H3BO3: "Antisèptic suau (agua bòrica).",
-  CaCO3: "Marbre, pedra calcària i closques.",
-  Na2CO3: "Sosa de rentar.",
-  NaClO: "Lleixiu.",
-  "Ca(ClO)2": "Desinfectant de piscines.",
-  CaSO4: "Guix.",
-  MgSO4: "Sal d'Epsom.",
-  CuSO4: "Tractament de les vinyes (brou bordelès).",
-  BaSO4: "Contrast per a radiografies de l'aparell digestiu.",
-  KNO3: "Salnitre, de la pólvora.",
-  NH4NO3: "Adob agrícola.",
-  NaNO2: "Conservant dels embotits (E-250).",
-  NaNO3: "Nitrat de Xile, un adob.",
-  "Ca3(PO4)2": "Ossos i dents.",
-  AgNO3: "Tintes de cabell antigues i cauteritzar berrugues.",
-  KMnO4: "Desinfectant de color lila.",
-  K2Cr2O7: "Antics controls de alcoholèmia.",
-  NaHCO3: "Bicarbonat de cuina i llevat químic.",
-  O3: "Capa de ozono, que ens protegeix dels raigs UV.",
-  N2: "El 78 % de l'aire.",
-  O2: "El 21 % de l'aire; el respirem.",
-  Hg: "Termòmetres antics.",
+  AgBr: "Películas fotográficas antiguas.",
+  PbS: "Galena, un mineral de plomo.",
+  HgS: "Cinabrio, un mineral de mercurio.",
+  NH4Cl: "Pilas secas y soldadura.",
+  Fe2O3: "Herrumbre: el hierro se oxida en aire húmedo.",
+  CaO: "Cal viva para preparar mortero.",
+  Al2O3: "Corindón: mineral de los rubíes y los zafiros.",
+  ZnO: "Cremas de protección solar.",
+  SnO2: "Casiterita, un mineral de estaño.",
+  MnO2: "Pilas alcalinas.",
+  Cu2O: "Pigmento rojo.",
+  MgO: "Magnesia que se usa en gimnasia y escalada.",
+  CO2: "Burbujas de las bebidas y gas que expulsamos al respirar.",
+  CO: "Gas tóxico de las combustiones incompletas.",
+  SO2: "Conservante del vino y uno de los gases que contribuyen a la lluvia ácida.",
+  NO2: "Gas pardo asociado a la contaminación del tráfico.",
+  N2O: "Gas hilarante, utilizado como anestésico.",
+  SiO2: "Arena y cuarzo.",
+  H2O: "Agua.",
+  NH3: "Limpiadores amoniacales y fertilizantes.",
+  CH4: "Componente principal del gas natural.",
+  HCl: "Salfumán (en disolución acuosa) y jugo gástrico.",
+  H2S: "Olor a huevos podridos.",
+  NaH: "Agente reductor en el laboratorio.",
+  H2O2: "Agua oxigenada, utilizada como desinfectante.",
+  NaOH: "Sosa cáustica para fabricar jabón.",
+  KOH: "Fabricación de jabones blandos.",
+  "Ca(OH)2": "Cal apagada para preparar mortero.",
+  "Mg(OH)2": "Antiácido (leche de magnesia).",
+  "Al(OH)3": "Antiácido estomacal.",
+  H2SO4: "Ácido de las baterías de los coches.",
+  HNO3: "Fabricación de fertilizantes y explosivos.",
+  H3PO4: "Refrescos de cola.",
+  H2CO3: "Se forma al disolverse CO₂ en el agua con gas.",
+  H3BO3: "Agua bórica, de uso histórico como antiséptico.",
+  CaCO3: "Mármol, roca caliza y conchas.",
+  Na2CO3: "Sosa de lavar.",
+  NaClO: "Lejía.",
+  "Ca(ClO)2": "Desinfectante de piscinas.",
+  CaSO4: "Yeso.",
+  MgSO4: "Sal de Epsom.",
+  CuSO4: "Tratamientos de las vides (caldo bordelés).",
+  BaSO4: "Contraste para radiografías del aparato digestivo.",
+  KNO3: "Salitre, presente en la pólvora.",
+  NH4NO3: "Fertilizante agrícola.",
+  NaNO2: "Conservante de embutidos (E-250).",
+  NaNO3: "Nitrato de Chile, utilizado como fertilizante.",
+  "Ca3(PO4)2": "Huesos y dientes.",
+  AgNO3: "Tintes capilares antiguos y cauterización de verrugas.",
+  KMnO4: "Sustancia de color violeta utilizada como desinfectante.",
+  K2Cr2O7: "Antiguos controles de alcoholemia.",
+  NaHCO3: "Bicarbonato de cocina e ingrediente de la levadura química.",
+  O3: "Capa de ozono, que absorbe parte de la radiación ultravioleta.",
+  N2: "Aproximadamente el 78 % del aire seco.",
+  O2: "Aproximadamente el 21 % del aire seco.",
+  Hg: "Termómetros antiguos.",
 };
 
-/* ---------- Catàleg ---------- */
+
 
 const COMMON_SALT_CATIONS = ["Na1", "K1", "Li1", "Mg2", "Ca2", "Ba2", "Al3", "Zn2", "Ag1", "NH4", "Fe2", "Fe3", "Cu1", "Cu2", "Pb2", "Ni2", "Co2", "Hg2"];
 const ADVANCED_SALT_CATIONS = ["Na1", "K1", "Mg2", "Ca2", "Ba2", "Ag1", "NH4", "Fe3", "Cu2"];
@@ -3118,7 +3007,7 @@ function buildCatalog() {
   metals.filter((c) => allows(c, "oxid")).forEach((c) => list.push(binaryIonic(c, byFormula(MONO_ANIONS, "O"), "oxid")));
   NONMETAL_OXIDES.forEach(([formula, comp, ox, level = 1]) => {
     const names = [nm(comp, "comp"), nm(ox, "ox")];
-    const accept = /^òxid de di/.test(comp) ? [comp.replace(/^òxid/, "monóxido")] : [];
+    const accept = /^óxido de di/.test(comp) ? [comp.replace(/^óxido/, "monóxido")] : [];
     list.push(record({ formula, family: "oxid", level, names, accept }));
   });
 
@@ -3151,11 +3040,9 @@ function buildCatalog() {
   });
   ACID_ANIONS.forEach((a) => ACID_SALT_CATIONS.forEach((id) => list.push(oxosalt(catById(id), a, "salAcida"))));
 
-  // La fórmula és única i serveix d'identificador estable per al progrés desat.
   return list.map((c) => ({ ...c, id: c.formula }));
 }
 
-// Ions agrupats per a la taula de referència.
 function ionTable() {
   return {
     cations: [...CATIONS, H_CATION],
@@ -3164,22 +3051,122 @@ function ionTable() {
   };
 }
 
-return {LEVELS,FAMILIES,KINDS,ELEMENT_NAMES,ROMAN,elides,de,CATIONS,H_CATION,MONO_ANIONS,OH,PEROXIDE,OXOANIONS,ACID_ANIONS,ionLabel,cationName,ionName,ionCounts,ionicFormula,CONTEXT,buildCatalog,ionTable};
+return { LEVELS, FAMILIES, KINDS, ELEMENT_NAMES, ROMAN, CATIONS, H_CATION, MONO_ANIONS, OH, PEROXIDE, OXOANIONS, ACID_ANIONS, ionLabel, cationName, ionName, ionCounts, ionicFormula, CONTEXT, buildCatalog, ionTable };
 })();
-const mod_exercicis = (()=>{
-// Correcció de respostes, opcions errònies plausibles i pistes per a cada tipus d'exercici.
-// No depèn del DOM.
+const notation = (() => {
 
-const { cleanFormulaInput, parseFormula, sameCounts, multipleOf, formulaText } = mod_formula;
-const {
-  FAMILIES, CATIONS, H_CATION, MONO_ANIONS, OXOANIONS, ACID_ANIONS, OH, PEROXIDE, ROMAN,
-  ionicFormula, ionCounts, ionLabel, cationName, elides,
-} = mod_nomenclatura;
+
+
+
+
+const SYMBOLS = new Set(
+  (
+    "H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr " +
+    "Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu " +
+    "Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr"
+  ).split(" ")
+);
+
+const SUB_DIGITS = "₀₁₂₃₄₅₆₇₈₉";
+
+function cleanFormulaInput(text) {
+  return String(text ?? "")
+    .trim()
+    .replace(/\s+/g, "")
+    .replace(/[₀-₉]/g, (d) => String(SUB_DIGITS.indexOf(d)))
+    .replace(/[−–]/g, "-");
+}
+
+function parseFormula(formula) {
+  const body = cleanFormulaInput(formula).replace(/\^\d*[+-]$/, "");
+  if (!body) throw new Error("La fórmula está vacía.");
+  let index = 0;
+  const stack = [{}];
+  const readNumber = () => {
+    const start = index;
+    while (index < body.length && /\d/.test(body[index])) index += 1;
+    if (index === start) return 1;
+    const digits = body.slice(start, index);
+    const amount = Number(digits);
+    if (digits.startsWith("0") || !Number.isSafeInteger(amount)) throw new Error("Subíndice no válido.");
+    return amount;
+  };
+  while (index < body.length) {
+    const char = body[index];
+    if (char === "(") {
+      index += 1;
+      stack.push({});
+    } else if (char === ")") {
+      index += 1;
+      if (stack.length < 2) throw new Error("Hay un paréntesis de cierre de más.");
+      const factor = readNumber();
+      const group = stack.pop();
+      if (!Object.keys(group).length) throw new Error("Hay un grupo vacío entre paréntesis.");
+      Object.entries(group).forEach(([el, n]) => {
+        const top = stack[stack.length - 1];
+        top[el] = (top[el] ?? 0) + n * factor;
+      });
+    } else if (/[A-Z]/.test(char)) {
+      let symbol = char;
+      index += 1;
+      while (index < body.length && /[a-z]/.test(body[index])) {
+        symbol += body[index];
+        index += 1;
+      }
+      if (!SYMBOLS.has(symbol)) throw new Error(`«${symbol}» no es el símbolo de ningún elemento.`);
+      const amount = readNumber();
+      const top = stack[stack.length - 1];
+      top[symbol] = (top[symbol] ?? 0) + amount;
+    } else {
+      throw new Error(`El carácter «${char}» no es válido en una fórmula.`);
+    }
+  }
+  if (stack.length !== 1) throw new Error("Falta cerrar un paréntesis.");
+  return stack[0];
+}
+
+function sameCounts(a, b) {
+  const keys = new Set([...Object.keys(a), ...Object.keys(b)]);
+  return [...keys].every((k) => (a[k] ?? 0) === (b[k] ?? 0));
+}
+
+function multipleOf(a, b) {
+  const keys = Object.keys(a);
+  if (keys.length !== Object.keys(b).length || !keys.every((k) => b[k])) return 0;
+  const factor = b[keys[0]] / a[keys[0]];
+  return Number.isInteger(factor) && factor > 1 && keys.every((k) => b[k] === a[k] * factor) ? factor : 0;
+}
+
+function formulaHTML(formula) {
+  const text = String(formula ?? "");
+  const match = text.match(/\^(\d*)([+-])$/);
+  const body = match ? text.slice(0, match.index) : text;
+  let html = body.replace(/[&<>]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[char]).replace(/([A-Za-z)])(\d+)/g, "$1<sub>$2</sub>");
+  if (match) html += `<sup>${match[1] === "1" ? "" : match[1]}<span class="sgn">${match[2] === "+" ? "+" : "−"}</span></sup>`;
+  return html;
+}
+
+function formulaText(formula) {
+  const SUP = { 0: "⁰", 1: "¹", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹", "+": "⁺", "-": "⁻" };
+  const text = String(formula ?? "");
+  const match = text.match(/\^(\d*)([+-])$/);
+  const body = match ? text.slice(0, match.index) : text;
+  let out = body.replace(/([A-Za-z)])(\d+)/g, (_, a, d) => a + [...d].map((c) => SUB_DIGITS[c]).join(""));
+  if (match) out += [...(match[1] === "1" ? "" : match[1]), match[2]].map((c) => SUP[c]).join("");
+  return out;
+}
+
+return { cleanFormulaInput, parseFormula, sameCounts, multipleOf, formulaHTML, formulaText };
+})();
+const activities = (({ LEVELS, FAMILIES, KINDS, ELEMENT_NAMES, ROMAN, CATIONS, H_CATION, MONO_ANIONS, OH, PEROXIDE, OXOANIONS, ACID_ANIONS, ionLabel, cationName, ionName, ionCounts, ionicFormula, CONTEXT, buildCatalog, ionTable }, { cleanFormulaInput, parseFormula, sameCounts, multipleOf, formulaHTML, formulaText }) => {
+
+
+
 
 const withArticle = (word) => `el ${word}`;
 
 const family = (id) => FAMILIES.find((f) => f.id === id);
-const article = (fam) => (/^(Óxido|Hidruro|Hidróxido|Oxoácido|Oxosal)/.test(fam.name) ? "un" : fam.id === "nometalls" ? "un" : "una");
+const article = (fam) => ["simple", "salBinaria", "salAcida", "oxosal"].includes(fam.id) ? "una" : "un";
 const familyWithArticle = (id) => {
   const fam = family(id);
   return `${article(fam)} ${fam.name.toLowerCase()}`;
@@ -3196,10 +3183,11 @@ function shuffle(list) {
 }
 const gcd = (a, b) => (b ? gcd(b, a % b) : Math.abs(a));
 
-/* ---------- Noms ---------- */
+
 
 function normalizeName(text) {
   return String(text ?? "")
+    .normalize("NFC")
     .toLowerCase()
     .replace(/[’‘´`]/g, "'")
     .replace(/\s+/g, " ")
@@ -3213,7 +3201,6 @@ const stripAccents = (text) => text.normalize("NFD").replace(/[̀-ͯ]/g, "").rep
 
 const acceptedNames = (comp) => [...comp.names.map((n) => n.text), ...comp.accept];
 
-// Noms que es poden fer servir com a enunciat segons els nivells triats.
 function promptNames(comp, maxLevel) {
   const list = comp.names.filter((n) => n.level <= maxLevel);
   return list.length ? list : comp.names;
@@ -3221,79 +3208,77 @@ function promptNames(comp, maxLevel) {
 
 function checkName(comp, input, catalog) {
   const value = normalizeName(input);
-  if (!value) return { ok: false, message: "Escribe el nombre del compost." };
+  if (!value) return { ok: false, message: "Escribe el nombre del compuesto." };
   const names = acceptedNames(comp).map(normalizeName);
   const exact = comp.names.find((n) => normalizeName(n.text) === value);
   if (names.includes(value)) return { ok: true, matched: exact ?? null };
   const loose = acceptedNames(comp).find((n) => stripAccents(normalizeName(n)) === stripAccents(value));
-  if (loose) return { ok: true, note: `Compte amb els accents: s'escriu «${loose}».` };
+  if (loose) return { ok: true, note: `Fíjate en la tilde. Se escribe «${loose}».` };
 
   const ions = comp.ions;
   if (ions?.cat.variable) {
     const stock = normalizeName(comp.names.find((n) => n.kinds.includes("ox") || n.kinds.includes("trad"))?.text ?? "");
     if (stock && value === stock.replace(/\([ivx]+\)/, "")) {
-      return { ok: false, message: `Falta el nombre d'oxidació: el ${ions.cat.name} pot actuar amb diverses càrregues. S'indica en xifres romanes entre parèntesis.` };
+      return { ok: false, message: `Falta el número de oxidación. El ${ions.cat.name} puede presentar varios. Indica el que corresponde con números romanos entre paréntesis.` };
     }
     if (stock && value.replace(/\([ivx]+\)/, "(n)") === stock.replace(/\([ivx]+\)/, "(n)")) {
-      return { ok: false, message: "Revisa el nombre d'oxidació (les xifres romanes): ha de coincidir amb la càrrega del catió." };
+      return { ok: false, message: "Revisa el número romano. Debe coincidir con la carga del catión monoatómico." };
     }
   }
   const other = catalog.find((c) => c !== comp && acceptedNames(c).some((n) => normalizeName(n) === value));
-  if (other) return { ok: false, message: `Aquest nom correspon a ${formulaText(other.formula)}, no a aquest compost.` };
+  if (other) return { ok: false, message: `Ese nombre corresponde a ${formulaText(other.formula)}.` };
 
-  const swapEnding = (t) => t.replace(/(at|it)\b/g, (m) => (m === "at" ? "it" : "at")).replace(/(ic|ós)\b/g, (m) => (m === "ic" ? "ós" : "ic"));
+  const swapEnding = (t) => t.replace(/(ato|ito)\b/g, (m) => (m === "ato" ? "ito" : "ato")).replace(/(ico|oso)\b/g, (m) => (m === "ico" ? "oso" : "ico"));
   if (names.some((n) => swapEnding(n) === value)) {
-    return { ok: false, message: "Revisa la terminació. Recorda: àcid -ic → anió -at; àcid -ós → anió -it." };
+    return { ok: false, message: "Revisa la terminación. En estos casos, ácido en -ico → anión en -ato y ácido en -oso → anión en -ito." };
   }
-  const noPrefix = (t) => t.replace(/monòxid/g, "òxid").replace(/\b(mono|di|tri|tetra|penta|hexa|hepta|octa)(?=[a-zàèéíòóú])/g, "").replace(/d'|de /g, "");
+  const noPrefix = (t) => t.replace(/monóxido/g, "óxido").replace(/\b(mono|di|tri|tetra|penta|hexa|hepta|octa)(?=[a-záéíóúüñ])/g, "").replace(/d'|de /g, "");
   if (names.some((n) => noPrefix(n) === noPrefix(value))) {
-    return { ok: false, message: "Gairebé! Revisa els prefixos (mono-, di-, tri-…): han de coincidir amb els subíndexs de la fórmula." };
+    return { ok: false, message: "¡Casi! Revisa los prefijos (mono-, di-, tri-…). Deben corresponder a los subíndices de la fórmula." };
   }
-  if (names.some((n) => n.replace(/d'|de /g, "") === value.replace(/d'|de /g, ""))) {
-    return { ok: false, message: "Revisa l'apostrofació: «de» s'apostrofa davant de vocal o h (d'alumini, d'hidrogen), però no davant de iode." };
-  }
-  return { ok: false, message: `No és correcte. Pista: és ${familyWithArticle(comp.family)}.` };
+  return { ok: false, message: `Respuesta incorrecta. Pista: es ${familyWithArticle(comp.family)}.` };
 }
 
-/* ---------- Fórmules ---------- */
+
 
 function checkFormula(comp, input) {
   const clean = cleanFormulaInput(input);
   if (!clean) return { ok: false, message: "Escribe la fórmula." };
   if (clean === comp.formula) return { ok: true };
+  if (/[+^⁺⁻-]/.test(clean)) return { ok: false, message: "Escribe la fórmula del compuesto neutro sin indicar cargas." };
   if (/\(/.test(comp.formula) && clean === comp.formula.replace(/[()]/g, "")) {
-    return { ok: false, message: "Falten els parèntesis: quan hi ha més d'un ió poliatòmic, el grup va entre parèntesis, com a Fe₂(SO₄)₃." };
+    return { ok: false, message: "Faltan paréntesis. Si se repite un ion poliatómico, el grupo va entre paréntesis, como en Fe₂(SO₄)₃." };
   }
   if (clean.toLowerCase() === comp.formula.toLowerCase()) {
-    return { ok: false, message: "Compte amb les majúscules: cada símbol comença amb majúscula i la segona lletra va en minúscula (Co és cobalt; CO són carboni i oxigen)." };
+    return { ok: false, message: "Revisa las mayúsculas. Cada símbolo empieza con mayúscula y la segunda letra, si la hay, va en minúscula (Co es cobalto y CO contiene carbono y oxígeno)." };
   }
   let counts;
   try {
     counts = parseFormula(clean);
   } catch (error) {
-    const tip = /caràcter/.test(error.message) ? " Escriu els subíndexs com a números: Fe2O3." : "";
+    const tip = /carácter/.test(error.message) ? " Usa dígitos para los subíndices: Fe2O3." : "";
     return { ok: false, message: `${error.message}${tip}` };
   }
   const target = parseFormula(comp.formula);
   if (sameCounts(target, counts)) {
     if (/\(/.test(clean) && !/\(/.test(comp.formula)) {
-      return { ok: false, message: "Sobren els parèntesis: només calen quan hi ha més d'un grup poliatòmic." };
+      return { ok: false, message: "Sobran paréntesis. Se usan cuando se repite un grupo poliatómico." };
     }
-    return { ok: false, message: "Els àtoms són correctes, però l'ordre no: escriu primer la part positiva (metall, amoni o hidrogen) i després la negativa." };
+    return { ok: false, message: "El recuento de átomos es correcto. Revisa el orden de los símbolos y la colocación de los subíndices." };
   }
   if (comp.family === "peroxid" && multipleOf(counts, target)) {
-    return { ok: false, message: "En un peròxid, el grup O₂ no es pot separar ni simplificar: és l'ió O₂²⁻." };
+    return { ok: false, message: "En un peróxido se conserva entero el grupo O₂, correspondiente al ion O₂²⁻." };
   }
   const factor = multipleOf(target, counts);
-  if (factor) return { ok: false, message: `Es pot simplificar: divideix tots els subíndexs per ${factor}.` };
+  if (factor && comp.ions && comp.family !== "peroxid") return { ok: false, message: `Usa la proporción entera mínima. Divide los subíndices por ${factor}.` };
   const sameElements = Object.keys(target).length === Object.keys(counts).length && Object.keys(target).every((k) => counts[k]);
   if (sameElements) {
-    return { ok: false, message: comp.ions ? "Els elements són correctes, però els subíndexs no: la suma de càrregues ha de ser zero." : "Els elements són correctes, però els subíndexs no: fixa't en els prefixos del nom." };
+    return { ok: false, message: comp.ions ? "Revisa los subíndices. Las cargas de los iones deben compensarse." : "Revisa los subíndices. Fíjate en los prefijos del nombre." };
   }
-  return { ok: false, message: "Hi ha elements que no corresponen al nom. Revisa quins ions o elements formen el compost." };
+  return { ok: false, message: "Revisa qué elementos o iones indica el nombre." };
 }
 
-/* ---------- Construeix el compost amb ions ---------- */
+
 
 const sameElement = (a, b) => a.element && a.element === b.element;
 const central = (an) => an.formula.replace(/^H\d?/, "").replace(/O\d*$/, "").replace(/\d/g, "");
@@ -3319,35 +3304,37 @@ function buildFormula(cat, an, nC, nA) {
 }
 
 function checkBuild(comp, cat, an, nC, nA) {
-  if (!cat || !an) return { ok: false, message: "Elige un catión (part positiva) i un anió (part negativa)." };
+  if (!cat || !an) return { ok: false, message: "Elige un catión (parte positiva) y un anión (parte negativa)." };
   const target = comp.ions;
   if (cat.id !== target.cat.id) {
-    if (sameElement(cat, target.cat)) return { ok: false, message: "El catió és de l'element correcte, però no amb aquesta càrrega: fixa't en el nombre d'oxidació del nom." };
-    return { ok: false, message: "Aquest catió no correspon al nom. Quin element o grup positiu s'anomena al final?" };
+    if (sameElement(cat, target.cat)) return { ok: false, message: "El elemento del catión es correcto. Revisa su carga a partir del nombre." };
+    return { ok: false, message: "Ese catión no corresponde al nombre. ¿Qué elemento o grupo positivo se indica?" };
   }
   if (an.id !== target.an.id) {
     if (an.oxo && target.an.oxo && central(an) === central(target.an)) {
-      return { ok: false, message: "L'anió és de l'element correcte, però no és aquest. Recorda: hipo-…-it < -it < -at < per-…-at." };
+      return { ok: false, message: "Revisa el oxoanión. En series como la del cloro, el número de oxígenos aumenta en este orden: hipo-…-ito, -ito, -ato y per-…-ato." };
     }
-    return { ok: false, message: "Aquest anió no correspon al nom. Quina part negativa s'anomena primer?" };
+    return { ok: false, message: "Ese anión no corresponde al nombre. ¿Qué anión indica el enunciado?" };
   }
   const total = cat.charge * nC + an.charge * nA;
   if (total !== 0) {
     const sign = total > 0 ? "+" : "−";
-    return { ok: false, message: `La càrrega total és ${sign}${Math.abs(total)}: ha de ser zero. ${total > 0 ? "Hi ha massa càrrega positiva." : "Hi ha massa càrrega negativa."}` };
+    return { ok: false, message: `La carga total es ${sign}${Math.abs(total)}. Debe ser cero. ${total > 0 ? "Sobra carga positiva." : "Sobra carga negativa."}` };
   }
+  if (![nC, nA].every((n) => Number.isInteger(n) && n > 0)) return { ok: false, message: "Usa cantidades enteras positivas." };
   const g = gcd(nC, nA);
-  if (g > 1) return { ok: false, message: `La càrrega és zero, però es pot simplificar: divideix ${nC} i ${nA} per ${g}.` };
+  if (g > 1) return { ok: false, message: `La carga es cero. Divide ${nC} y ${nA} por ${g} para obtener la proporción mínima.` };
   return { ok: true };
 }
 
-/* ---------- Opcions errònies plausibles (tria la resposta) ---------- */
+
 
 function uniqueOptions(correct, candidates, exclude, count = 3) {
-  const seen = new Set([correct, ...exclude].map((x) => normalizeName(x)));
+  const keyOf = (x) => stripAccents(normalizeName(x));
+  const seen = new Set([correct, ...exclude].map(keyOf));
   const out = [];
   candidates.forEach((c) => {
-    const key = normalizeName(c);
+    const key = keyOf(c);
     if (c && !seen.has(key) && out.length < count) {
       seen.add(key);
       out.push(c);
@@ -3360,7 +3347,7 @@ function nameDistractors(comp, correctName, catalog, maxLevel) {
   const muts = [];
   const roman = correctName.match(/\(([IVX]+)\)/);
   if (roman) {
-    // Altres nombres d'oxidació reals del mateix element; si no n'hi ha, el veí més proper.
+
     const n = ROMAN.indexOf(roman[1]);
     const el = comp.ions?.cat.element;
     const real = el ? CATIONS.filter((c) => c.element === el && c.charge !== n).map((c) => c.charge) : [];
@@ -3368,8 +3355,8 @@ function nameDistractors(comp, correctName, catalog, maxLevel) {
     options.forEach((k) => muts.push(correctName.replace(`(${roman[1]})`, `(${ROMAN[k]})`)));
     muts.push(correctName.replace(/\([IVX]+\)/, ""));
   }
-  const sibling = { at: "it", it: "at", ic: "ós", "ós": "ic" };
-  muts.push(correctName.replace(/(at|it|ic|ós)\b/, (m) => sibling[m]));
+  const sibling = { ato: "ito", ito: "ato", ico: "oso", oso: "ico" };
+  muts.push(correctName.replace(/(ato|ito|ico|oso)\b/, (m) => sibling[m]));
   const prefixes = ["", "mono", "di", "tri", "tetra", "penta", "hexa", "hepta"];
   const pre = correctName.match(/^(di|tri|tetra|penta|hexa|hepta)/);
   if (pre) {
@@ -3379,7 +3366,7 @@ function nameDistractors(comp, correctName, catalog, maxLevel) {
   } else if (comp.family === "oxid" || comp.family === "nometalls") {
     muts.push(`di${correctName}`);
   }
-  if (comp.family === "oxid" && comp.ions && !correctName.startsWith("peròxid")) muts.push(correctName.replace(/^(mon|di|tri|tetra|penta|hepta)?òxid/, "peròxid"));
+  if (comp.family === "oxid" && comp.ions && !correctName.startsWith("peróxido")) muts.push(correctName.replace(/^(mon|di|tri|tetra|penta|hepta)?óxido/, "peróxido"));
   const neighbours = shuffle(
     catalog.filter(
       (c) =>
@@ -3445,42 +3432,42 @@ function formulaDistractors(comp, catalog, maxLevel) {
   return out;
 }
 
-/* ---------- Pistas progressives ---------- */
+
 
 function hints(comp, type) {
   const fam = family(comp.family);
-  const first = `És ${familyWithArticle(comp.family)}: ${fam.rule.charAt(0).toLowerCase()}${fam.rule.slice(1)}`;
+  const first = `Es ${familyWithArticle(comp.family)}: ${fam.rule.charAt(0).toLowerCase()}${fam.rule.slice(1)}`;
   if (type === "classifica") {
     const els = Object.keys(parseFormula(comp.formula));
     return [
-      `Fixa't en quins elements hi ha: ${els.join(", ")}. Hi ha oxigen? Hi ha hidrogen? Hi ha algun metall?`,
-      els.length === 1 ? "Només hi ha un element." : `Hi ha ${els.length} elements diferents.`,
+      `Identifica los elementos: ${els.join(", ")}. ¿Hay oxígeno, hidrógeno o algún metal?`,
+      els.length === 1 ? "Solo hay un elemento." : `Hay ${els.length} elementos distintos.`,
       first,
     ];
   }
   if (comp.ions) {
     const { cat, an, nC, nA } = comp.ions;
-    const ions = `Els ions són ${withArticle(cationName(cat))}, ${formulaText(ionLabel(cat))}, i ${withArticle(an.name)}, ${formulaText(ionLabel(an))}.`;
+    const ions = `Los iones son ${withArticle(cationName(cat))}, ${formulaText(ionLabel(cat))}, y ${withArticle(an.name)}, ${formulaText(ionLabel(an))}.`;
     const qc = cat.charge * nC;
-    const balance = `Per compensar les càrregues calen ${nC} ${formulaText(ionLabel(cat))} (${qc > 0 ? "+" : ""}${qc}) i ${nA} ${formulaText(ionLabel(an))} (−${qc}).`;
+    const balance = `Para compensar las cargas, se necesitan ${nC} ${formulaText(ionLabel(cat))} (${qc > 0 ? "+" : ""}${qc}) y ${nA} ${formulaText(ionLabel(an))} (−${qc}).`;
     if (type === "formulaNom") {
       const name = comp.names[0].text;
-      return [first, ions, `El nom comença per «${name.split(" ")[0]} …».`];
+      return [first, ions, `El nombre empieza por «${name.split(" ")[0]} …».`];
     }
     return [first, ions, balance];
   }
   if (type === "formulaNom") {
-    return [first, "Compta els àtoms de cada element: els prefixos (di-, tri-, tetra-…) indiquen quants n'hi ha.", `El nom comença per «${comp.names[0].text.split(" ")[0]} …».`];
+    return [first, "Cuenta los átomos de cada elemento. Los prefijos (di-, tri-, tetra-…) indican cuántos hay.", `El nombre empieza por «${comp.names[0].text.split(" ")[0]} …».`];
   }
-  return [first, "Los prefijos del nom (di = 2, tri = 3, tetra = 4, penta = 5…) són els subíndexs.", `La fórmula comença per ${comp.formula.match(/^[A-Z][a-z]?/)[0]}.`];
+  return [first, "Los prefijos del nombre (di = 2, tri = 3, tetra = 4, penta = 5…) indican los subíndices.", `La fórmula empieza por ${comp.formula.match(/^[A-Z][a-z]?/)[0]}.`];
 }
 
-return {family,familyWithArticle,shuffle,normalizeName,acceptedNames,promptNames,checkName,checkFormula,ionChoices,buildFormula,checkBuild,nameDistractors,formulaDistractors,hints};
-})();
-const mod_aprenentatge = (()=>{
-// Fitxes del mode «Aprende»: un mòdul per a cada bloc de l'índex de continguts.
-// Les fórmules s'escriuen entre claudàtors dobles, [[Fe2(SO4)3]], i l'app les converteix en HTML.
-// «examples» són fórmules del catàleg: l'app hi afegeix tots els noms acceptats.
+return { family, familyWithArticle, shuffle, normalizeName, acceptedNames, promptNames, checkName, checkFormula, ionChoices, buildFormula, checkBuild, nameDistractors, formulaDistractors, hints };
+})(chemistry, notation);
+const learning = (() => {
+
+
+
 
 const MODULES = [
   {
@@ -3490,44 +3477,44 @@ const MODULES = [
     level: 1,
     families: [],
     intro:
-      "Formular és escriure la fórmula d'una substància; anomenar és dir-ne el nom. Gairebé tot es basa en una idea: les parts positives i les negatives s'han de compensar.",
+      "Formular es escribir la fórmula de una sustancia. En los compuestos iónicos neutros, las cargas positivas y negativas se compensan.",
     cards: [
       {
-        title: "Els ions: peces amb càrrega",
-        html: `<p>Un <b>catió</b> és una peça positiva: els metalls ([[Na^+]], [[Fe^3+]]), l'amoni ([[NH4^+]]) o l'hidrogen ([[H^+]]).</p>
-          <p>Un <b>anió</b> és una peça negativa: [[Cl^-]] (clorur), [[O^2-]] (òxid), [[SO4^2-]] (sulfat)…</p>
-          <p>Els ions <b>poliatòmics</b> són grups d'àtoms que es comporten com una sola peça.</p>`,
+        title: "Los iones: piezas con carga",
+        html: `<p>Un <b>catión</b> es un ion positivo, como [[Na^+]], [[Fe^3+]], el amonio ([[NH4^+]]) o el hidrógeno ([[H^+]]).</p>
+          <p>Un <b>anión</b> es un ion negativo, como el cloruro ([[Cl^-]]), el óxido ([[O^2-]]) o el sulfato ([[SO4^2-]]).</p>
+          <p>Los iones <b>poliatómicos</b> son grupos de átomos que actúan como una unidad.</p>`,
       },
       {
-        title: "El nombre d'oxidació",
-        html: `<p>És la càrrega que té (o tindria) cada àtom dins del compost.</p>
+        title: "El número de oxidación",
+        html: `<p>Es la carga que se asigna a un átomo al atribuir los electrones de enlace al átomo más electronegativo. En un ion monoatómico coincide con su carga.</p>
           <ul>
-            <li>Els metalls sempre són <b>positius</b>. Alguns en tenen més d'un: el ferro pot ser +2 o +3. Per això escrivim <b>ferro(II)</b> o <b>ferro(III)</b>, en xifres romanes.</li>
-            <li>L'<b>hidrogen</b> és +1 amb els no-metalls ([[HCl]]) i −1 amb els metalls ([[NaH]]).</li>
-            <li>L'<b>oxigen</b> és −2 ([[CaO]]), excepte als peròxids, on és −1 ([[H2O2]]).</li>
+            <li>En los ejemplos del catálogo, los metales en compuestos tienen números de oxidación positivos. El hierro puede presentar +2 o +3. En los nombres se escribe <b>hierro(II)</b> o <b>hierro(III)</b>.</li>
+            <li>El <b>hidrógeno</b> tiene número de oxidación +1 en [[HCl]] y −1 en [[NaH]].</li>
+            <li>El <b>oxígeno</b> suele tener número de oxidación −2 ([[CaO]]). En los peróxidos es −1 ([[H2O2]]) y en el difluoruro de oxígeno es +2 ([[OF2]]).</li>
           </ul>`,
       },
       {
-        title: "La regla d'or: càrrega total zero",
+        title: "La regla de oro: carga total cero",
         html: `<ol class="steps-mini">
-            <li>Escriu els dos ions: [[Al^3+]] i [[O^2-]].</li>
-            <li>Busca quants de cada cal perquè la suma doni zero: 2 × (+3) + 3 × (−2) = 0.</li>
-            <li>Aquests nombres són els subíndexs: [[Al2O3]].</li>
-            <li>Simplifica si pots: [[Ca^2+]] i [[O^2-]] → 1 i 1 → [[CaO]] (no Ca₂O₂).</li>
-            <li>Si cal més d'un ió poliatòmic, va entre parèntesis: [[Ca(OH)2]], [[Fe2(SO4)3]].</li>
+            <li>Escribe los dos iones: [[Al^3+]] y [[O^2-]].</li>
+            <li>Calcula cuántos iones de cada tipo hacen falta para que la suma sea cero: 2 × (+3) + 3 × (−2) = 0.</li>
+            <li>Estas cantidades son los subíndices: [[Al2O3]].</li>
+            <li>Usa la proporción entera mínima: [[Ca^2+]] y [[O^2-]] → 1 y 1 → [[CaO]] (no Ca₂O₂).</li>
+            <li>Si hay más de un ion poliatómico del mismo tipo, escribe el grupo entre paréntesis: [[Ca(OH)2]], [[Fe2(SO4)3]].</li>
           </ol>`,
       },
       {
-        title: "Les maneres d'anomenar",
+        title: "Formas de nombrar",
         html: `<table class="mini-table">
-            <thead><tr><th>Nomenclatura</th><th>Com funciona</th><th>Exemple: [[Fe2O3]]</th></tr></thead>
+            <thead><tr><th>Nomenclatura</th><th>Cómo funciona</th><th>Ejemplo: [[Fe2O3]]</th></tr></thead>
             <tbody>
-              <tr><td><b>Composición</b></td><td>Prefixos que diuen quants àtoms hi ha</td><td>triòxid de diferro</td></tr>
-              <tr><td><b>Número de oxidación</b></td><td>La càrrega del metall en xifres romanes, només si en pot tenir més d'una</td><td>òxid de ferro(III)</td></tr>
-              <tr><td><b>Tradicional</b></td><td>Només per als oxoàcids i les oxosals</td><td>àcid sulfúric, sulfat de sodi</td></tr>
+              <tr><td><b>Composición</b></td><td>Prefijos que indican cuántos átomos o grupos hay</td><td>trióxido de dihierro</td></tr>
+              <tr><td><b>Número de oxidación</b></td><td>Número de oxidación en números romanos cuando hace falta distinguirlo</td><td>óxido de hierro(III)</td></tr>
+              <tr><td><b>Tradicional</b></td><td>Nombres tradicionales admitidos para oxoácidos y oxosales</td><td>ácido sulfúrico, sulfato de sodio</td></tr>
             </tbody>
           </table>
-          <p class="tip">El nom es diu al revés que la fórmula: primer la part negativa i després «de» + la positiva. [[NaCl]] → clorur <b>de</b> sodi.</p>`,
+          <p class="tip">En ejemplos como [[NaCl]] se nombra primero el anión y después el catión, unidos por «de»: cloruro <b>de</b> sodio.</p>`,
       },
       {
         title: "Los prefijos",
@@ -3535,13 +3522,13 @@ const MODULES = [
             <span><b>1</b> mono-</span><span><b>2</b> di-</span><span><b>3</b> tri-</span><span><b>4</b> tetra-</span>
             <span><b>5</b> penta-</span><span><b>6</b> hexa-</span><span><b>7</b> hepta-</span><span><b>8</b> octa-</span>
           </div>
-          <p>«Mono-» normalment no s'escriu, excepte en casos com <b>monòxid de carboni</b> ([[CO]]).</p>`,
+          <p>El prefijo «mono-» puede omitirse si no hay ambigüedad. En [[CO]] se usa <b>monóxido de carbono</b> para distinguirlo del dióxido de carbono.</p>`,
       },
     ],
     errors: [
-      "Confondre majúscules i minúscules: [[Co]] és cobalt, però [[CO]] és monòxid de carboni.",
-      "Dir el nom en l'ordre de la fórmula: no és «sodi clorur», sinó «clorur de sodi».",
-      "Posar xifres romanes a metalls amb una sola càrrega: és «clorur de sodi», no «clorur de sodi(I)».",
+      "Confundir mayúsculas y minúsculas: [[Co]] es cobalto y [[CO]] es monóxido de carbono.",
+      "Invertir el nombre: para [[NaCl]], escribe «cloruro de sodio».",
+      "Añadir un número romano innecesario: en el cloruro de sodio se omite porque el sodio tiene estado de oxidación fijo en estos compuestos.",
     ],
     examples: [],
   },
@@ -3551,23 +3538,23 @@ const MODULES = [
     title: "Sustancias simples",
     level: 1,
     families: ["simple"],
-    intro: "Una substància simple està formada per un sol element. N'hi ha que són àtoms solts i d'altres que formen molècules.",
+    intro: "Una sustancia simple contiene un solo elemento. Puede estar formada por átomos separados, moléculas o redes, como las de los metales.",
     cards: [
       {
         title: "Metales y gases nobles",
-        html: `<p>S'escriuen amb el símbol de l'element: [[Fe]] (ferro), [[Cu]] (coure), [[He]] (heli), [[Ar]] (argó).</p>`,
+        html: `<p>Se representan con el símbolo del elemento: [[Fe]] (hierro), [[Cu]] (cobre), [[He]] (helio), [[Ar]] (argón).</p>`,
       },
       {
         title: "Las siete moléculas diatómicas",
-        html: `<p>Aquests elements van sempre en parelles quan estan sols: [[H2]], [[N2]], [[O2]], [[F2]], [[Cl2]], [[Br2]] i [[I2]].</p>
-          <p>Nom de composició: <b>dioxigen</b>, <b>diclor</b>… També s'accepta el nom comú: oxigen, clor…</p>`,
+        html: `<p>En condiciones habituales, estas sustancias simples forman moléculas diatómicas: [[H2]], [[N2]], [[O2]], [[F2]], [[Cl2]], [[Br2]] y [[I2]].</p>
+          <p>Nombres de composición: <b>dioxígeno</b>, <b>dicloro</b>… También se admiten los nombres comunes en este contexto: oxígeno, cloro…</p>`,
       },
       {
         title: "Otras moléculas",
-        html: `<p>[[O3]] és l'<b>ozó</b> (trioxigen), [[P4]] és el fòsfor blanc (tetrafòsfor) i [[S8]] és el sofre (octasofre).</p>`,
+        html: `<p>[[O3]] es el <b>ozono</b> (trioxígeno), [[P4]] es el fósforo blanco (tetrafósforo) y [[S8]] es el octaazufre.</p>`,
       },
     ],
-    errors: ["Escriure el gas oxigen com a «O»: la molècula és [[O2]].", "Confondre [[O2]] (l'oxigen que respirem) amb [[O3]] (l'ozó)."],
+    errors: ["Escribir «O» para representar el oxígeno molecular. Su fórmula es [[O2]].", "Confundir [[O2]] (el oxígeno que respiramos) con [[O3]] (el ozono)."],
     examples: ["O2", "O3", "N2", "Cl2", "P4", "S8"],
   },
   {
@@ -3576,45 +3563,45 @@ const MODULES = [
     title: "Compuestos binarios",
     level: 1,
     families: ["oxid", "hidrur", "salBinaria", "nometalls", "peroxid"],
-    intro: "Estan formats per dos elements. La part negativa acaba en -ur (clorur, sulfur…) o és l'òxid.",
+    intro: "Están formados por dos elementos. Muchos nombres de la parte electronegativa acaban en -uro (cloruro, sulfuro…). En los óxidos se usa «óxido».",
     cards: [
       {
         title: "Aniones monoatómicos",
         html: `<div class="ion-chips">
-            <span>[[F^-]] fluorur</span><span>[[Cl^-]] clorur</span><span>[[Br^-]] bromur</span><span>[[I^-]] iodur</span>
-            <span>[[S^2-]] sulfur</span><span>[[O^2-]] òxid</span><span>[[H^-]] hidrur</span><span>[[Se^2-]] selenur</span>
+            <span>[[F^-]] fluoruro</span><span>[[Cl^-]] cloruro</span><span>[[Br^-]] bromuro</span><span>[[I^-]] yoduro</span>
+            <span>[[S^2-]] sulfuro</span><span>[[O^2-]] óxido</span><span>[[H^-]] hidruro</span><span>[[Se^2-]] seleniuro</span>
           </div>`,
       },
       {
         title: "Óxidos",
-        html: `<p>Element + [[O^2-]]. Amb un metall, s'acostuma a fer servir el nombre d'oxidació: [[Fe2O3]] <b>òxid de ferro(III)</b>.</p>
-          <p>Amb un no-metall, s'acostuma a fer servir la composició: [[CO2]] <b>diòxid de carboni</b>, [[N2O5]] <b>pentaòxid de dinitrogen</b>.</p>`,
+        html: `<p>El oxígeno tiene número de oxidación −2. Con un metal se suele indicar su número de oxidación: [[Fe2O3]] <b>óxido de hierro(III)</b>.</p>
+          <p>Con un no metal son habituales los prefijos de composición: [[CO2]] <b>dióxido de carbono</b>, [[N2O5]] <b>pentaóxido de dinitrógeno</b>.</p>`,
       },
       {
-        title: "Hidruroos",
-        html: `<p><b>Metàl·lics</b>: metall + [[H^-]]. [[NaH]] hidrur de sodi, [[CaH2]] dihidrur de calci.</p>
-          <p><b>Amb no-metalls</b>: l'hidrogen va davant. [[HCl]] és el clorur d'hidrogen; dissolt en aigua és l'<b>àcid clorhídric</b>.</p>
-          <p>Alguns tenen nom propi: [[H2O]] aigua, [[NH3]] amoníac, [[CH4]] metà.</p>`,
+        title: "Hidruros",
+        html: `<p><b>Metálicos</b>: metal + [[H^-]]. [[NaH]] hidruro de sodio, [[CaH2]] dihidruro de calcio.</p>
+          <p><b>Hidrácidos</b>: en [[HCl]] el hidrógeno se escribe primero. Es cloruro de hidrógeno y en disolución acuosa se llama <b>ácido clorhídrico</b>.</p>
+          <p>Algunos compuestos de hidrógeno tienen nombre propio: [[H2O]] agua, [[NH3]] amoníaco, [[CH4]] metano.</p>`,
       },
       {
         title: "Sales binarias",
-        html: `<p>Metall (o amoni) + no-metall: [[NaCl]] clorur de sodi, [[FeCl3]] clorur de ferro(III) o triclorur de ferro, [[NH4Cl]] clorur d'amoni.</p>`,
+        html: `<p>En este bloque se combina un metal (o el amonio) con un anión monoatómico: [[NaCl]] cloruro de sodio, [[FeCl3]] cloruro de hierro(III) o tricloruro de hierro, [[NH4Cl]] cloruro de amonio.</p>`,
       },
       {
         title: "Compuestos entre no metales",
-        html: `<p>S'anomenen amb prefixos: [[PCl5]] pentaclorur de fòsfor, [[CCl4]] tetraclorur de carboni, [[SF6]] hexafluorur de sofre.</p>
-          <p class="tip">A la fórmula, l'element que va primer és el que apareix abans en aquesta llista: B, Si, C, P, N, H, S, I, Br, Cl, O, F.</p>`,
+        html: `<p>Se nombran con prefijos: [[PCl5]] pentacloruro de fósforo, [[CCl4]] tetracloruro de carbono, [[SF6]] hexafluoruro de azufre.</p>
+          <p class="tip">La IUPAC establece una secuencia convencional para nombrar compuestos binarios. Para el caso de los halogenuros de oxígeno, fíjate en el ejemplo [[OF2]], difluoruro de oxígeno, y [[OCl2]], dicloruro de oxígeno.</p>`,
       },
       {
-        title: "Peróxidos (batxillerat)",
+        title: "Peróxidos (Bachillerato)",
         level: 3,
-        html: `<p>Contenen el grup [[O2^2-]], que <b>no es pot simplificar</b>: [[H2O2]] peròxid d'hidrogen (aigua oxigenada), [[Na2O2]] peròxid de sodi, [[BaO2]] peròxid de bari.</p>`,
+        html: `<p>Contienen el grupo [[O2^2-]], que <b>se conserva entero</b>: [[H2O2]] peróxido de hidrógeno (agua oxigenada), [[Na2O2]] peróxido de sodio, [[BaO2]] peróxido de bario.</p>`,
       },
     ],
     errors: [
-      "No simplificar: Ca₂O₂ s'ha d'escriure [[CaO]].",
-      "Oblidar el nombre d'oxidació quan el metall en té diversos: «òxid de ferro» no diu si és [[FeO]] o [[Fe2O3]].",
-      "Simplificar un peròxid: [[Na2O2]] no és «NaO».",
+      "Usar subíndices no reducidos para el óxido de calcio. Su fórmula es [[CaO]].",
+      "Omitir el número de oxidación cuando hace falta: «óxido de hierro» puede referirse a [[FeO]] o [[Fe2O3]].",
+      "Reducir los subíndices de un peróxido. Escribe [[Na2O2]] para conservar el grupo peróxido.",
     ],
     examples: ["CaO", "Fe2O3", "CO2", "NaH", "HCl", "NH3", "FeCl3", "PCl5"],
   },
@@ -3624,19 +3611,19 @@ const MODULES = [
     title: "Hidróxidos",
     level: 2,
     families: ["hidroxid"],
-    intro: "Un metall combinat amb l'ió hidròxid, [[OH^-]]. Són les bases: la sosa càustica, la calç apagada, els antiàcids…",
+    intro: "Un metal combinado con el ion hidróxido, [[OH^-]]. Encontramos ejemplos en la sosa cáustica, la cal apagada y algunos antiácidos.",
     cards: [
       {
-        title: "Com es formulen",
-        html: `<p>El grup [[OH^-]] té càrrega −1. Cal tants grups com la càrrega del metall: [[Na^+]] → [[NaOH]]; [[Ca^2+]] → [[Ca(OH)2]]; [[Fe^3+]] → [[Fe(OH)3]].</p>
-          <p class="tip">Si n'hi ha més d'un, el grup OH va entre parèntesis.</p>`,
+        title: "Cómo se formulan",
+        html: `<p>El grupo [[OH^-]] tiene carga −1. Se necesitan tantos grupos como indique la carga del catión metálico: [[Na^+]] → [[NaOH]]; [[Ca^2+]] → [[Ca(OH)2]]; [[Fe^3+]] → [[Fe(OH)3]].</p>
+          <p class="tip">Si se repite el grupo OH, se escribe entre paréntesis.</p>`,
       },
       {
-        title: "Com s'anomenen",
-        html: `<p>Número de oxidación: <b>hidròxid de ferro(III)</b>. Composición: <b>trihidròxid de ferro</b>.</p>`,
+        title: "Cómo se nombran",
+        html: `<p>Número de oxidación: <b>hidróxido de hierro(III)</b>. Composición: <b>trihidróxido de hierro</b>.</p>`,
       },
     ],
-    errors: ["Oblidar els parèntesis: «CaOH2» voldria dir 1 oxigen i 2 hidrògens; la fórmula correcta és [[Ca(OH)2]]."],
+    errors: ["Olvidar los paréntesis. «CaOH2» representaría un átomo de oxígeno y dos de hidrógeno. La fórmula correcta es [[Ca(OH)2]]."],
     examples: ["NaOH", "Ca(OH)2", "Fe(OH)3", "Al(OH)3", "Cu(OH)2"],
   },
   {
@@ -3645,31 +3632,31 @@ const MODULES = [
     title: "Oxoácidos",
     level: 2,
     families: ["oxoacid"],
-    intro: "Contenen hidrogen, un no-metall (o un metall de transició) i oxigen. Es poden veure com H⁺ + un oxoanió.",
+    intro: "Contienen hidrógeno, oxígeno y otro elemento, que puede ser un no metal o un metal de transición. Se pueden formular combinando H⁺ con el oxoanión correspondiente.",
     cards: [
       {
-        title: "Els noms tradicionals",
-        html: `<p>Quan un element en forma diversos, la terminació indica quant oxigen té:</p>
+        title: "Los nombres tradicionales",
+        html: `<p>En una serie como la del cloro, los prefijos y sufijos distinguen los oxoácidos según el número de oxígenos:</p>
           <table class="mini-table">
-            <thead><tr><th>Menys oxigen</th><th></th><th></th><th>Més oxigen</th></tr></thead>
+            <thead><tr><th>Menos oxígeno</th><th></th><th></th><th>Más oxígeno</th></tr></thead>
             <tbody>
-              <tr><td>hipo-…-ós</td><td>…-ós</td><td>…-ic</td><td>per-…-ic</td></tr>
-              <tr><td>[[HClO]] hipoclorós</td><td>[[HClO2]] clorós</td><td>[[HClO3]] clòric</td><td>[[HClO4]] perclòric</td></tr>
+              <tr><td>hipo-…-oso</td><td>…-oso</td><td>…-ico</td><td>per-…-ico</td></tr>
+              <tr><td>[[HClO]] hipocloroso</td><td>[[HClO2]] cloroso</td><td>[[HClO3]] clórico</td><td>[[HClO4]] perclórico</td></tr>
             </tbody>
           </table>`,
       },
       {
-        title: "Quants hidrògens?",
-        html: `<p>Tants com la càrrega de l'oxoanió: [[SO4^2-]] → [[H2SO4]]; [[NO3^-]] → [[HNO3]]; [[PO4^3-]] → [[H3PO4]]. A la fórmula dels àcids no es posen parèntesis.</p>`,
+        title: "¿Cuántos hidrógenos?",
+        html: `<p>En estos ejemplos, tantos como indica el valor absoluto de la carga del oxoanión: [[SO4^2-]] → [[H2SO4]]; [[NO3^-]] → [[HNO3]]; [[PO4^3-]] → [[H3PO4]]. Las fórmulas de estos ácidos se escriben sin paréntesis.</p>`,
       },
       {
-        title: "Nomenclatura d'hidrogen (batxillerat)",
+        title: "Nomenclatura de hidrógeno (Bachillerato)",
         level: 3,
-        html: `<p>Nombre d'hidrògens + <b>hidrogen</b> + (prefix + <b>oxido</b> + arrel + <b>at</b>):</p>
-          <p>[[H2SO4]] → <b>dihidrogen(tetraoxidosulfat)</b>; [[HNO3]] → <b>hidrogen(trioxidonitrat)</b>.</p>`,
+        html: `<p>Escribe «hidrogeno» con el prefijo correspondiente, seguido entre paréntesis del nombre de adición del anión, sin indicar su carga:</p>
+          <p>[[H2SO4]] → <b>dihidrogeno(tetraoxidosulfato)</b>; [[HNO3]] → <b>hidrogeno(trioxidonitrato)</b>.</p>`,
       },
     ],
-    errors: ["Confondre [[H2SO4]] (sulfúric) amb [[H2SO3]] (sulfurós).", "Posar parèntesis: no és «H2(SO4)», sinó [[H2SO4]]."],
+    errors: ["Confundir [[H2SO4]] (ácido sulfúrico) con [[H2SO3]] (ácido sulfuroso).", "Escribir paréntesis en el ácido sulfúrico. La fórmula es [[H2SO4]]."],
     examples: ["H2SO4", "H2SO3", "HNO3", "HNO2", "H2CO3", "H3PO4", "HClO", "HClO4"],
     acidTable: true,
   },
@@ -3679,61 +3666,61 @@ const MODULES = [
     title: "Oxosales",
     level: 2,
     families: ["oxosal", "salAcida"],
-    intro: "Un metall (o l'amoni) combinat amb un oxoanió. Són molt comunes: el marbre, el guix, el lleixiu, els adobs…",
+    intro: "Un metal (o el amonio) combinado con un oxoanión. Hay oxosales en el mármol, el yeso, la lejía y algunos abonos.",
     cards: [
       {
-        title: "De l'àcid a l'anió",
-        html: `<p>Treu els hidrògens a l'àcid: la càrrega de l'anió és el nombre d'hidrògens que has tret. I canvia la terminació:</p>
-          <div class="rule-pair"><span><b>-ic</b> → <b>-at</b></span><span><b>-ós</b> → <b>-it</b></span></div>
-          <p>[[H2SO4]] àcid sulfúric → [[SO4^2-]] <b>sulfat</b>; [[HNO2]] àcid nitrós → [[NO2^-]] <b>nitrit</b>.</p>`,
+        title: "Del ácido al anión",
+        html: `<p>Retira los hidrógenos ácidos como H⁺. Cada protón retirado añade una unidad de carga negativa al anión. Cambia la terminación del nombre:</p>
+          <div class="rule-pair"><span><b>-ico</b> → <b>-ato</b></span><span><b>-oso</b> → <b>-ito</b></span></div>
+          <p>[[H2SO4]] ácido sulfúrico → [[SO4^2-]] <b>sulfato</b>; [[HNO2]] ácido nitroso → [[NO2^-]] <b>nitrito</b>.</p>`,
       },
       {
-        title: "Formula l'oxosal",
-        html: `<p>Com sempre, la càrrega total ha de ser zero: [[Na^+]] + [[SO4^2-]] → [[Na2SO4]]; [[Fe^3+]] + [[SO4^2-]] → [[Fe2(SO4)3]].</p>
-          <p>Nom: anió + «de» + catió (amb nombre d'oxidació si cal): <b>sulfat de ferro(III)</b>.</p>`,
+        title: "Formula la oxosal",
+        html: `<p>La carga total debe ser cero: [[Na^+]] + [[SO4^2-]] → [[Na2SO4]]; [[Fe^3+]] + [[SO4^2-]] → [[Fe2(SO4)3]].</p>
+          <p>Nombre: anión + «de» + catión (con número de oxidación cuando proceda): <b>sulfato de hierro(III)</b>.</p>`,
       },
       {
-        title: "Sales ácidas (batxillerat)",
+        title: "Sales ácidas (Bachillerato)",
         level: 3,
-        html: `<p>L'anió conserva algun hidrogen: [[HCO3^-]] <b>hidrogencarbonat</b>, [[H2PO4^-]] <b>dihidrogenfosfat</b>.</p>
-          <p>[[NaHCO3]] és l'hidrogencarbonat de sodi: el bicarbonat de la cuina.</p>`,
+        html: `<p>El anión conserva uno o más hidrógenos: [[HCO3^-]] <b>hidrogenocarbonato</b>, [[H2PO4^-]] <b>dihidrogenofosfato</b>.</p>
+          <p>[[NaHCO3]] es hidrogenocarbonato de sodio, el bicarbonato de uso doméstico.</p>`,
       },
     ],
-    errors: ["Confondre sulfat ([[SO4^2-]]) i sulfit ([[SO3^2-]]).", "Oblidar els parèntesis: «Fe2SO43» ha de ser [[Fe2(SO4)3]]."],
+    errors: ["Confundir sulfato ([[SO4^2-]]) y sulfito ([[SO3^2-]]).", "Olvidar los paréntesis del sulfato. Escribe [[Fe2(SO4)3]]."],
     examples: ["Na2SO4", "CaCO3", "KNO3", "NaClO", "Fe2(SO4)3", "(NH4)2SO4", "NaHCO3"],
   },
   {
     id: "m6",
     num: 6,
-    title: "Ions poliatòmics",
+    title: "Iones poliatómicos",
     level: 2,
     families: ["oxosal", "salBinaria", "salAcida"],
-    intro: "Grups d'àtoms amb càrrega que es mouen junts. Convé conèixer-los bé: apareixen a moltes sals.",
+    intro: "Son grupos de átomos enlazados con carga neta. Aparecen en muchas sales.",
     cards: [
       {
-        title: "Cations poliatòmics",
-        html: `<p>[[NH4^+]] <b>amoni</b>: forma sals com [[NH4Cl]] o [[(NH4)2SO4]], que s'usen com a adobs.</p>
-          <p>[[H3O^+]] <b>oxidani</b>: és la forma de l'H⁺ en aigua i explica l'acidesa.</p>`,
+        title: "Cationes poliatómicos",
+        html: `<p>[[NH4^+]] <b>amonio</b>: forma sales como [[NH4Cl]] o [[(NH4)2SO4]], que se usan como fertilizantes.</p>
+          <p>[[H3O^+]] <b>oxidanio</b> (también llamado oxonio o hidronio): representa el protón hidratado en agua.</p>`,
       },
       {
-        title: "Taula d'anions",
-        html: `<p>Tens la taula completa d'ions al botó <b>Tabla de iones</b> de la barra superior. Recorda també:</p>
+        title: "Tabla de aniones",
+        html: `<p>Abre <b>Tabla de iones</b> en la barra superior para consultar la lista. Estos son algunos ejemplos:</p>
           <div class="ion-chips">
-            <span>[[OH^-]] hidròxid</span><span>[[CO3^2-]] carbonat</span><span>[[SO4^2-]] sulfat</span><span>[[NO3^-]] nitrat</span>
-            <span>[[PO4^3-]] fosfat</span><span>[[ClO^-]] hipoclorit</span><span>[[MnO4^-]] permanganat</span><span>[[Cr2O7^2-]] dicromat</span>
+            <span>[[OH^-]] hidróxido</span><span>[[CO3^2-]] carbonato</span><span>[[SO4^2-]] sulfato</span><span>[[NO3^-]] nitrato</span>
+            <span>[[PO4^3-]] fosfato</span><span>[[ClO^-]] hipoclorito</span><span>[[MnO4^-]] permanganato</span><span>[[Cr2O7^2-]] dicromato</span>
           </div>`,
       },
     ],
-    errors: ["Escriure l'amoni com «NH3»: [[NH3]] és l'amoníac, una molècula neutra; l'ió amoni és [[NH4^+]]."],
+    errors: ["Confundir el amoníaco [[NH3]], una molécula neutra, con el ion amonio [[NH4^+]]."],
     examples: ["NH4Cl", "(NH4)2SO4", "NH4NO3", "KMnO4", "K2Cr2O7"],
   },
   {
     id: "m7",
     num: 7,
-    title: "La química de cada dia",
+    title: "La química de cada día",
     level: 1,
     families: [],
-    intro: "Moltes substàncies que fem servir cada dia tenen una fórmula i un nom químic. Les reconeixes?",
+    intro: "Muchas sustancias que usamos a diario tienen fórmula y nombre químico. ¿Las reconoces?",
     cards: [],
     errors: [],
     examples: [],
@@ -3741,18 +3728,11 @@ const MODULES = [
   },
 ];
 
-return {MODULES};
+return { MODULES };
 })();
-const mod_app = (()=>{
-// Laboratorio de formulación inorgànica: modes Aprende, Practica i Reto, activitats i progrés.
+(({ LEVELS, FAMILIES, KINDS, ELEMENT_NAMES, ROMAN, CATIONS, H_CATION, MONO_ANIONS, OH, PEROXIDE, OXOANIONS, ACID_ANIONS, ionLabel, cationName, ionName, ionCounts, ionicFormula, CONTEXT, buildCatalog, ionTable }, { cleanFormulaInput, parseFormula, sameCounts, multipleOf, formulaHTML, formulaText }, { family, familyWithArticle, shuffle, normalizeName, acceptedNames, promptNames, checkName, checkFormula, ionChoices, buildFormula, checkBuild, nameDistractors, formulaDistractors, hints }, { MODULES }) => {
 
-const { formulaHTML, formulaText } = mod_formula;
-const { buildCatalog, LEVELS, FAMILIES, KINDS, OXOANIONS, ionTable, ionLabel, cationName } = mod_nomenclatura;
-const {
-  family, familyWithArticle, shuffle, normalizeName, promptNames, checkName, checkFormula,
-  ionChoices, buildFormula, checkBuild, nameDistractors, formulaDistractors, hints,
-} = mod_exercicis;
-const { MODULES } = mod_aprenentatge;
+
 
 const CHALLENGE_SIZE = 10;
 const CHALLENGE_TRIES = 2;
@@ -3760,9 +3740,9 @@ const STORAGE = { settings: "fi_settings_v1", stats: "fi_stats_v1", progress: "f
 
 const ACTIVITIES = [
   { id: "barreja", name: "Mezcla", desc: "Todos los tipos de actividad alternados" },
-  { id: "construeix", name: "Construye con iones", desc: "Une los iones hasta que la carga total sea cero" },
+  { id: "construeix", name: "Construye con iones", desc: "Combina iones hasta que la carga total sea cero" },
   { id: "nomFormula", name: "Del nombre a la fórmula", desc: "Escribe la fórmula" },
-  { id: "formulaNom", name: "De la fórmula al nombre", desc: "Escribe el nombre" },
+  { id: "formulaNom", name: "De la fórmula al nombrebre", desc: "Escribe el nombre" },
   { id: "tria", name: "Elige la respuesta", desc: "Cuatro opciones, una correcta" },
   { id: "classifica", name: "Clasifica", desc: "Indica a qué familia pertenece" },
 ];
@@ -3822,6 +3802,7 @@ const state = {
   stats: { attempts: 0, correct: 0, streak: 0, bestStreak: 0 },
   progress: {},
   bag: [],
+  dailyOnly: false,
   q: null,
   challenge: null,
 };
@@ -3830,7 +3811,7 @@ const fm = (formula) => `<span class="fm">${formulaHTML(formula)}</span>`;
 const richText = (html) => html.replace(/\[\[(.+?)\]\]/g, (_, f) => fm(f));
 const maxLevel = () => Math.max(...state.settings.levels);
 
-/* ---------- Desament al navegador ---------- */
+
 
 function load(key, fallback) {
   try {
@@ -3847,10 +3828,7 @@ function save(key, value) {
   } catch {}
 }
 
-/* ---------- Escala de la interfície ----------
-   Pensada per a 1440 × 800 px útils: s'amplia en pantalles grans i es redueix en portàtils
-   perquè tot càpiga sense desplaçar-se. En mòbils (menys de 900 px) no s'escala.
-   El mode projector fa servir una base més petita: tot surt més gran. */
+
 const MOBILE_W = 900;
 function fitScale() {
   const w = window.innerWidth;
@@ -3864,7 +3842,7 @@ function fitScale() {
   document.documentElement.classList.toggle("compact", w >= MOBILE_W && w / z < 1400);
 }
 
-/* ---------- Filtres ---------- */
+
 
 function renderFilters() {
   el.levelChips.innerHTML = LEVELS.map(
@@ -3880,7 +3858,7 @@ function renderFilters() {
     })
   );
   el.familyMenu.innerHTML = FAMILIES.map(
-    (f) => `<label class="check-row"><input type="checkbox" value="${f.id}" ${state.settings.families.includes(f.id) ? "checked" : ""} />${f.plural}${f.level === 3 ? ' <small class="badge-l3">Batx.</small>' : ""}</label>`
+    (f) => `<label class="check-row"><input type="checkbox" value="${f.id}" ${state.settings.families.includes(f.id) ? "checked" : ""} />${f.plural}${f.level === 3 ? ' <small class="badge-l3">Bach.</small>' : ""}</label>`
   ).join("");
   el.familyMenu.querySelectorAll("input").forEach((input) =>
     input.addEventListener("change", () => {
@@ -3889,10 +3867,11 @@ function renderFilters() {
     })
   );
   const n = state.settings.families.length;
-  el.familyTrigger.textContent = n === 0 ? "Todas las familias" : n === 1 ? family(state.settings.families[0]).plural : `${n} famílies`;
+  el.familyTrigger.textContent = n === 0 ? "Todas las familias" : n === 1 ? family(state.settings.families[0]).plural : `${n} familias`;
 }
 
 function onFiltersChanged() {
+  state.dailyOnly = false;
   save(STORAGE.settings, state.settings);
   state.bag = [];
   renderFilters();
@@ -3903,7 +3882,7 @@ function onFiltersChanged() {
 
 function pool() {
   const { levels, families } = state.settings;
-  return state.catalog.filter((c) => levels.includes(c.level) && (!families.length || families.includes(c.family)));
+  return state.catalog.filter((c) => (!state.dailyOnly || c.context) && levels.includes(c.level) && (!families.length || families.includes(c.family)));
 }
 
 function renderActivities() {
@@ -3921,7 +3900,7 @@ function renderActivities() {
   );
 }
 
-/* ---------- Tria de la pregunta ---------- */
+
 
 function weightedType(comp) {
   const types = Object.entries(MIX_WEIGHTS).filter(([t]) => t !== "construeix" || comp.ions);
@@ -3937,7 +3916,7 @@ function weightedType(comp) {
 function nextCompound(filter = () => true) {
   const list = pool().filter(filter);
   if (!list.length) return null;
-  // De tant en tant, una substància de la vida quotidiana.
+
   const daily = list.filter((c) => c.context);
   if (daily.length && Math.random() < 0.3) return daily[Math.floor(Math.random() * daily.length)];
   state.bag = state.bag.filter((id) => list.some((c) => c.id === id));
@@ -3978,7 +3957,7 @@ function makeQuestion(forcedType) {
   return q;
 }
 
-/* ---------- Pintar la pregunta ---------- */
+
 
 function kindsLabel(kinds) {
   return kinds.map((k) => KINDS[k]).join(" · ");
@@ -4000,12 +3979,12 @@ function renderQuestion() {
   const labels = {
     construeix: ["Construye el compuesto con los iones:", nameHTML, `Nomenclatura: ${kindsLabel(q.name.kinds)}`],
     nomFormula: ["Escribe la fórmula de:", nameHTML, `Nomenclatura: ${kindsLabel(q.name.kinds)}`],
-    formulaNom: ["Escribe el nombre de:", formulaPrompt, "Puedes utilizar cualquier nomenclatura aceptada."],
+    formulaNom: ["Escribe el nombre de:", formulaPrompt, "Puedes usar cualquiera de las nomenclaturas admitidas."],
     classifica: ["¿A qué familia pertenece?", formulaPrompt, ""],
     tria:
       q.direction === "toName"
-        ? ["¿Cuál es el nombre de:", formulaPrompt, "Elige la opción correcta."]
-        : ["¿Cuál es la fórmula de:", nameHTML, `Nomenclatura: ${kindsLabel(q.name.kinds)}`],
+        ? ["¿Cuál es el nombre?", formulaPrompt, "Elige la opción correcta."]
+        : ["¿Cuál es la fórmula?", nameHTML, `Nomenclatura: ${kindsLabel(q.name.kinds)}`],
   };
   const [label, prompt, kind] = labels[type];
   el.qLabel.textContent = label;
@@ -4025,27 +4004,27 @@ function renderFormulaInput() {
     <div class="answer-box">
       <label class="answer-label" for="answerInput">Fórmula</label>
       <input id="answerInput" class="answer-input formula-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Por ejemplo: Fe2O3" />
-      <p class="preview">Se lee: <span id="preview" class="fm">—</span></p>
-      <p class="input-tip">Escriu els subíndexs com a números normals (H2SO4) i fes servir parèntesis per als grups: Ca(OH)2.</p>
+      <p class="preview">Vista previa: <span id="preview" class="fm">—</span></p>
+      <p class="input-tip">Escribe los subíndices como números normales (H2SO4) y usa paréntesis si hay más de un grupo poliatómico: Ca(OH)2.</p>
     </div>`;
   const input = $("answerInput");
   const preview = $("preview");
   input.addEventListener("input", () => {
-    const v = input.value.replace(/\s+/g, "");
+    const v = cleanFormulaInput(input.value);
     preview.innerHTML = v ? formulaHTML(v) : "—";
   });
   bindEnter(input);
   focusInput(input);
 }
 
-const ACCENT_KEYS = ["à", "è", "é", "í", "ï", "ò", "ó", "ú", "ü", "ç", "l·l", "'", "(", ")", "I", "V"];
+const ACCENT_KEYS = ["á", "é", "í", "ó", "ú", "ü", "ñ", "(", ")", "I", "V", "X"];
 function renderNameInput() {
   el.workArea.innerHTML = `
     <div class="answer-box">
-      <label class="answer-label" for="answerInput">Nom</label>
-      <input id="answerInput" class="answer-input" autocomplete="off" spellcheck="false" placeholder="Por ejemplo: òxid de ferro(III)" />
-      <div class="key-row" aria-label="Caràcters especials">${ACCENT_KEYS.map((k) => `<button type="button" class="key" data-key="${k}">${k}</button>`).join("")}</div>
-      <p class="input-tip">El nom comença per la part negativa: clorur <b>de</b> sodi. Els nombres d'oxidació van en xifres romanes: ferro(III).</p>
+      <label class="answer-label" for="answerInput">Nombre</label>
+      <input id="answerInput" class="answer-input" autocomplete="off" spellcheck="false" placeholder="Por ejemplo: óxido de hierro(III)" />
+      <div class="key-row" aria-label="Caracteres especiales">${ACCENT_KEYS.map((k) => `<button type="button" class="key" data-key="${k}">${k}</button>`).join("")}</div>
+      <p class="input-tip">El nombre empieza por la parte más electronegativa: cloruro <b>de</b> sodio. Los números de oxidación se indican con números romanos: hierro(III).</p>
     </div>`;
   const input = $("answerInput");
   el.workArea.querySelectorAll(".key").forEach((key) =>
@@ -4099,7 +4078,7 @@ function renderClassify() {
   el.workArea.querySelectorAll(".fam-btn").forEach((btn) => btn.addEventListener("click", () => handleChoice(btn.dataset.family)));
 }
 
-/* Construye con iones */
+
 
 function ionTileHTML(ion, attrs = "") {
   const sign = ion.charge > 0 ? "pos" : "neg";
@@ -4119,9 +4098,9 @@ function renderBuild() {
   const formula = cat && an ? buildFormula(cat, an, nC, nA) : "";
   const stepper = (side, n, ion) => `
     <div class="stepper">
-      <button type="button" class="step-btn" data-step="${side}" data-d="-1" ${!ion || n <= 1 || q.solved ? "disabled" : ""} aria-label="Treu-ne un"><span class="pm minus" aria-hidden="true"></span></button>
+      <button type="button" class="step-btn" data-step="${side}" data-d="-1" ${!ion || n <= 1 || q.solved ? "disabled" : ""} aria-label="Quita uno"><span class="pm minus" aria-hidden="true"></span></button>
       <span class="step-num">${n}</span>
-      <button type="button" class="step-btn" data-step="${side}" data-d="1" ${!ion || n >= 6 || q.solved ? "disabled" : ""} aria-label="Afegeix-ne un"><span class="pm plus" aria-hidden="true"></span></button>
+      <button type="button" class="step-btn" data-step="${side}" data-d="1" ${!ion || n >= 6 || q.solved ? "disabled" : ""} aria-label="Añade uno"><span class="pm plus" aria-hidden="true"></span></button>
     </div>`;
   el.workArea.innerHTML = `
     <div class="build">
@@ -4132,12 +4111,12 @@ function renderBuild() {
       <div class="assembly">
         <div class="slot pos">${cat ? fm(ionLabel(cat)) : '<span class="slot-empty">Elige un catión</span>'}<span class="times">×</span>${stepper("cat", nC, cat)}</div>
         <div class="slot neg">${an ? fm(ionLabel(an)) : '<span class="slot-empty">Elige un anión</span>'}<span class="times">×</span>${stepper("an", nA, an)}</div>
-        <div class="charge-meter${cat && an && total === 0 ? " zero" : ""}" aria-label="Càrrega total ${total}">
+        <div class="charge-meter${cat && an && total === 0 ? " zero" : ""}" aria-label="Carga total ${total}">
           <div class="meter-row"><span class="meter-label">+${plus}</span><span class="cells">${cells(plus, "p")}</span></div>
           <div class="meter-row"><span class="meter-label">−${minus}</span><span class="cells">${cells(minus, "m")}</span></div>
-          <p class="meter-total">Càrrega total: <b>${total > 0 ? "+" : ""}${total}</b>${cat && an && total === 0 ? " ✓" : ""}</p>
+          <p class="meter-total">Carga total: <b>${total > 0 ? "+" : ""}${total}</b>${cat && an && total === 0 ? " ✓" : ""}</p>
         </div>
-        <div class="build-formula" aria-live="polite">${formula ? fm(formula) : "<span class='slot-empty'>La fórmula apareixerà aquí</span>"}</div>
+        <div class="build-formula" aria-live="polite">${formula ? fm(formula) : "<span class='slot-empty'>La fórmula aparecerá aquí</span>"}</div>
       </div>
     </div>`;
   el.workArea.querySelectorAll(".ion-tile[data-side]").forEach((tile) =>
@@ -4156,14 +4135,14 @@ function renderBuild() {
   );
 }
 
-/* ---------- Panell d'ajuda ---------- */
+
 
 const TYPE_TIPS = {
-  construeix: ["Tria el catió i l'anió que diu el nom.", "Canvia quants n'hi ha fins que la càrrega total sigui zero.", "Si els dos nombres es poden dividir, simplifica."],
-  nomFormula: ["A la fórmula, primer va la part positiva.", "La suma de càrregues ha de ser zero.", "Els grups de més d'un ió van entre parèntesis."],
-  formulaNom: ["Primer la part negativa, després «de» + la positiva.", "Si el metall té diverses càrregues, indica-la en xifres romanes.", "També pots fer servir prefixos (di-, tri-…)."],
-  tria: ["Llegeix totes les opcions abans de triar.", "Fixa't en els subíndexs, els parèntesis i les terminacions."],
-  classifica: ["Mira quins elements hi ha: oxigen? hidrogen? un metall?", "Compta quants elements diferents té."],
+  construeix: ["Elige el catión y el anión que indica el nombre.", "Ajusta la cantidad de cada ion hasta que la carga total sea cero.", "Si ambos números tienen un divisor común, simplifica."],
+  nomFormula: ["En un compuesto iónico, escribe primero el catión.", "En un compuesto iónico neutro, las cargas se compensan.", "Usa paréntesis si se repite un grupo poliatómico."],
+  formulaNom: ["Primero se nombra la parte más electronegativa, seguida de «de» y la otra parte.", "Si el metal tiene varios estados de oxidación, puedes indicar el que corresponde con números romanos.", "También puedes usar prefijos (di-, tri-…)."],
+  tria: ["Lee todas las opciones antes de elegir.", "Fíjate en los subíndices, los paréntesis y las terminaciones."],
+  classifica: ["Identifica los elementos. ¿Hay oxígeno, hidrógeno o algún metal?", "Cuenta los elementos distintos."],
 };
 
 function compoundCard(comp) {
@@ -4174,7 +4153,7 @@ function compoundCard(comp) {
       <p class="comp-family">${family(comp.family).name}</p>
       <ul class="name-list">${names}</ul>
       ${comp.note ? `<p class="comp-note">${comp.note}</p>` : ""}
-      ${comp.context ? `<p class="comp-context"><b>A la vida real:</b> ${comp.context}</p>` : ""}
+      ${comp.context ? `<p class="comp-context"><b>En la vida real:</b> ${comp.context}</p>` : ""}
     </div>`;
 }
 
@@ -4195,10 +4174,10 @@ function renderHelp() {
     ${given ? `<ol class="hints-list">${given}</ol>` : ""}`;
 }
 
-/* ---------- Estat, missatges i marcador ---------- */
+
 
 function setStatus(kind) {
-  const map = { idle: ["?", "Sin responder", ""], ok: ["✓", "Correcto", "ok"], bad: ["✗", "Torna-ho a provar", "bad"] };
+  const map = { idle: ["?", "Sin responder", ""], ok: ["✓", "Correcto", "ok"], bad: ["✗", "Vuelve a intentarlo", "bad"] };
   const [icon, text, cls] = map[kind];
   el.statusBox.className = `status ${cls}`;
   el.statusIcon.textContent = icon;
@@ -4226,19 +4205,21 @@ function lockControls(solved) {
   if (input) input.readOnly = solved;
 }
 
-/* ---------- Preguntes ---------- */
+
 
 function newQuestion() {
   const q = makeQuestion();
   state.q = q;
   if (!q) {
     el.qTags.innerHTML = "";
-    el.qLabel.textContent = "No hi ha compostos amb aquests filtres.";
+    el.qLabel.textContent = "No hay compuestos con estos filtros.";
     el.qPrompt.innerHTML = "";
-    el.qKind.textContent = "Activa un altre nivell (per exemple, Bachillerato) o tria més famílies.";
+    el.qKind.textContent = "Activa otro nivel (por ejemplo, Bachillerato) o selecciona otras familias.";
     el.workArea.innerHTML = "";
     setFeedback("");
     setStatus("idle");
+    el.nextBtn.hidden = true;
+    [el.checkBtn, el.hintBtn, el.solutionBtn].forEach((button) => { button.disabled = true; });
     renderHelp();
     return;
   }
@@ -4262,12 +4243,12 @@ function handleCheck() {
       return;
     }
   } else return;
-  if (/^Escriu/.test(result.message ?? "")) {
+  if (/^Escribe/.test(result.message ?? "")) {
     setFeedback(result.message, "hint");
     return;
   }
   if (result.ok) onCorrect(result.note);
-  else onWrong(result.message);
+  else onWrong(result.message.replace(/[&<>]/g, (char) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;" })[char]));
 }
 
 function handleChoice(value) {
@@ -4282,10 +4263,10 @@ function handleChoice(value) {
   let message;
   if (q.type === "classifica") {
     const f = family(value);
-    message = `No és ${familyWithArticle(value)}. (${f.name}: ${f.rule.charAt(0).toLowerCase()}${f.rule.slice(1)})`;
+    message = `No es ${familyWithArticle(value)}. (${f.name}: ${f.rule.charAt(0).toLowerCase()}${f.rule.slice(1)})`;
   }
-  else if (q.direction === "toFormula") message = `${formulaText(value)} no és correcta. ${checkFormula(q.comp, value).message}`;
-  else message = `«${value}» no és correcte. ${checkName(q.comp, value, state.catalog).message}`;
+  else if (q.direction === "toFormula") message = `${formulaText(value)} no es correcta. ${checkFormula(q.comp, value).message}`;
+  else message = `«${value}» no es correcto. ${checkName(q.comp, value, state.catalog).message}`;
   onWrong(message);
 }
 
@@ -4304,6 +4285,7 @@ function onWrong(message) {
 }
 
 function onCorrect(note) {
+  const answer = $("answerInput")?.value;
   const q = state.q;
   q.solved = true;
   state.stats.attempts += 1;
@@ -4320,25 +4302,30 @@ function onCorrect(note) {
   }
   updateScoreboard();
   const others = acceptedNamesShown(q);
-  const parts = [`<strong>Molt bé!</strong>`];
+  const parts = [`<strong>¡Muy bien!</strong>`];
   if (note) parts.push(note);
   if (others) parts.push(others);
   if (q.comp.context) parts.push(`<span class="ctx">${q.comp.context}</span>`);
   setFeedback(parts.join(" "), "success");
   renderQuestion();
+  const input = $("answerInput");
+  if (input && answer !== undefined) {
+    input.value = answer;
+    input.dispatchEvent(new Event("input"));
+  }
   lockControls(true);
   if (state.mode === "repte") onChallengeSolved();
   else el.nextBtn.focus({ preventScroll: true });
 }
 
 function acceptedNamesShown(q) {
-  if (q.type === "classifica") return `${fm(q.comp.formula)} és ${familyWithArticle(q.comp.family)}.`;
+  if (q.type === "classifica") return `${fm(q.comp.formula)} es ${familyWithArticle(q.comp.family)}.`;
   if (q.type === "formulaNom" || (q.type === "tria" && q.direction === "toName")) {
     const list = q.comp.names.map((n) => `«${n.text}»`);
-    return list.length > 1 ? `Noms acceptats: ${list.join(", ")}.` : "";
+    return list.length > 1 ? `Nombres admitidos: ${list.join(", ")}.` : "";
   }
   const others = q.comp.names.filter((n) => normalizeName(n.text) !== normalizeName(q.name.text)).map((n) => `«${n.text}»`);
-  return others.length ? `També es pot dir ${others.join(" o ")}.` : "";
+  return others.length ? `También se puede decir ${others.join(" o ")}.` : "";
 }
 
 function handleHint() {
@@ -4346,7 +4333,7 @@ function handleHint() {
   if (!q || q.solved || state.mode === "repte") return;
   const list = hints(q.comp, q.type === "tria" ? (q.direction === "toName" ? "formulaNom" : "nomFormula") : q.type);
   if (q.hintStep >= list.length) {
-    setFeedback("Ja has vist totes les pistes. Si vols, mira la solució.", "hint");
+    setFeedback("Ya has visto todas las pistas. Puedes consultar la solución.", "hint");
     return;
   }
   const hint = list[q.hintStep];
@@ -4372,7 +4359,7 @@ function handleSolution() {
   setStatus("idle");
   renderQuestion();
   if (input && $("answerInput")) $("answerInput").value = q.type === "nomFormula" ? q.comp.formula : q.comp.names[0].text;
-  setFeedback(`Aquesta és la solució: ${fm(q.comp.formula)} — ${q.comp.names.map((n) => `«${n.text}»`).join(", ")}. No compta com a encert.`, "hint");
+  setFeedback(`Esta es la solución: ${fm(q.comp.formula)} — ${q.comp.names.map((n) => `«${n.text}»`).join(", ")}. No cuenta como acierto.`, "hint");
   lockControls(true);
 }
 
@@ -4381,7 +4368,7 @@ function handleNext() {
   else newQuestion();
 }
 
-/* ---------- Mode Reto ---------- */
+
 
 function startChallenge() {
   state.challenge = { index: 0, points: 0, results: [], tries: CHALLENGE_TRIES, seen: new Set() };
@@ -4403,6 +4390,7 @@ function nextChallengeQuestion(first = false) {
   }
   state.q = q;
   if (!q) {
+    el.challengeBar.hidden = true;
     newQuestion();
     return;
   }
@@ -4421,8 +4409,8 @@ function renderChallengeBar() {
   const dots = Array.from({ length: CHALLENGE_TRIES }, (_, i) => `<i class="${i < c.tries ? "on" : ""}"></i>`).join("");
   el.challengeBar.innerHTML = `
     <span class="cb-item">Pregunta <b>${Math.min(c.index + 1, CHALLENGE_SIZE)}</b> de ${CHALLENGE_SIZE}</span>
-    <span class="cb-item">Intents <span class="tries-dots">${dots}</span></span>
-    <span class="cb-item"><span class="star-sm">★</span> <b>${c.points}</b> punts</span>`;
+    <span class="cb-item">Intentos <span class="tries-dots">${dots}</span></span>
+    <span class="cb-item"><span class="star-sm">★</span> <b>${c.points}</b> puntos</span>`;
 }
 
 function onChallengeMiss(message) {
@@ -4430,7 +4418,7 @@ function onChallengeMiss(message) {
   c.tries -= 1;
   renderChallengeBar();
   if (c.tries > 0) {
-    setFeedback(`${message} <strong>Et queda un intent.</strong>`, "error");
+    setFeedback(`${message} <strong>Te queda un intento.</strong>`, "error");
     if (state.q.type === "tria") renderOptions();
     if (state.q.type === "classifica") renderClassify();
     return;
@@ -4441,7 +4429,7 @@ function onChallengeMiss(message) {
   c.results.push(0);
   if (q.type === "construeix") q.build = { ...q.comp.ions };
   renderQuestion();
-  setFeedback(`${message} La resposta era ${fm(q.comp.formula)}: ${q.comp.names.map((n) => `«${n.text}»`).join(", ")}.`, "error");
+  setFeedback(`${message} La respuesta era ${fm(q.comp.formula)}: ${q.comp.names.map((n) => `«${n.text}»`).join(", ")}.`, "error");
   lockControls(true);
   showChallengeNext();
 }
@@ -4452,13 +4440,13 @@ function onChallengeSolved() {
   c.points += pts;
   c.results.push(pts);
   renderChallengeBar();
-  el.feedback.insertAdjacentHTML("afterbegin", `<b class="pts">+${pts} ${pts === 1 ? "punt" : "punts"}</b> `);
+  el.feedback.insertAdjacentHTML("afterbegin", `<b class="pts">+${pts} ${pts === 1 ? "punto" : "puntos"}</b> `);
   showChallengeNext();
 }
 
 function showChallengeNext() {
   el.nextBtn.hidden = false;
-  el.nextBtn.innerHTML = `${state.challenge.index + 1 >= CHALLENGE_SIZE ? "Mostra el resultat" : "Siguiente pregunta"} <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+  el.nextBtn.innerHTML = `${state.challenge.index + 1 >= CHALLENGE_SIZE ? "Muestra el resultado" : "Siguiente pregunta"} <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
   el.nextBtn.focus({ preventScroll: true });
 }
 
@@ -4468,18 +4456,19 @@ function finishChallenge() {
   const ratio = c.points / max;
   const stars = ratio >= 0.9 ? 3 : ratio >= 0.7 ? 2 : ratio >= 0.4 ? 1 : 0;
   el.resultStars.innerHTML = [1, 2, 3].map((i) => `<span class="${i <= stars ? "on" : ""}">★</span>`).join("");
-  el.resultPoints.textContent = `${c.points} punts de ${max}`;
+  el.resultPoints.textContent = `${c.points} puntos de ${max}`;
   const first = c.results.filter((p) => p === 2).length;
   const second = c.results.filter((p) => p === 1).length;
-  el.resultDetail.textContent = `${first} a la primera, ${second} a la segona i ${CHALLENGE_SIZE - first - second} sense encertar. Aciertoar a la primera val 2 punts; a la segona, 1.`;
+  el.resultDetail.textContent = `${first} al primer intento, ${second} al segundo intento y ${CHALLENGE_SIZE - first - second} sin acertar. Acertar al primer intento vale 2 puntos y al segundo vale 1.`;
   el.resultDialog.showModal();
   if (stars >= 2) celebrate();
 }
 
-/* ---------- Modes ---------- */
+
 
 function setMode(mode) {
   state.mode = mode;
+  if (mode !== "practica") state.dailyOnly = false;
   document.querySelectorAll(".mode-tab").forEach((tab) => {
     const on = tab.dataset.mode === mode;
     tab.classList.toggle("active", on);
@@ -4488,7 +4477,7 @@ function setMode(mode) {
   el.learnView.hidden = mode !== "apren";
   el.practiceView.hidden = mode === "apren";
   el.newQuestionBtn.hidden = mode === "apren";
-  el.newQuestionBtn.textContent = mode === "repte" ? "Nou repte" : "Nueva pregunta";
+  el.newQuestionBtn.textContent = mode === "repte" ? "Nuevo reto" : "Nueva pregunta";
   el.hintBtn.hidden = mode === "repte";
   el.solutionBtn.hidden = mode === "repte";
   document.querySelector(".activity-panel").hidden = mode === "repte";
@@ -4505,7 +4494,7 @@ function setMode(mode) {
   }
 }
 
-/* ---------- Mode Aprende ---------- */
+
 
 function renderModule() {
   const current = MODULES.find((m) => m.id === state.settings.module) ?? MODULES[0];
@@ -4529,7 +4518,7 @@ function renderModule() {
     )
     .join("");
   const examples = current.examples.length
-    ? `<h3 class="pane-title">Exemples</h3>
+    ? `<h3 class="pane-title">Ejemplos</h3>
        <div class="example-table">${current.examples
          .map((f) => state.catalog.find((c) => c.formula === f))
          .filter(Boolean)
@@ -4540,14 +4529,14 @@ function renderModule() {
          .join("")}</div>`
     : "";
   const acidTable = current.acidTable
-    ? `<h3 class="pane-title">Taula d'oxoàcids</h3>
+    ? `<h3 class="pane-title">Tabla de oxoácidos</h3>
        <div class="acid-table">${OXOANIONS.filter((a) => a.level <= maxLevel())
          .map((a) => {
            const acid = state.catalog.find((c) => c.family === "oxoacid" && c.ions?.an === a);
-           return `<div class="acid-row"><span>${fm(acid.formula)}</span><span>àcid ${a.acid}</span><span>${fm(ionLabel(a))}</span><span>${a.name}</span></div>`;
+           return `<div class="acid-row"><span>${fm(acid.formula)}</span><span>ácido ${a.acid}</span><span>${fm(ionLabel(a))}</span><span>${a.name}</span></div>`;
          })
          .join("")}</div>
-       ${maxLevel() < 3 ? '<p class="muted">Activa el nivell Bachillerato per veure també els oxoàcids del brom, el iode, el seleni, el crom i el manganès.</p>' : ""}`
+       ${maxLevel() < 3 ? '<p class="muted">Activa el nivel Bachillerato para ver también los oxoácidos del bromo, el yodo, el selenio, el cromo y el manganeso.</p>' : ""}`
     : "";
   const gallery = current.gallery
     ? `<div class="gallery">${state.catalog
@@ -4556,17 +4545,17 @@ function renderModule() {
         .join("")}</div>`
     : "";
   const errors = current.errors.length
-    ? `<section class="learn-box errors"><h3>Errors habituals</h3><ul>${current.errors.map((e) => `<li>${richText(e)}</li>`).join("")}</ul></section>`
+    ? `<section class="learn-box errors"><h3>Errores frecuentes</h3><ul>${current.errors.map((e) => `<li>${richText(e)}</li>`).join("")}</ul></section>`
     : "";
   const idx = MODULES.indexOf(current);
   const practice = current.families.length
-    ? `<button type="button" class="primary-btn" id="practiseModuleBtn">Practica aquest mòdul</button>`
+    ? `<button type="button" class="primary-btn" id="practiseModuleBtn">Practica este módulo</button>`
     : current.gallery
-      ? `<button type="button" class="primary-btn" id="practiseDailyBtn">Practica amb aquestes substàncies</button>`
+      ? `<button type="button" class="primary-btn" id="practiseDailyBtn">Practica con estas sustancias</button>`
       : "";
   el.moduleCard.innerHTML = `
     <header class="learn-head">
-      <span class="learn-kicker">Mòdul ${current.num}</span>
+      <span class="learn-kicker">Módulo ${current.num}</span>
       <h2>${current.title}</h2>
       <p class="learn-intro">${richText(current.intro)}</p>
     </header>
@@ -4586,14 +4575,19 @@ function renderModule() {
     })
   );
   $("practiseModuleBtn")?.addEventListener("click", () => {
+    state.dailyOnly = false;
     state.settings.families = [...current.families];
-    if (current.level > Math.max(...state.settings.levels)) state.settings.levels = [...new Set([...state.settings.levels, current.level])].sort();
+    if (!state.settings.levels.includes(current.level)) {
+      state.settings.levels = [...state.settings.levels, current.level].sort();
+    }
     save(STORAGE.settings, state.settings);
     state.bag = [];
     renderFilters();
     setMode("practica");
   });
   $("practiseDailyBtn")?.addEventListener("click", () => {
+    state.dailyOnly = true;
+    state.bag = [];
     state.settings.families = [];
     save(STORAGE.settings, state.settings);
     renderFilters();
@@ -4601,21 +4595,21 @@ function renderModule() {
   });
 }
 
-/* ---------- Diàleg: taula d'ions i progrés ---------- */
+
 
 function renderIonTables() {
   const { cations, monoAnions, polyAnions } = ionTable();
   const row = (ion, name, extra = "") =>
     `<div class="ion-row${ion.level === 3 ? " batx" : ""}"><span class="ion-f">${fm(ionLabel(ion))}</span><span class="ion-n">${name}</span>${extra}</div>`;
-  const acidOf = (a) => (a.acid ? `<span class="ion-x">de l'àcid ${a.acid}</span>` : "");
+  const acidOf = (a) => (a.acid ? `<span class="ion-x">del ácido ${a.acid}</span>` : "");
   el.ionTables.innerHTML = `
     <div class="ion-columns">
-      <section><h3 class="pane-title pos">Cations</h3>${cations.map((c) => row(c, cationName(c))).join("")}</section>
+      <section><h3 class="pane-title pos">Cationes</h3>${cations.map((c) => row(c, cationName(c))).join("")}</section>
       <section><h3 class="pane-title neg">Aniones monoatómicos</h3>${monoAnions.map((a) => row(a, a.name)).join("")}
-        <p class="muted small">Els anions d'un sol element acaben en <b class="nowrap">-ur</b>, excepte l'òxid.</p></section>
-      <section class="wide"><h3 class="pane-title neg">Anions poliatòmics</h3><div class="ion-grid">${polyAnions.map((a) => row(a, a.name, acidOf(a))).join("")}</div></section>
+        <p class="muted small">Los nombres de muchos aniones monoatómicos terminan en <b class="nowrap">-uro</b>. El ion óxido es una excepción.</p></section>
+      <section class="wide"><h3 class="pane-title neg">Aniones poliatómicos</h3><div class="ion-grid">${polyAnions.map((a) => row(a, a.name, acidOf(a))).join("")}</div></section>
     </div>
-    <p class="muted small">Els ions marcats amb fons lila són de batxillerat.</p>`;
+    <p class="muted small">Los iones con fondo lila son de Bachillerato.</p>`;
 }
 
 const pct = (done, total) => (total ? Math.round((done / total) * 100) : 0);
@@ -4624,10 +4618,10 @@ function renderProgress() {
   const solved = state.catalog.filter((c) => state.progress[c.id]);
   const { attempts, correct, bestStreak = 0, streak } = state.stats;
   const cards = [
-    ["Compostos resolts", solved.length, "blue"],
+    ["Compuestos resueltos", solved.length, "blue"],
     ["Aciertos", correct, "green"],
-    ["Intents", attempts, "slate"],
-    ["Precisió", attempts ? `${pct(correct, attempts)}<small>%</small>` : "—", "amber"],
+    ["Intentos", attempts, "slate"],
+    ["Precisión", attempts ? `${pct(correct, attempts)}<small>%</small>` : "—", "amber"],
     ["Millor ratxa", Math.max(bestStreak, streak), "violet"],
   ];
   el.statCards.innerHTML = cards
@@ -4672,7 +4666,7 @@ function openInfo(tab) {
   el.infoDialog.showModal();
 }
 
-/* ---------- Celebració ---------- */
+
 
 function celebrate() {
   try {
@@ -4695,7 +4689,7 @@ function celebrate() {
   setTimeout(() => box.remove(), 2000);
 }
 
-/* ---------- Esdeveniments ---------- */
+
 
 function applyProjector() {
   document.documentElement.classList.toggle("projector", state.settings.projector);
@@ -4754,11 +4748,11 @@ function attachEvents() {
   el.resetProgressBtn.addEventListener("click", () => {
     if (!resetArmed) {
       resetArmed = true;
-      el.resetProgressBtn.textContent = "Segur? Torna-hi a clicar per esborrar-ho";
+      el.resetProgressBtn.textContent = "¿Seguro? Pulsa de nuevo para borrar";
       return;
     }
     resetArmed = false;
-    el.resetProgressBtn.textContent = "Esborra el progrés i el marcador";
+    el.resetProgressBtn.textContent = "Borra el progreso y el marcador";
     state.progress = {};
     state.stats = { attempts: 0, correct: 0, streak: 0, bestStreak: 0 };
     save(STORAGE.progress, state.progress);
@@ -4803,8 +4797,8 @@ function init() {
 
 init();
 
-return {};
+})(chemistry, notation, activities, learning);
 })();
 </script>
-  <footer style="text-align:center;padding:12px;font-size:13px">Adaptación parcial al castellano para uso educativo (SDN). Autor original: Felip Sarroca. <a href="https://felipsarroca.github.io/edu-apps/FormulacioInorganica/">Aplicación original</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a>. Versión de prueba: algunos textos siguen en catalán.</footer></body>
+  </body>
 </html>
