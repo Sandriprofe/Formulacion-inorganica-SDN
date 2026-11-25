@@ -1,0 +1,4810 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Formulación inorgánica</title>
+    <meta name="description" content="Laboratori interactiu per aprendre a formular i anomenar compostos inorgànics (IUPAC 2005) a l'ESO i al batxillerat." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWQ0ZWQ4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdjM2FlZCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjZykiLz4KICA8cmVjdCB4PSI3IiB5PSIxNyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMwIiByeD0iNiIgZmlsbD0iI2ZkZTY4YSIvPgogIDxwYXRoIGQ9Ik0zMSAyNWg1djE0aC01IiBmaWxsPSIjZmRlNjhhIi8+CiAgPHJlY3QgeD0iMzMiIHk9IjE3IiB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHJ4PSI2IiBmaWxsPSIjYmFlNmZkIi8+CiAgPHBhdGggZD0iTTMzIDI1aDR2MTRoLTQiIGZpbGw9IiMxZDRlZDgiIG9wYWNpdHk9IjAuMDAxIi8+CiAgPHRleHQgeD0iMTkiIHk9IjM4IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iODAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTI0MDBlIj5OYTwvdGV4dD4KICA8dGV4dCB4PSI0NSIgeT0iMzgiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI4MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMwNzU5ODUiPkNsPC90ZXh0PgogIDx0ZXh0IHg9IjI2IiB5PSIxNCIgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjgwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+KzwvdGV4dD4KICA8dGV4dCB4PSI1MiIgeT0iMTQiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI4MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPuKIkjwvdGV4dD4KPC9zdmc+Cg==" />
+    <style>/* Laboratorio de formulación inorgànica
+   La interfície es dissenya per a 1440 × 800 px i s'escala amb --ui-zoom (vegeu fitScale a app.js).
+   La base visual és la mateixa que la del laboratori d'igualació d'equacions. */
+
+:root {
+  color-scheme: light;
+  --ui-zoom: 1;
+  --bg-1: #cde4ff;
+  --bg-2: #f5f9ff;
+  --panel: rgba(255, 255, 255, 0.94);
+  --panel-solid: #ffffff;
+  --line: rgba(148, 163, 184, 0.38);
+  --line-strong: rgba(100, 116, 139, 0.5);
+  --text: #0f172a;
+  --muted: #475569;
+  --blue: #2563eb;
+  --blue-soft: rgba(37, 99, 235, 0.1);
+  --green: #15803d;
+  --green-soft: #dcfce7;
+  --red: #b91c1c;
+  --red-soft: #fee2e2;
+  --amber: #b45309;
+  --amber-soft: #fef3c7;
+  --l1: #15803d;
+  --l2: #b45309;
+  --l3: #b91c1c;
+  --l4: #6d28d9;
+  --shadow: 0 14px 34px rgba(15, 35, 95, 0.13);
+  --radius: 18px;
+  --formula-h: 46px;
+  --stepper-h: 40px;
+  --footer-h: 50px;
+  --term-gap: 30px;
+  --panel-w: 300px;
+  font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  zoom: var(--ui-zoom);
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100%;
+  background: linear-gradient(135deg, var(--bg-1), var(--bg-2)) fixed;
+  color: var(--text);
+  font-size: 16px;
+  line-height: 1.35;
+}
+
+button,
+input {
+  font: inherit;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+button:disabled {
+  cursor: not-allowed;
+  opacity: 0.45;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.55);
+  outline-offset: 2px;
+}
+
+[hidden] {
+  display: none !important;
+}
+
+svg {
+  display: block;
+}
+
+/* ---------- Estructura general (una sola pantalla) ---------- */
+
+.app-shell {
+  height: calc(100dvh / var(--ui-zoom));
+  display: grid;
+  grid-template-rows: auto minmax(0, 1fr);
+  gap: 12px;
+  padding: 12px 18px calc(var(--footer-h) + 8px);
+}
+
+.panel,
+.topbar,
+.lab-card {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+/* ---------- Barra superior ---------- */
+
+.topbar {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 14px;
+  min-height: 60px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.brand-logo {
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+}
+
+.brand-title {
+  margin: 0;
+  font-size: 1.3rem;
+  font-weight: 800;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  background: linear-gradient(135deg, #0f172a, #1e40af);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.mode-tabs {
+  display: inline-flex;
+  padding: 3px;
+  border-radius: 999px;
+  background: rgba(148, 163, 184, 0.18);
+  border: 1px solid var(--line);
+}
+
+.mode-tab {
+  border: 0;
+  background: transparent;
+  padding: 6px 16px;
+  border-radius: 999px;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.mode-tab.active {
+  background: #fff;
+  color: var(--blue);
+  box-shadow: 0 2px 8px rgba(15, 23, 42, 0.12);
+}
+
+.filters {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  min-width: 0;
+}
+
+.level-chips {
+  display: flex;
+  gap: 6px;
+}
+
+.level-chip {
+  --c: var(--blue);
+  border: 2px solid var(--c);
+  background: #fff;
+  color: var(--c);
+  border-radius: 999px;
+  padding: 4px 12px;
+  font-size: 0.88rem;
+  font-weight: 700;
+  transition: background 0.15s, color 0.15s;
+}
+
+.level-chip[aria-pressed="false"] {
+  border-color: var(--line-strong);
+  color: #64748b;
+  background: transparent;
+}
+
+.level-chip[aria-pressed="true"] {
+  background: var(--c);
+  color: #fff;
+}
+
+.level-chip.l1,
+.tag.l1 { --c: var(--l1); }
+.level-chip.l2,
+.tag.l2 { --c: var(--l2); }
+.level-chip.l3,
+.tag.l3 { --c: var(--l3); }
+.level-chip.l4,
+.tag.l4 { --c: var(--l4); }
+
+.dropdown {
+  position: relative;
+}
+
+.dropdown-trigger {
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  border-radius: 999px;
+  padding: 5px 14px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  min-width: 150px;
+  display: inline-flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.dropdown-trigger::after {
+  content: "▾";
+  color: var(--muted);
+}
+
+.dropdown-menu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  z-index: 50;
+  min-width: 220px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  box-shadow: var(--shadow);
+  padding: 8px;
+}
+
+.dropdown.open .dropdown-menu {
+  display: block;
+}
+
+.check-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 5px 6px;
+  border-radius: 8px;
+  font-size: 0.92rem;
+  cursor: pointer;
+}
+
+.check-row:hover {
+  background: var(--blue-soft);
+}
+
+.check-row input {
+  width: 16px;
+  height: 16px;
+  accent-color: var(--blue);
+}
+
+.top-actions {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.primary-btn {
+  border: 0;
+  border-radius: 12px;
+  padding: 9px 16px;
+  font-weight: 700;
+  color: #fff;
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  box-shadow: 0 6px 16px rgba(37, 99, 235, 0.28);
+  transition: transform 0.15s, box-shadow 0.15s;
+  white-space: nowrap;
+}
+
+.primary-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 10px 22px rgba(37, 99, 235, 0.35);
+}
+
+.icon-btn {
+  width: 40px;
+  height: 40px;
+  border-radius: 12px;
+  border: 1px solid var(--line);
+  background: #fff;
+  display: grid;
+  place-items: center;
+  color: var(--muted);
+}
+
+.icon-btn svg,
+.action-btn svg {
+  width: 22px;
+  height: 22px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.icon-btn:hover {
+  color: var(--blue);
+  border-color: rgba(37, 99, 235, 0.4);
+}
+
+.icon-btn[aria-pressed="true"] {
+  background: var(--blue);
+  color: #fff;
+  border-color: var(--blue);
+}
+
+/* ---------- Zona de treball ---------- */
+
+.lab {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) var(--panel-w);
+  gap: 12px;
+  min-height: 0;
+}
+
+.lab-card {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 12px 16px 12px;
+  min-height: 0;
+}
+
+.lab-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 36px;
+}
+
+.tag {
+  --c: var(--blue);
+  display: inline-flex;
+  align-items: center;
+  padding: 3px 11px;
+  border-radius: 999px;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--c);
+  background: color-mix(in srgb, var(--c) 12%, white);
+  border: 1px solid color-mix(in srgb, var(--c) 35%, white);
+}
+
+.status {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px 14px 4px 5px;
+  border-radius: 999px;
+  font-weight: 700;
+  background: #f1f5f9;
+  color: var(--muted);
+  border: 1px solid var(--line);
+  white-space: nowrap;
+}
+
+.status-icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  background: #cbd5e1;
+  color: #fff;
+  font-weight: 800;
+}
+
+.status.ok {
+  background: var(--green-soft);
+  color: var(--green);
+  border-color: #86efac;
+}
+
+.status.ok .status-icon {
+  background: #16a34a;
+}
+
+.status.bad {
+  background: var(--red-soft);
+  color: var(--red);
+  border-color: #fca5a5;
+}
+
+.status.bad .status-icon {
+  background: #dc2626;
+}
+
+.status.simplify {
+  background: var(--amber-soft);
+  color: var(--amber);
+  border-color: #fcd34d;
+}
+
+.status.simplify .status-icon {
+  background: #d97706;
+}
+
+/* Barra del mode Reto */
+.challenge-bar {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-left: auto;
+}
+
+.cb-item {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  background: var(--blue-soft);
+  color: #1e3a8a;
+  font-size: 0.88rem;
+  border: 1px solid rgba(37, 99, 235, 0.2);
+  white-space: nowrap;
+}
+
+.cb-item.timer {
+  font-weight: 600;
+}
+
+.cb-item.timer[aria-pressed="false"] {
+  background: #fff;
+  color: var(--muted);
+}
+
+.tries-dots {
+  display: inline-flex;
+  gap: 4px;
+}
+
+.tries-dots i {
+  width: 11px;
+  height: 11px;
+  border-radius: 50%;
+  border: 2px solid var(--blue);
+}
+
+.tries-dots i.on {
+  background: var(--blue);
+}
+
+.star-sm {
+  color: #f59e0b;
+  font-size: 1.05rem;
+}
+
+
+/* ---------- Accions i missatges ---------- */
+
+.action-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 10px;
+}
+
+.action-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  border: 0;
+  border-radius: 12px;
+  padding: 9px 18px;
+  font-weight: 700;
+  transition: transform 0.15s, box-shadow 0.15s;
+}
+
+.action-btn:hover:not(:disabled) {
+  transform: translateY(-1px);
+  box-shadow: 0 8px 18px rgba(15, 23, 42, 0.12);
+}
+
+.action-btn.check {
+  background: linear-gradient(135deg, #22c55e, #10b981);
+  color: #052e1b;
+  font-size: 1.05rem;
+  padding: 10px 24px;
+}
+
+.action-btn.soft {
+  background: rgba(148, 163, 184, 0.22);
+}
+
+.action-btn.icon-only {
+  padding: 9px 12px;
+}
+
+.action-btn.ghost {
+  background: transparent;
+  border: 1px solid var(--line-strong);
+  color: var(--muted);
+}
+
+.action-btn.next {
+  background: linear-gradient(135deg, #2563eb, #60a5fa);
+  color: #fff;
+  margin-left: auto;
+}
+
+.action-btn.small {
+  padding: 6px 12px;
+  font-size: 0.85rem;
+}
+
+.feedback {
+  flex: 1 1 100%;
+  margin: 0;
+  min-height: 2.7em;
+  padding: 6px 12px;
+  border-radius: 12px;
+  font-size: 0.98rem;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.feedback:empty {
+  background: transparent;
+}
+
+.feedback.success {
+  background: var(--green-soft);
+  color: #14532d;
+}
+
+.feedback.error {
+  background: var(--red-soft);
+  color: #7f1d1d;
+}
+
+.feedback.hint {
+  background: #e0ecff;
+  color: #1e3a8a;
+}
+
+.feedback strong {
+  font-weight: 800;
+}
+
+/* ---------- Panell lateral ---------- */
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  min-height: 0;
+}
+
+.panel {
+  padding: 12px 14px;
+}
+
+.panel-title {
+  margin: 0;
+  font-size: 0.95rem;
+  font-weight: 800;
+}
+
+
+.score-panel {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  padding: 10px;
+}
+
+.score {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 6px 4px;
+  border-radius: 12px;
+  background: var(--blue-soft);
+  border: 1px solid rgba(37, 99, 235, 0.18);
+}
+
+.score-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #1e40af;
+}
+
+.score-value {
+  font-size: 1.5rem;
+  font-weight: 800;
+  line-height: 1.1;
+}
+
+
+/* ---------- Diàlegs ---------- */
+
+.modal {
+  border: 0;
+  border-radius: 20px;
+  padding: 0;
+  width: min(820px, 92vw);
+  box-shadow: 0 30px 70px rgba(15, 23, 42, 0.35);
+  color: var(--text);
+}
+
+.modal.small {
+  width: min(460px, 92vw);
+}
+
+.modal::backdrop {
+  background: rgba(15, 23, 42, 0.45);
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 20px 6px;
+}
+
+.modal-head h2 {
+  margin: 0;
+  font-size: 1.25rem;
+}
+
+.modal-body {
+  padding: 8px 20px 20px;
+}
+
+.muted {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.progress-row {
+  display: grid;
+  grid-template-columns: 210px 1fr 64px;
+  align-items: center;
+  gap: 10px;
+}
+
+.progress-name {
+  font-weight: 650;
+  font-size: 0.9rem;
+}
+
+.progress-track {
+  height: 10px;
+  border-radius: 999px;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.progress-track span {
+  display: block;
+  height: 100%;
+  background: linear-gradient(90deg, #22c55e, #16a34a);
+}
+
+.progress-num {
+  font-weight: 700;
+  font-size: 0.9rem;
+  text-align: right;
+}
+
+.result-body {
+  text-align: center;
+}
+
+.stars {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  font-size: 3.2rem;
+  line-height: 1;
+  color: #e2e8f0;
+}
+
+.stars .on {
+  color: #f59e0b;
+  text-shadow: 0 4px 12px rgba(245, 158, 11, 0.4);
+}
+
+.result-points {
+  font-size: 1.4rem;
+  font-weight: 800;
+  margin: 10px 0 4px;
+}
+
+.result-actions {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 14px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Diàleg d'informació (taula d'ions i progrés) ---------- */
+
+.info-modal {
+  /* vw i vh es multipliquen pel zoom de la interfície: cal dividir-los. */
+  width: min(1000px, calc(94vw / var(--ui-zoom)));
+  max-height: calc(88vh / var(--ui-zoom));
+  overflow: hidden;
+  background: #f8fbff;
+}
+
+.info-modal[open] {
+  display: flex;
+  flex-direction: column;
+}
+
+.info-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  padding: 18px 22px 14px;
+  background: linear-gradient(120deg, #1d4ed8, #4f46e5 60%, #7c3aed);
+  color: #fff;
+}
+
+.info-title {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.info-title h2 {
+  margin: 0;
+  font-size: 1.35rem;
+}
+
+.info-title p {
+  margin: 2px 0 0;
+  font-size: 0.92rem;
+  opacity: 0.9;
+}
+
+.info-badge {
+  width: 46px;
+  height: 46px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.info-badge svg {
+  width: 26px;
+  height: 26px;
+  fill: none;
+  stroke: #fff;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.info-head .icon-btn {
+  background: rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.4);
+  color: #fff;
+}
+
+.info-head .icon-btn svg {
+  stroke: #fff;
+}
+
+.info-tabs {
+  display: flex;
+  gap: 6px;
+  padding: 10px 22px 0;
+  background: #fff;
+  border-bottom: 1px solid var(--line);
+}
+
+.info-tab {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 16px 11px;
+  border: 0;
+  border-bottom: 3px solid transparent;
+  background: none;
+  font: inherit;
+  font-weight: 650;
+  font-size: 0.95rem;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.info-tab svg {
+  width: 18px;
+  height: 18px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.info-tab:hover {
+  color: var(--text);
+}
+
+.info-tab[aria-selected="true"] {
+  color: var(--blue);
+  border-bottom-color: var(--blue);
+}
+
+.info-tab:focus-visible {
+  outline: 3px solid rgba(37, 99, 235, 0.35);
+  outline-offset: -3px;
+  border-radius: 8px 8px 0 0;
+}
+
+.info-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  padding: 18px 22px 22px;
+}
+
+.pane-title {
+  margin: 0 0 10px;
+  font-size: 0.82rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #475569;
+}
+
+.info-pane > .pane-title:not(:first-child) {
+  margin-top: 20px;
+}
+
+.pane-intro {
+  margin: 0 0 14px;
+  color: var(--muted);
+  font-size: 0.95rem;
+}
+
+/* Mi progreso */
+
+.stat-cards {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin-bottom: 20px;
+}
+
+.stat-card {
+  --c: var(--blue);
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 4px solid var(--c);
+}
+
+.stat-card.green { --c: var(--green); }
+.stat-card.slate { --c: #64748b; }
+.stat-card.amber { --c: #d97706; }
+.stat-card.violet { --c: var(--l4); }
+
+.stat-value {
+  font-size: 1.7rem;
+  font-weight: 800;
+  line-height: 1.1;
+  color: var(--c);
+}
+
+.stat-value small {
+  font-size: 0.95rem;
+  color: var(--muted);
+  font-weight: 700;
+}
+
+.stat-label {
+  font-size: 0.82rem;
+  font-weight: 650;
+  color: var(--muted);
+}
+
+.level-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 10px;
+}
+
+.level-card {
+  --c: var(--l1);
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 12px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.level-card.l2 { --c: var(--l2); }
+.level-card.l3 { --c: var(--l3); }
+.level-card.l4 { --c: var(--l4); }
+
+.level-card.complete {
+  background: #f0fdf4;
+  border-color: rgba(21, 128, 61, 0.35);
+}
+
+.ring {
+  --p: 0;
+  width: 58px;
+  height: 58px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: conic-gradient(var(--c) calc(var(--p) * 1%), #e2e8f0 0);
+}
+
+.ring span {
+  width: 44px;
+  height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: #fff;
+  font-size: 0.82rem;
+  font-weight: 800;
+  color: var(--c);
+}
+
+.level-info {
+  display: flex;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.level-info strong {
+  color: var(--c);
+}
+
+.level-num {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.level-info small {
+  font-size: 0.78rem;
+  color: var(--muted);
+}
+
+.type-progress {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 14px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+}
+
+.progress-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  margin-top: 16px;
+  flex-wrap: wrap;
+}
+
+.progress-foot .muted {
+  margin: 0;
+  flex: 1 1 320px;
+}
+
+/* ---------- Celebració ---------- */
+
+.confetti {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 300;
+  overflow: hidden;
+}
+
+.confetti i {
+  position: absolute;
+  top: -12px;
+  width: 9px;
+  height: 14px;
+  border-radius: 2px;
+  animation: confetti-fall 1.5s cubic-bezier(0.25, 0.6, 0.4, 1) forwards;
+}
+
+@keyframes confetti-fall {
+  to {
+    transform: translate(var(--dx), 105vh) rotate(var(--rot));
+    opacity: 0.2;
+  }
+}
+
+/* ---------- Peu de pàgina ---------- */
+
+.felip-app-footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 10;
+  height: var(--footer-h);
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 8px;
+  padding: 6px clamp(16px, 3vw, 38px);
+  border-top: 1px solid #dce3f3;
+  background: rgba(244, 246, 252, 0.97);
+  backdrop-filter: blur(8px);
+  color: #66728e;
+  font-size: 0.8rem;
+  line-height: 1.22;
+}
+
+.felip-license-image-link {
+  display: block;
+  line-height: 0;
+}
+
+.felip-license-image {
+  display: block;
+  width: 78px;
+  height: auto;
+}
+
+.felip-footer-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 3px;
+}
+
+.felip-footer-text p {
+  margin: 0;
+}
+
+.felip-footer-text a {
+  color: #3c5a99;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.felip-footer-text a:hover,
+.felip-footer-text a:focus-visible {
+  text-decoration: underline;
+}
+
+
+/* =====================================================================
+   Estils propis del laboratori de formulació
+   ===================================================================== */
+
+:root {
+  --pos: #c2410c;
+  --pos-soft: #ffedd5;
+  --neg: #0e7490;
+  --neg-soft: #cffafe;
+}
+
+/* El nivell de batxillerat fa servir el lila. */
+.level-chip.l3,
+.tag.l3,
+.level-card.l3 {
+  --c: var(--l4);
+}
+
+.badge-l3 {
+  margin-left: auto;
+  padding: 1px 6px;
+  border-radius: 6px;
+  background: #ede9fe;
+  color: var(--l4);
+  font-size: 0.72rem;
+  font-weight: 700;
+}
+
+.fm {
+  font-weight: 650;
+  white-space: nowrap;
+}
+
+.fm sub,
+.fm sup {
+  font-size: 0.68em;
+  line-height: 0;
+}
+
+/* Els signes + i − tipogràfics queden a l'eix matemàtic (mitja alçada de
+   la xifra); en una càrrega s'han d'alinear amb la part alta del nombre. */
+.sgn {
+  position: relative;
+  top: -0.2em;
+  margin-left: 0.04em;
+}
+
+.tag.activity {
+  --c: var(--blue);
+}
+
+.tag.family {
+  --c: #047857;
+}
+
+.q-tags {
+  display: flex;
+  gap: 6px;
+  flex-wrap: wrap;
+}
+
+/* ---------- Pregunta ---------- */
+
+.question {
+  text-align: center;
+  padding: 6px 12px 2px;
+}
+
+.q-label {
+  margin: 0;
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--muted);
+}
+
+.q-prompt {
+  margin: 4px 0 2px;
+  font-size: 2.1rem;
+  font-weight: 800;
+  line-height: 1.2;
+  color: #1e3a8a;
+  overflow-wrap: anywhere;
+}
+
+.q-prompt.is-formula {
+  font-size: 3rem;
+}
+
+.q-prompt sub,
+.q-prompt sup {
+  font-size: 0.62em;
+}
+
+.q-kind {
+  margin: 0;
+  min-height: 1.3em;
+  font-size: 0.88rem;
+  color: var(--muted);
+}
+
+.work {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: auto;
+  padding: 4px;
+}
+
+/* Respostes escrites */
+
+.answer-box {
+  width: min(680px, 100%);
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.answer-label {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.answer-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 2px solid var(--line-strong);
+  border-radius: 14px;
+  background: #fff;
+  font-size: 1.6rem;
+  font-weight: 650;
+}
+
+.answer-input:focus {
+  outline: none;
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.15);
+}
+
+.answer-input[readonly] {
+  background: #f8fafc;
+}
+
+.formula-input {
+  letter-spacing: 0.04em;
+}
+
+.preview {
+  margin: 0;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.preview .fm {
+  font-size: 1.6rem;
+  color: var(--text);
+}
+
+.input-tip {
+  margin: 0;
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.key-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 5px;
+}
+
+.key {
+  min-width: 36px;
+  padding: 5px 8px;
+  border: 1px solid var(--line-strong);
+  border-radius: 9px;
+  background: #fff;
+  font-weight: 700;
+}
+
+.key:hover {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* Elige la respuesta */
+
+.options {
+  width: min(860px, 100%);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.opt {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-height: 64px;
+  padding: 10px 14px;
+  border: 2px solid var(--line-strong);
+  border-radius: 14px;
+  background: #fff;
+  text-align: left;
+  font-size: 1.12rem;
+  font-weight: 650;
+  transition: transform 0.12s, border-color 0.12s;
+}
+
+.options.formulas .opt {
+  font-size: 1.5rem;
+}
+
+.opt:hover:not(:disabled) {
+  border-color: var(--blue);
+  transform: translateY(-1px);
+}
+
+.opt-letter {
+  width: 30px;
+  height: 30px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-size: 0.9rem;
+  font-weight: 800;
+}
+
+.opt.correct,
+.fam-btn.correct {
+  border-color: #16a34a;
+  background: var(--green-soft);
+  opacity: 1;
+}
+
+.opt.correct .opt-letter {
+  background: #16a34a;
+  color: #fff;
+}
+
+.opt.wrong,
+.fam-btn.wrong {
+  border-color: #fca5a5;
+  background: var(--red-soft);
+  text-decoration: line-through;
+}
+
+/* Clasifica */
+
+.families {
+  width: min(900px, 100%);
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+
+.fam-btn {
+  padding: 14px 10px;
+  border: 2px solid var(--line-strong);
+  border-radius: 14px;
+  background: #fff;
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.fam-btn:hover:not(:disabled) {
+  border-color: var(--blue);
+  color: var(--blue);
+}
+
+/* Construye con iones */
+
+.build {
+  width: 100%;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+  gap: 16px;
+  align-items: stretch;
+}
+
+.trays {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.tray {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  border: 1px dashed var(--line-strong);
+  background: #f8fafc;
+}
+
+.tray-label {
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.tray-label.pos {
+  color: var(--pos);
+}
+
+.tray-label.neg {
+  color: var(--neg);
+}
+
+.tiles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.ion-tile {
+  --c: var(--pos);
+  --soft: var(--pos-soft);
+  min-width: 82px;
+  padding: 8px 12px;
+  border: 2px solid color-mix(in srgb, var(--c) 45%, white);
+  border-radius: 12px;
+  background: var(--soft);
+  color: var(--c);
+  font-size: 1.35rem;
+  transition: transform 0.12s, box-shadow 0.12s;
+}
+
+.ion-tile.neg {
+  --c: var(--neg);
+  --soft: var(--neg-soft);
+}
+
+.ion-tile:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(15, 23, 42, 0.12);
+}
+
+.ion-tile[aria-pressed="true"] {
+  background: var(--c);
+  color: #fff;
+  border-color: var(--c);
+}
+
+.assembly {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 16px;
+  background: linear-gradient(160deg, rgba(239, 246, 255, 0.95), rgba(236, 253, 245, 0.7));
+  border: 1px solid var(--line);
+}
+
+.slot {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 10px;
+  border-radius: 12px;
+  background: #fff;
+  border-left: 5px solid var(--pos);
+  font-size: 1.5rem;
+}
+
+.slot.neg {
+  border-left-color: var(--neg);
+}
+
+.slot .fm {
+  min-width: 90px;
+}
+
+.slot-empty {
+  color: #94a3b8;
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.times {
+  margin-left: auto;
+  color: var(--muted);
+  font-size: 1.1rem;
+}
+
+.stepper {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.step-btn {
+  width: 34px;
+  height: 34px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  border-radius: 50%;
+  border: 1px solid var(--line-strong);
+  background: #fff;
+  color: var(--text);
+  transition: background 0.15s, border-color 0.15s, color 0.15s;
+}
+
+.step-btn:hover:not(:disabled) {
+  border-color: var(--blue);
+  background: #eff6ff;
+  color: var(--blue);
+}
+
+/* Signes + i − dibuixats: queden centrats exactament, sigui quina sigui la font. */
+.pm,
+.cells i {
+  position: relative;
+}
+
+.pm {
+  width: 12px;
+  height: 12px;
+}
+
+.pm::before,
+.pm.plus::after,
+.cells i::before,
+.cells i.p::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 2.5px;
+  border-radius: 2px;
+  background: currentColor;
+  transform: translate(-50%, -50%);
+}
+
+.pm.plus::after,
+.cells i.p::after {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.step-num {
+  min-width: 26px;
+  text-align: center;
+  font-size: 1.35rem;
+  font-weight: 800;
+  color: var(--blue);
+}
+
+.charge-meter {
+  padding: 8px 10px;
+  border-radius: 12px;
+  background: #fff;
+  border: 2px solid var(--line);
+}
+
+.charge-meter.zero {
+  border-color: #86efac;
+  background: #f0fdf4;
+}
+
+.meter-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 24px;
+}
+
+.meter-label {
+  width: 34px;
+  font-weight: 800;
+  font-size: 0.9rem;
+}
+
+.cells {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 3px;
+}
+
+.cells i {
+  width: 20px;
+  height: 20px;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  color: #fff;
+}
+
+.cells i::before,
+.cells i.p::after {
+  width: 10px;
+  height: 2px;
+}
+
+.cells i.p {
+  background: var(--pos);
+}
+
+.cells i.m {
+  background: var(--neg);
+}
+
+.meter-total {
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+}
+
+.build-formula {
+  text-align: center;
+  font-size: 2.2rem;
+  min-height: 1.6em;
+  color: #1e3a8a;
+}
+
+/* ---------- Panell lateral ---------- */
+
+.activity-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.activity-list {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.activity-opt {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 6px 10px;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  background: transparent;
+  text-align: left;
+}
+
+.activity-opt:hover {
+  background: var(--blue-soft);
+}
+
+.activity-opt[aria-checked="true"] {
+  background: var(--blue-soft);
+  border-color: rgba(37, 99, 235, 0.35);
+}
+
+.activity-name {
+  font-weight: 700;
+  font-size: 0.92rem;
+}
+
+.activity-opt[aria-checked="true"] .activity-name {
+  color: var(--blue);
+}
+
+.activity-desc {
+  font-size: 0.76rem;
+  color: var(--muted);
+}
+
+.help-panel {
+  flex: 1;
+  min-height: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.help-body {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  font-size: 0.9rem;
+}
+
+.tips-list,
+.hints-list {
+  margin: 0;
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.tips-list {
+  color: var(--muted);
+}
+
+.hints-list {
+  margin-top: 10px;
+  padding: 8px 8px 8px 26px;
+  border-radius: 10px;
+  background: #e0ecff;
+  color: #1e3a8a;
+}
+
+.comp-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.comp-formula {
+  font-size: 2rem;
+  color: #1e3a8a;
+}
+
+.comp-family {
+  margin: 0;
+  font-weight: 700;
+  color: #047857;
+}
+
+.name-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.name-list li {
+  display: flex;
+  flex-direction: column;
+  padding: 5px 8px;
+  border-radius: 8px;
+  background: #f1f5f9;
+}
+
+.name-text {
+  font-weight: 700;
+}
+
+.kind {
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.comp-note,
+.comp-context {
+  margin: 0;
+  font-size: 0.85rem;
+  color: var(--muted);
+}
+
+.comp-context {
+  padding: 6px 8px;
+  border-radius: 8px;
+  background: var(--amber-soft);
+  color: #78350f;
+}
+
+.feedback .ctx {
+  font-weight: 500;
+}
+
+.feedback .pts {
+  color: #15803d;
+}
+
+/* ---------- Mode Aprende ---------- */
+
+.learn {
+  display: grid;
+  grid-template-columns: 270px minmax(0, 1fr);
+  gap: 12px;
+  min-height: 0;
+}
+
+.learn-nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  overflow-y: auto;
+}
+
+.learn-nav .panel-title {
+  margin-bottom: 6px;
+}
+
+.module-link {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 10px;
+  border: 1px solid transparent;
+  border-radius: 12px;
+  background: transparent;
+  text-align: left;
+  font-weight: 650;
+}
+
+.module-link:hover {
+  background: var(--blue-soft);
+}
+
+.module-link.active {
+  background: var(--blue-soft);
+  border-color: rgba(37, 99, 235, 0.35);
+  color: var(--blue);
+}
+
+.module-num {
+  width: 28px;
+  height: 28px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  border-radius: 9px;
+  background: #e2e8f0;
+  font-weight: 800;
+}
+
+.module-link.active .module-num {
+  background: var(--blue);
+  color: #fff;
+}
+
+.module-title {
+  flex: 1;
+}
+
+.module-link .tag {
+  padding: 1px 7px;
+  font-size: 0.7rem;
+}
+
+.learn-card {
+  min-height: 0;
+  overflow-y: auto;
+  padding: 18px 22px;
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.learn-head h2 {
+  margin: 2px 0 6px;
+  font-size: 1.7rem;
+  color: #1e3a8a;
+}
+
+.learn-kicker {
+  font-size: 0.8rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--blue);
+}
+
+.learn-intro {
+  margin: 0 0 14px;
+  font-size: 1.05rem;
+  color: var(--muted);
+}
+
+.learn-boxes {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(360px, 1fr));
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.learn-box {
+  padding: 12px 16px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  font-size: 0.95rem;
+}
+
+.learn-box.batx {
+  background: #faf5ff;
+  border-color: #ddd6fe;
+}
+
+.learn-box h3 {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0 0 8px;
+  font-size: 1.05rem;
+}
+
+.learn-box p {
+  margin: 0 0 8px;
+}
+
+.learn-box ul,
+.steps-mini {
+  margin: 0;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.learn-box .tip {
+  padding: 6px 10px;
+  border-radius: 8px;
+  background: var(--blue-soft);
+  color: #1e3a8a;
+}
+
+.learn-box.errors {
+  margin-bottom: 16px;
+  background: #fff7ed;
+  border-color: #fed7aa;
+}
+
+.learn-box.errors h3 {
+  color: #9a3412;
+}
+
+.mini-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+}
+
+.mini-table th,
+.mini-table td {
+  padding: 5px 8px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+
+.mini-table th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--muted);
+}
+
+.mini-table th .fm {
+  text-transform: none;
+}
+
+.prefix-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.prefix-grid > span {
+  padding: 6px;
+  border-radius: 8px;
+  background: #f1f5f9;
+  text-align: center;
+}
+
+.prefix-grid b {
+  color: var(--blue);
+}
+
+.ion-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ion-chips > span {
+  padding: 4px 12px;
+  border-radius: 999px;
+  background: var(--neg-soft);
+  color: #164e63;
+  font-size: 0.9rem;
+}
+
+.ion-chips .fm {
+  margin-right: 6px;
+}
+
+.rule-pair {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 8px;
+}
+
+.rule-pair > span {
+  flex: 1;
+  padding: 8px;
+  border-radius: 10px;
+  background: var(--amber-soft);
+  text-align: center;
+  font-size: 1.1rem;
+}
+
+.example-table,
+.acid-table {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 16px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  overflow: hidden;
+}
+
+.example-row {
+  display: grid;
+  grid-template-columns: 150px 1fr;
+  align-items: center;
+  gap: 10px;
+  padding: 8px 14px;
+}
+
+.example-row + .example-row,
+.acid-row + .acid-row {
+  border-top: 1px solid var(--line);
+}
+
+.ex-formula {
+  font-size: 1.4rem;
+  color: #1e3a8a;
+}
+
+.ex-names {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.ex-name {
+  display: inline-flex;
+  flex-direction: column;
+  padding: 4px 10px;
+  border-radius: 10px;
+  background: #f1f5f9;
+  font-weight: 650;
+}
+
+.ex-name small {
+  font-size: 0.72rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+.acid-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 100px 1fr;
+  gap: 10px;
+  align-items: center;
+  padding: 6px 14px;
+  font-size: 0.95rem;
+}
+
+.acid-row .fm {
+  font-size: 1.1rem;
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 10px;
+  margin-bottom: 16px;
+}
+
+.gallery-card {
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+  padding: 12px;
+  border-radius: 14px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-top: 4px solid #f59e0b;
+}
+
+.g-formula {
+  font-size: 1.5rem;
+  color: #1e3a8a;
+}
+
+.g-name {
+  font-weight: 700;
+}
+
+.g-ctx {
+  font-size: 0.86rem;
+  color: var(--muted);
+}
+
+.learn-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  padding-top: 8px;
+}
+
+/* ---------- Tabla de iones (diàleg) ---------- */
+
+.ion-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 2fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.pane-title.pos {
+  color: var(--pos);
+}
+
+.pane-title.neg {
+  color: var(--neg);
+}
+
+.ion-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  column-gap: 14px;
+}
+
+.ion-row {
+  display: grid;
+  grid-template-columns: 74px 1fr;
+  align-items: baseline;
+  gap: 2px 8px;
+  padding: 4px 6px;
+  border-bottom: 1px solid var(--line);
+}
+
+.ion-row.batx {
+  background: #faf5ff;
+}
+
+.ion-f {
+  font-size: 1.08rem;
+}
+
+.ion-n {
+  font-weight: 600;
+  font-size: 0.92rem;
+}
+
+.ion-x {
+  grid-column: 2;
+  font-size: 0.74rem;
+  color: var(--muted);
+}
+
+.muted.small {
+  font-size: 0.8rem;
+}
+
+/* ---------- Modo proyector i amplada efectiva reduïda ---------- */
+
+.projector .q-prompt {
+  font-size: 2.5rem;
+}
+
+.projector .q-prompt.is-formula {
+  font-size: 3.4rem;
+}
+
+.projector .activity-desc {
+  display: none;
+}
+
+.projector .assembly {
+  gap: 4px;
+  padding: 8px 12px;
+}
+
+.projector .slot {
+  padding: 2px 10px;
+}
+
+.projector .tray {
+  padding: 8px 10px;
+}
+
+.projector .ion-tile {
+  min-width: 70px;
+  padding: 6px 9px;
+}
+
+.projector .step-btn {
+  width: 30px;
+  height: 30px;
+}
+
+.projector .meter-row {
+  min-height: 20px;
+}
+
+.projector .charge-meter {
+  padding: 5px 10px;
+}
+
+.projector .meter-total {
+  margin-top: 2px;
+}
+
+.projector .build-formula {
+  font-size: 1.85rem;
+  min-height: 1.2em;
+  line-height: 1.2;
+}
+
+.compact {
+  --panel-w: 260px;
+}
+
+.compact .brand-title {
+  display: none;
+}
+
+.compact .lab-head {
+  flex-wrap: wrap;
+  row-gap: 6px;
+}
+
+.compact .challenge-bar {
+  margin-left: 0;
+}
+
+/* ---------- Mòbil i tauleta vertical (sense escalat, amb desplaçament) ---------- */
+
+@media (max-width: 899px) {
+  :root {
+    --footer-h: 58px;
+  }
+
+  .app-shell {
+    height: auto;
+    min-height: 100dvh;
+    padding: 10px 10px calc(var(--footer-h) + 12px);
+    gap: 10px;
+  }
+
+  .topbar {
+    flex-wrap: wrap;
+    gap: 8px 10px;
+    padding: 10px;
+  }
+
+  .brand {
+    flex: 1 1 100%;
+  }
+
+  .brand-logo {
+    width: 34px;
+    height: 34px;
+  }
+
+  .brand-title {
+    font-size: 1.1rem;
+  }
+
+  .filters {
+    order: 3;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .top-actions {
+    margin-left: auto;
+    flex-wrap: wrap;
+  }
+
+  .lab,
+  .learn {
+    grid-template-columns: 1fr;
+  }
+
+  .lab-head {
+    flex-wrap: wrap;
+  }
+
+  .challenge-bar {
+    flex-wrap: wrap;
+    margin-left: 0;
+  }
+
+  .q-prompt {
+    font-size: 1.6rem;
+  }
+
+  .q-prompt.is-formula {
+    font-size: 2.3rem;
+  }
+
+  .work {
+    overflow: visible;
+  }
+
+  .answer-input {
+    font-size: 1.3rem;
+  }
+
+  .options,
+  .build {
+    grid-template-columns: 1fr;
+  }
+
+  .families {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .ion-tile {
+    min-width: 70px;
+    font-size: 1.15rem;
+  }
+
+  .side-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  .help-body {
+    overflow: visible;
+  }
+
+  .action-btn.next {
+    margin-left: 0;
+  }
+
+  .learn-nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .learn-nav .panel-title {
+    flex: 1 1 100%;
+  }
+
+  .module-link {
+    flex: 1 1 45%;
+    padding: 6px;
+    font-size: 0.85rem;
+  }
+
+  .module-link .tag {
+    display: none;
+  }
+
+  .learn-card {
+    overflow: visible;
+    padding: 14px;
+  }
+
+  .learn-boxes {
+    grid-template-columns: 1fr;
+  }
+
+  .example-row {
+    grid-template-columns: 1fr;
+  }
+
+  .acid-row {
+    grid-template-columns: 90px 1fr;
+  }
+
+  .info-modal {
+    width: 96vw;
+    max-height: 92dvh;
+  }
+
+  .info-title p,
+  .info-badge {
+    display: none;
+  }
+
+  .info-tab {
+    flex: 1;
+    justify-content: center;
+  }
+
+  .ion-columns,
+  .ion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .stat-cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .stat-cards .stat-card:first-child {
+    grid-column: 1 / -1;
+  }
+
+  .level-cards {
+    grid-template-columns: 1fr;
+  }
+
+  .progress-row {
+    grid-template-columns: 1fr 64px;
+  }
+
+  .progress-row .progress-track {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+
+  .felip-license-image {
+    width: 64px;
+  }
+
+  .felip-app-footer {
+    font-size: 0.74rem;
+  }
+}
+
+.nowrap {
+  white-space: nowrap;
+}
+</style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <!-- Barra superior: títol, mode, filtres i accions -->
+      <header class="topbar">
+        <div class="brand">
+          <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA2NCA2NCI+CiAgPGRlZnM+CiAgICA8bGluZWFyR3JhZGllbnQgaWQ9ImciIHgxPSIwIiB5MT0iMCIgeDI9IjEiIHkyPSIxIj4KICAgICAgPHN0b3Agb2Zmc2V0PSIwIiBzdG9wLWNvbG9yPSIjMWQ0ZWQ4Ii8+CiAgICAgIDxzdG9wIG9mZnNldD0iMSIgc3RvcC1jb2xvcj0iIzdjM2FlZCIvPgogICAgPC9saW5lYXJHcmFkaWVudD4KICA8L2RlZnM+CiAgPHJlY3Qgd2lkdGg9IjY0IiBoZWlnaHQ9IjY0IiByeD0iMTQiIGZpbGw9InVybCgjZykiLz4KICA8cmVjdCB4PSI3IiB5PSIxNyIgd2lkdGg9IjI0IiBoZWlnaHQ9IjMwIiByeD0iNiIgZmlsbD0iI2ZkZTY4YSIvPgogIDxwYXRoIGQ9Ik0zMSAyNWg1djE0aC01IiBmaWxsPSIjZmRlNjhhIi8+CiAgPHJlY3QgeD0iMzMiIHk9IjE3IiB3aWR0aD0iMjQiIGhlaWdodD0iMzAiIHJ4PSI2IiBmaWxsPSIjYmFlNmZkIi8+CiAgPHBhdGggZD0iTTMzIDI1aDR2MTRoLTQiIGZpbGw9IiMxZDRlZDgiIG9wYWNpdHk9IjAuMDAxIi8+CiAgPHRleHQgeD0iMTkiIHk9IjM4IiBmb250LWZhbWlseT0iU2Vnb2UgVUksIEFyaWFsLCBzYW5zLXNlcmlmIiBmb250LXNpemU9IjE1IiBmb250LXdlaWdodD0iODAwIiB0ZXh0LWFuY2hvcj0ibWlkZGxlIiBmaWxsPSIjOTI0MDBlIj5OYTwvdGV4dD4KICA8dGV4dCB4PSI0NSIgeT0iMzgiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTUiIGZvbnQtd2VpZ2h0PSI4MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiMwNzU5ODUiPkNsPC90ZXh0PgogIDx0ZXh0IHg9IjI2IiB5PSIxNCIgZm9udC1mYW1pbHk9IlNlZ29lIFVJLCBBcmlhbCwgc2Fucy1zZXJpZiIgZm9udC1zaXplPSIxMSIgZm9udC13ZWlnaHQ9IjgwMCIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iI2ZmZiI+KzwvdGV4dD4KICA8dGV4dCB4PSI1MiIgeT0iMTQiIGZvbnQtZmFtaWx5PSJTZWdvZSBVSSwgQXJpYWwsIHNhbnMtc2VyaWYiIGZvbnQtc2l6ZT0iMTEiIGZvbnQtd2VpZ2h0PSI4MDAiIHRleHQtYW5jaG9yPSJtaWRkbGUiIGZpbGw9IiNmZmYiPuKIkjwvdGV4dD4KPC9zdmc+Cg==" alt="" class="brand-logo" />
+          <h1 class="brand-title">Laboratorio de formulación</h1>
+        </div>
+
+        <div class="mode-tabs" role="tablist" aria-label="Mode de treball">
+          <button type="button" role="tab" class="mode-tab" data-mode="apren" aria-selected="false">Aprende</button>
+          <button type="button" role="tab" class="mode-tab active" data-mode="practica" aria-selected="true">Practica</button>
+          <button type="button" role="tab" class="mode-tab" data-mode="repte" aria-selected="false">Reto</button>
+        </div>
+
+        <div class="filters">
+          <div class="level-chips" id="levelChips" role="group" aria-label="Niveles"></div>
+          <div class="dropdown" id="familyDropdown">
+            <button type="button" class="dropdown-trigger" id="familyTrigger" aria-haspopup="true" aria-expanded="false">Todas las familias</button>
+            <div class="dropdown-menu" id="familyMenu" role="group" aria-label="Famílies de compostos"></div>
+          </div>
+        </div>
+
+        <div class="top-actions">
+          <button type="button" class="primary-btn" id="newQuestionBtn">Nueva pregunta</button>
+          <button type="button" class="icon-btn" id="ionsBtn" title="Tabla de iones" aria-label="Tabla de iones" aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="progressBtn" title="Mi progreso" aria-label="Mi progreso" aria-haspopup="dialog">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>
+          </button>
+          <button type="button" class="icon-btn" id="projectorBtn" aria-pressed="false" title="Modo proyector: lletra més gran per a la pissarra digital" aria-label="Modo proyector">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M12 16v4M8 20h8"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <!-- Mode Aprende: fitxes per mòduls -->
+      <main class="learn" id="learnView" hidden>
+        <nav class="learn-nav panel" id="moduleNav" aria-label="Módulos"></nav>
+        <article class="learn-card" id="moduleCard" aria-live="polite"></article>
+      </main>
+
+      <!-- Modes Practica i Reto -->
+      <main class="lab" id="practiceView">
+        <section class="lab-card" aria-label="Pregunta">
+          <div class="lab-head">
+            <div class="q-tags" id="qTags"></div>
+            <div class="challenge-bar" id="challengeBar" hidden></div>
+            <div class="status" id="statusBox">
+              <span class="status-icon" id="statusIcon" aria-hidden="true">?</span>
+              <span class="status-text" id="statusText">Sin responder</span>
+            </div>
+          </div>
+
+          <div class="question">
+            <p class="q-label" id="qLabel"></p>
+            <div class="q-prompt" id="qPrompt"></div>
+            <p class="q-kind" id="qKind"></p>
+          </div>
+
+          <div class="work" id="workArea"></div>
+
+          <div class="action-bar">
+            <button type="button" class="action-btn check" id="checkBtn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>Comprueba
+            </button>
+            <button type="button" class="action-btn soft" id="hintBtn">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18h6M10 21h4M12 3a6 6 0 0 0-3.5 10.9c.6.5 1 1.2 1 2.1h5c0-.9.4-1.6 1-2.1A6 6 0 0 0 12 3z"/></svg>Pista
+            </button>
+            <button type="button" class="action-btn ghost" id="solutionBtn">Muestra la solución</button>
+            <button type="button" class="action-btn next" id="nextBtn" hidden>Siguiente pregunta
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </button>
+            <p class="feedback neutral" id="feedback" role="status" aria-live="polite"></p>
+          </div>
+        </section>
+
+        <aside class="side-panel">
+          <section class="panel activity-panel" aria-labelledby="activityTitle">
+            <h2 class="panel-title" id="activityTitle">Actividad</h2>
+            <div class="activity-list" id="activityList" role="radiogroup" aria-label="Tipus d'activitat"></div>
+          </section>
+
+          <section class="panel help-panel" aria-labelledby="helpTitle">
+            <h2 class="panel-title" id="helpTitle">Ajuda</h2>
+            <div class="help-body" id="helpBody"></div>
+          </section>
+
+          <section class="panel score-panel" aria-label="Marcador">
+            <div class="score"><span class="score-label">Intents</span><span class="score-value" id="attemptCount">0</span></div>
+            <div class="score"><span class="score-label">Aciertos</span><span class="score-value" id="correctCount">0</span></div>
+            <div class="score"><span class="score-label">Ratxa</span><span class="score-value" id="streakCount">0</span></div>
+          </section>
+        </aside>
+      </main>
+
+      <footer class="felip-app-footer">
+        <a class="felip-license-image-link" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer" aria-label="Llicència Creative Commons BY-NC-SA 4.0">
+          <img class="felip-license-image" src="data:image/png;base64,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" alt="Creative Commons BY-NC-SA" />
+        </a>
+        <div class="felip-footer-text">
+          <p>Aplicación creada por <a href="https://ja.cat/felipsarroca" target="_blank" rel="noopener noreferrer">Felip Sarroca</a> con ayuda de la IA</p>
+          <p>Obra bajo licencia <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.ca" target="_blank" rel="noopener noreferrer">CC BY-NC-SA 4.0</a></p>
+        <p>Adaptació tècnica per a ús local, sense canvis en el contingut. <a href="https://felipsarroca.github.io/edu-apps/FormulacioInorganica/">Aplicació original</a>.</p></div>
+      </footer>
+    </div>
+
+    <!-- Tabla de iones i progrés -->
+    <dialog class="modal info-modal" id="infoDialog" aria-labelledby="infoTitle">
+      <div class="info-head">
+        <div class="info-title">
+          <span class="info-badge" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/><path d="M7.5 15h9"/></svg>
+          </span>
+          <div>
+            <h2 id="infoTitle">Quadern de formulació</h2>
+            <p>Consulta els ions i segueix el teu progrés.</p>
+          </div>
+        </div>
+        <button type="button" class="icon-btn close" data-close aria-label="Cerrar">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>
+        </button>
+      </div>
+      <div class="info-tabs" role="tablist" aria-label="Seccions">
+        <button type="button" role="tab" class="info-tab" id="tab-ions" data-tab="ions" aria-controls="pane-ions" aria-selected="true">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="16" rx="2"/><path d="M3 10h18M3 15h18M9 4v16"/></svg>Tabla de iones
+        </button>
+        <button type="button" role="tab" class="info-tab" id="tab-progres" data-tab="progres" aria-controls="pane-progres" aria-selected="false">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Mi progreso
+        </button>
+      </div>
+      <div class="info-body">
+        <section class="info-pane" id="pane-ions" role="tabpanel" aria-labelledby="tab-ions">
+          <p class="pane-intro">Els cations (positius) s'anomenen amb el nom de l'element; si en pot tenir més d'una càrrega, s'hi afegeixen xifres romanes. Els anions (negatius) acaben en <span class="nowrap">-ur</span>, <span class="nowrap">-at</span> o <span class="nowrap">-it</span>.</p>
+          <div id="ionTables"></div>
+        </section>
+        <section class="info-pane" id="pane-progres" role="tabpanel" aria-labelledby="tab-progres" hidden>
+          <div class="stat-cards" id="statCards"></div>
+          <h3 class="pane-title">Per nivells</h3>
+          <div class="level-cards" id="levelCards"></div>
+          <h3 class="pane-title">Per famílies</h3>
+          <div class="type-progress" id="familyProgress"></div>
+          <div class="progress-foot">
+            <p class="muted">Compten els compostos resolts sense mirar la solució. El progrés es desa només en aquest navegador.</p>
+            <button type="button" class="action-btn ghost small" id="resetProgressBtn">Esborra el progrés i el marcador</button>
+          </div>
+        </section>
+      </div>
+    </dialog>
+
+    <!-- Resultat del repte -->
+    <dialog class="modal small" id="resultDialog" aria-labelledby="resultTitle">
+      <div class="modal-head">
+        <h2 id="resultTitle">Reto acabat!</h2>
+      </div>
+      <div class="modal-body result-body">
+        <div class="stars" id="resultStars" aria-hidden="true"></div>
+        <p class="result-points" id="resultPoints"></p>
+        <p class="muted" id="resultDetail"></p>
+        <div class="result-actions">
+          <button type="button" class="primary-btn" id="playAgainBtn">Torna a jugar</button>
+          <button type="button" class="action-btn ghost" id="backPracticeBtn">Volver a practicar</button>
+        </div>
+      </div>
+    </dialog>
+
+    <script>
+const mod_formula = (()=>{
+// Lectura i escriptura de fórmules: recompte d'àtoms, validació de símbols i format HTML.
+// No depèn del DOM: el fan servir l'app i l'script de validació (scripts/valida-dades.mjs).
+//
+// Notació: subíndexs com a dígits (H2O, Ca(OH)2, Fe2(SO4)3) i càrrega amb «^» (Fe^3+, SO4^2-).
+
+const SYMBOLS = new Set(
+  (
+    "H He Li Be B C N O F Ne Na Mg Al Si P S Cl Ar K Ca Sc Ti V Cr Mn Fe Co Ni Cu Zn Ga Ge As Se Br Kr " +
+    "Rb Sr Y Zr Nb Mo Tc Ru Rh Pd Ag Cd In Sn Sb Te I Xe Cs Ba La Ce Pr Nd Pm Sm Eu Gd Tb Dy Ho Er Tm Yb Lu " +
+    "Hf Ta W Re Os Ir Pt Au Hg Tl Pb Bi Po At Rn Fr Ra Ac Th Pa U Np Pu Am Cm Bk Cf Es Fm Md No Lr"
+  ).split(" ")
+);
+
+const SUB_DIGITS = "₀₁₂₃₄₅₆₇₈₉";
+
+// Neteja el que escriu l'alumne: espais, subíndexs Unicode i signes.
+function cleanFormulaInput(text) {
+  return String(text ?? "")
+    .trim()
+    .replace(/\s+/g, "")
+    .replace(/[₀-₉]/g, (d) => String(SUB_DIGITS.indexOf(d)))
+    .replace(/[−–]/g, "-");
+}
+
+// Recompte d'àtoms: { Fe: 2, S: 3, O: 12 }. Llança un error si la fórmula no és vàlida.
+function parseFormula(formula) {
+  const body = cleanFormulaInput(formula).replace(/\^\d*[+-]$/, "");
+  if (!body) throw new Error("La fórmula és buida.");
+  let index = 0;
+  const stack = [{}];
+  const readNumber = () => {
+    const start = index;
+    while (index < body.length && /\d/.test(body[index])) index += 1;
+    return index > start ? Number.parseInt(body.slice(start, index), 10) : 1;
+  };
+  while (index < body.length) {
+    const char = body[index];
+    if (char === "(") {
+      index += 1;
+      stack.push({});
+    } else if (char === ")") {
+      index += 1;
+      if (stack.length < 2) throw new Error("Hi ha un parèntesi de tancament de més.");
+      const factor = readNumber();
+      const group = stack.pop();
+      Object.entries(group).forEach(([el, n]) => {
+        const top = stack[stack.length - 1];
+        top[el] = (top[el] ?? 0) + n * factor;
+      });
+    } else if (/[A-Z]/.test(char)) {
+      let symbol = char;
+      index += 1;
+      while (index < body.length && /[a-z]/.test(body[index])) {
+        symbol += body[index];
+        index += 1;
+      }
+      if (!SYMBOLS.has(symbol)) throw new Error(`«${symbol}» no és el símbol de cap element.`);
+      const amount = readNumber();
+      const top = stack[stack.length - 1];
+      top[symbol] = (top[symbol] ?? 0) + amount;
+    } else {
+      throw new Error(`No s'entén el caràcter «${char}».`);
+    }
+  }
+  if (stack.length !== 1) throw new Error("Falta tancar un parèntesi.");
+  return stack[0];
+}
+
+function sameCounts(a, b) {
+  const keys = new Set([...Object.keys(a), ...Object.keys(b)]);
+  return [...keys].every((k) => (a[k] ?? 0) === (b[k] ?? 0));
+}
+
+// Si b és un múltiple de a, retorna el factor (2, 3…); si no, 0.
+function multipleOf(a, b) {
+  const keys = Object.keys(a);
+  if (keys.length !== Object.keys(b).length || !keys.every((k) => b[k])) return 0;
+  const factor = b[keys[0]] / a[keys[0]];
+  return Number.isInteger(factor) && factor > 1 && keys.every((k) => b[k] === a[k] * factor) ? factor : 0;
+}
+
+// Fórmula en HTML amb subíndexs i càrrega en superíndex.
+function formulaHTML(formula) {
+  const text = String(formula ?? "");
+  const match = text.match(/\^(\d*)([+-])$/);
+  const body = match ? text.slice(0, match.index) : text;
+  let html = body.replace(/([A-Za-z)])(\d+)/g, "$1<sub>$2</sub>");
+  if (match) html += `<sup>${match[1] === "1" ? "" : match[1]}<span class="sgn">${match[2] === "+" ? "+" : "−"}</span></sup>`;
+  return html;
+}
+
+// Fórmula en text pla amb subíndexs Unicode (per a missatges i aria-label).
+function formulaText(formula) {
+  const SUP = { 0: "⁰", 1: "¹", 2: "²", 3: "³", 4: "⁴", 5: "⁵", 6: "⁶", 7: "⁷", 8: "⁸", 9: "⁹", "+": "⁺", "-": "⁻" };
+  const text = String(formula ?? "");
+  const match = text.match(/\^(\d*)([+-])$/);
+  const body = match ? text.slice(0, match.index) : text;
+  let out = body.replace(/([A-Za-z)])(\d+)/g, (_, a, d) => a + [...d].map((c) => SUB_DIGITS[c]).join(""));
+  if (match) out += [...(match[1] === "1" ? "" : match[1]), match[2]].map((c) => SUP[c]).join("");
+  return out;
+}
+
+return {cleanFormulaInput,parseFormula,sameCounts,multipleOf,formulaHTML,formulaText};
+})();
+const mod_nomenclatura = (()=>{
+// Catàleg de compostos inorgànics amb els seus noms (recomanacions IUPAC del 2005, versió catalana).
+// Els compostos iònics es generen a partir dels ions; la resta (substàncies simples, òxids de no-metalls,
+// compostos entre no-metalls i hidrurs progenitors) són llistes revisades a mà.
+// No depèn del DOM: el fan servir l'app i l'script de validació.
+
+const LEVELS = [
+  { id: 1, name: "Fácil", course: "3.º de ESO" },
+  { id: 2, name: "Medio", course: "4.º de ESO" },
+  { id: 3, name: "Bachillerato", course: "Bachillerato" },
+];
+
+const FAMILIES = [
+  { id: "simple", name: "Sustancia simple", plural: "Sustancias simples", level: 1, module: 1, rule: "Està formada per un sol element." },
+  { id: "oxid", name: "Óxido", plural: "Óxidos", level: 1, module: 2, rule: "Un element (metall o no-metall) combinat amb oxígeno, que actua com a O²⁻." },
+  { id: "hidrur", name: "Hidruro", plural: "Hidruroos", level: 1, module: 2, rule: "Hidrogen combinat amb un altre element: un metall (hidruro metàl·lic) o un no-metall (hidràcids i hidrurs progenitors)." },
+  { id: "salBinaria", name: "Sal binaria", plural: "Sales binarias", level: 1, module: 2, rule: "Un metall (o l'amonio) combinat amb un no-metall que no és oxígeno ni hidrógeno." },
+  { id: "nometalls", name: "Compuesto entre no metales", plural: "Compuestos entre no metales", level: 1, module: 2, rule: "Dos no-metalls units, sense oxígeno ni hidrógeno. S'anomenen amb prefixos." },
+  { id: "peroxid", name: "Peróxido", plural: "Peróxidos", level: 3, module: 2, rule: "Un metall o l'hidrógeno combinat amb el grup peróxido, O₂²⁻, que no es pot simplificar." },
+  { id: "hidroxid", name: "Hidróxido", plural: "Hidróxidos", level: 2, module: 3, rule: "Un metall combinat amb l'ió hidróxido, OH⁻." },
+  { id: "oxoacid", name: "Oxoácido", plural: "Oxoácidos", level: 2, module: 4, rule: "Hidrogen + no-metall (o metall de transició) + oxígeno: H + oxoanió." },
+  { id: "oxosal", name: "Oxosal", plural: "Oxosales", level: 2, module: 5, rule: "Un metall (o l'amonio) combinat amb un oxoanió." },
+  { id: "salAcida", name: "Sal ácida", plural: "Sales ácidas", level: 3, module: 5, rule: "Un metall (o l'amonio) combinat amb un anió que conserva algun hidrógeno." },
+];
+
+const KINDS = {
+  comp: "Composición",
+  ox: "Nombre de oxidació",
+  trad: "Tradicional",
+  hid: "D'hidrógeno",
+  com: "Nombre común",
+  acc: "Nombre aceptado",
+  elem: "Nombre del elemento",
+};
+
+const ELEMENT_NAMES = {
+  H: "hidrógeno", Li: "litio", Na: "sodio", K: "potasio", Mg: "magnesio", Ca: "calcio", Sr: "estroncio", Ba: "bario",
+  Al: "aluminio", Zn: "zinc", Ag: "plata", Fe: "hierro", Co: "cobalto", Ni: "níquel", Cu: "cobre", Au: "or",
+  Hg: "mercurio", Pb: "plomo", Sn: "estaño", Cr: "cromo", Mn: "manganeso", B: "boro", C: "carbono", Si: "silicio",
+  N: "nitrógeno", P: "fósforo", O: "oxígeno", S: "azufre", Se: "selenio", F: "flúor", Cl: "cloro", Br: "bromo", I: "yodo",
+  He: "helio", Ne: "neón", Ar: "argón",
+};
+
+const PREFIX = ["", "mono", "di", "tri", "tetra", "penta", "hexa", "hepta", "octa"];
+const ROMAN = ["", "I", "II", "III", "IV", "V", "VI", "VII"];
+
+/* ---------- Regles de llengua ---------- */
+
+// S'apostrofa davant de vocal o h + vocal, però no davant de i/u semivocals (de iode).
+function elides(word) {
+  return /^h?([aeoàèéòó]|[iíuú](?![aeiouàèéíòóú]))/i.test(word);
+}
+
+const de = (word) => `de ${word}`;
+
+const prefixed = (n, word) => (n === 1 ? word : PREFIX[n] + word);
+const monoWord = (word) => (word === "óxido" ? "monóxido" : `mono${word}`);
+const dePrefixed = (n, word) => (n === 1 ? de(word) : `de ${PREFIX[n]}${word}`);
+
+/* ---------- Ions ---------- */
+
+const gcd = (a, b) => (b ? gcd(b, a % b) : Math.abs(a));
+
+function cation(symbol, charge, opts = {}) {
+  return {
+    id: `${symbol}${charge}`,
+    formula: symbol,
+    charge,
+    name: ELEMENT_NAMES[symbol],
+    element: symbol,
+    variable: Boolean(opts.variable),
+    rare: Boolean(opts.rare),
+    only: opts.only ?? null,
+    poly: false,
+    level: opts.level ?? 1,
+  };
+}
+
+const V = { variable: true };
+const CATIONS = [
+  cation("Li", 1), cation("Na", 1), cation("K", 1), cation("Mg", 2), cation("Ca", 2), cation("Sr", 2), cation("Ba", 2),
+  cation("Al", 3), cation("Zn", 2), cation("Ag", 1),
+  cation("Fe", 2, V), cation("Fe", 3, V), cation("Co", 2, V), cation("Co", 3, { ...V, rare: true }),
+  cation("Ni", 2, V), cation("Ni", 3, { ...V, rare: true }), cation("Cu", 1, V), cation("Cu", 2, V),
+  cation("Au", 1, { ...V, rare: true }), cation("Au", 3, V), cation("Hg", 2, V), cation("Pb", 2, V),
+  cation("Pb", 4, { ...V, rare: true }), cation("Sn", 2, V), cation("Sn", 4, V), cation("Cr", 2, { ...V, rare: true }),
+  cation("Cr", 3, V), cation("Mn", 2, V), cation("Mn", 4, { ...V, only: ["oxid"] }),
+  { id: "NH4", formula: "NH4", charge: 1, name: "amonio", variable: false, poly: true, level: 2, only: ["salBinaria", "oxosal", "salAcida"] },
+];
+const H_CATION = { id: "H1", formula: "H", charge: 1, name: "hidrógeno", element: "H", variable: false, poly: false, level: 1 };
+
+function anion(formula, charge, name, level = 1, extra = {}) {
+  return { id: formula + charge, formula, charge: -charge, name, poly: /[A-Z].*[A-Z]|\d/.test(formula), level, ...extra };
+}
+
+const MONO_ANIONS = [
+  anion("F", 1, "fluoruro"), anion("Cl", 1, "cloruro"), anion("Br", 1, "bromuro"), anion("I", 1, "yoduro"),
+  anion("S", 2, "sulfuro"), anion("Se", 2, "seleniuro", 3), anion("O", 2, "óxido"), anion("H", 1, "hidruro"),
+];
+const byFormula = (list, f) => list.find((a) => a.formula === f);
+const OH = anion("OH", 1, "hidróxido", 2);
+const PEROXIDE = { ...anion("O2", 2, "peróxido", 3), poly: true };
+
+// Oxoanions: fórmula, càrrega, anió, àcid, arrel per a la nomenclatura d'hidrogen, nivell.
+const OXOANIONS = [
+  ["SO4", 2, "sulfato", "sulfúrico", "tetraoxidosulfato", 2],
+  ["SO3", 2, "sulfito", "sulfuroso", "trioxidosulfato", 2],
+  ["NO3", 1, "nitrato", "nítrico", "trioxidonitrato", 2],
+  ["NO2", 1, "nitrito", "nitroso", "dioxidonitrato", 2],
+  ["CO3", 2, "carbonato", "carbónico", "trioxidocarbonato", 2],
+  ["PO4", 3, "fosfato", "fosfórico", "tetraoxidofosfato", 2],
+  ["BO3", 3, "borato", "bórico", "trioxidoborato", 2],
+  ["SiO4", 4, "silicato", "silícico", "tetraoxidosilicato", 2],
+  ["ClO", 1, "hipoclorito", "hipocloroso", "oxidoclorato", 2],
+  ["ClO2", 1, "clorito", "cloroso", "dioxidoclorato", 2],
+  ["ClO3", 1, "clorato", "clórico", "trioxidoclorato", 2],
+  ["ClO4", 1, "perclorato", "perclórico", "tetraoxidoclorato", 2],
+  ["BrO", 1, "hipobromito", "hipobromoso", "oxidobromato", 3],
+  ["BrO3", 1, "bromato", "brómico", "trioxidobromato", 3],
+  ["BrO4", 1, "perbromato", "perbrómico", "tetraoxidobromato", 3],
+  ["IO", 1, "hipoyodito", "hipoyodoso", "oxidoyodato", 3],
+  ["IO3", 1, "yodato", "yódico", "trioxidoyodato", 3],
+  ["IO4", 1, "peryodato", "peryódico", "tetraoxidoyodato", 3],
+  ["SeO4", 2, "selenato", "selénico", "tetraoxidoselenato", 3],
+  ["SeO3", 2, "selenito", "selenioso", "trioxidoselenato", 3],
+  ["CrO4", 2, "cromato", "crómico", "tetraoxidocromato", 3],
+  ["Cr2O7", 2, "dicromato", "dicrómico", "heptaoxidodicromato", 3],
+  ["MnO4", 2, "manganato", "mangánico", "tetraoxidomanganato", 3],
+  ["MnO4", 1, "permanganato", "permangánico", "tetraoxidomanganato", 3],
+].map(([f, q, name, acid, hydro, level]) => anion(f, q, name, level, { acid, hydro, oxo: true }));
+
+// Anions amb hidrogen (sals àcides). S'accepta també la grafia «hidrogeno-».
+const ACID_ANIONS = [
+  ["HCO3", 1, "hidrogenocarbonato"],
+  ["HSO4", 1, "hidrogenosulfato"],
+  ["HSO3", 1, "hidrogenosulfito"],
+  ["H2PO4", 1, "dihidrogenofosfato"],
+  ["HPO4", 2, "hidrogenofosfato"],
+  ["HS", 1, "hidrogenosulfur"],
+].map(([f, q, name]) => anion(f, q, name, 3, { acidSalt: true }));
+
+function ionLabel(ion) {
+  const q = Math.abs(ion.charge);
+  return `${ion.formula}^${q === 1 ? "" : q}${ion.charge > 0 ? "+" : "-"}`;
+}
+
+const cationName = (c) => (c.variable ? `${c.name}(${ROMAN[c.charge]})` : c.name);
+const ionName = (ion) => (ion.charge > 0 ? `ion ${cationName(ion)}` : `ion ${ion.name}`);
+
+/* ---------- Construcció de compostos ---------- */
+
+function ionCounts(cat, an) {
+  const g = gcd(cat.charge, -an.charge);
+  return { nC: -an.charge / g, nA: cat.charge / g };
+}
+
+function ionicFormula(cat, an, nC, nA, acid = false) {
+  const part = (ion, n, bracket) => (bracket && n > 1 ? `(${ion.formula})${n}` : `${ion.formula}${n > 1 ? n : ""}`);
+  return part(cat, nC, cat.poly) + part(an, nA, an.poly && !acid);
+}
+
+function mergeNames(list) {
+  const out = [];
+  list.forEach((n) => {
+    const same = out.find((o) => o.text === n.text);
+    if (same) same.kinds = [...new Set([...same.kinds, ...n.kinds])];
+    else out.push({ ...n, kinds: [...n.kinds] });
+  });
+  return out;
+}
+
+const nm = (text, kind, level = 1) => ({ text, kinds: [kind], level });
+
+function record(data) {
+  return {
+    accept: [],
+    ions: null,
+    context: CONTEXT[data.formula] ?? null,
+    ...data,
+    names: mergeNames(data.names),
+  };
+}
+
+// Óxidos, hidrurs metàl·lics, sals binàries i hidròxids: nom amb nombre d'oxidació i de composició.
+function binaryIonic(cat, an, family) {
+  const { nC, nA } = ionCounts(cat, an);
+  const formula = ionicFormula(cat, an, nC, nA);
+  const names = [nm(`${an.name} ${de(cationName(cat))}`, "ox")];
+  const accept = [];
+  if (!cat.poly) {
+    if (nA === 1) {
+      const mono = `${monoWord(an.name)} ${dePrefixed(nC, cat.name)}`;
+      const plain = `${an.name} ${dePrefixed(nC, cat.name)}`;
+      if (cat.variable && nC === 1) {
+        names.push(nm(mono, "comp"));
+        accept.push(plain);
+      } else {
+        names.push(nm(plain, "comp"));
+        accept.push(mono);
+      }
+    } else {
+      names.push(nm(`${prefixed(nA, an.name)} ${dePrefixed(nC, cat.name)}`, "comp"));
+    }
+  }
+  return record({
+    formula,
+    family,
+    level: Math.max(familyLevel(family), cat.level, an.level),
+    names,
+    accept,
+    ions: { cat, an, nC, nA },
+  });
+}
+
+function peroxide(cat) {
+  const { nC, nA } = ionCounts(cat, PEROXIDE);
+  const formula = ionicFormula(cat, PEROXIDE, nC, nA);
+  const names = [nm(`peróxido ${de(cationName(cat))}`, "acc"), nm(`${prefixed(2 * nA, "óxido")} ${dePrefixed(nC, cat.name)}`, "comp")];
+  if (cat.id === "H1") names.push(nm("agua oxigenada", "com"));
+  return record({ formula, family: "peroxid", level: 3, names, ions: { cat, an: PEROXIDE, nC, nA } });
+}
+
+function oxosalt(cat, an, family) {
+  const { nC, nA } = ionCounts(cat, an);
+  const formula = ionicFormula(cat, an, nC, nA);
+  const name = `${an.name} ${de(cationName(cat))}`;
+  const accept = an.acidSalt ? [name.replace(/hidrogen(?=[a-z])/g, "hidrogeno")] : [];
+  const names = [nm(name, "trad")];
+  if (formula === "NaHCO3") names.push(nm("bicarbonato de sodio", "com"));
+  return record({
+    formula,
+    family,
+    level: Math.max(familyLevel(family), cat.level, an.level),
+    names,
+    accept,
+    ions: { cat, an, nC, nA },
+  });
+}
+
+function oxoacid(an) {
+  const { nC } = ionCounts(H_CATION, an);
+  const formula = ionicFormula(H_CATION, an, nC, 1, true);
+  const names = [nm(`ácido ${an.acid}`, "trad"), nm(`${nC === 1 ? "" : PREFIX[nC]}hidrógeno(${an.hydro})`, "hid", 3)];
+  return record({ formula, family: "oxoacid", level: an.level, names, ions: { cat: H_CATION, an, nC, nA: 1, acid: true } });
+}
+
+// Hidràcids: HCl, H2S… Noms de composició i, en dissolució aquosa, «àcid …hídric».
+function hydracid(an, acidName, level = 1) {
+  const { nC } = ionCounts(H_CATION, an);
+  const formula = ionicFormula(H_CATION, an, nC, 1, true);
+  const names = [nm(`${an.name} ${dePrefixed(nC, "hidrógeno")}`, "comp"), nm(`ácido ${acidName}`, "com")];
+  const accept = nC > 1 ? [`${an.name} de hidrógeno`] : [];
+  return record({
+    formula,
+    family: "hidrur",
+    level: Math.max(level, an.level),
+    names,
+    accept,
+    note: "El nom «ácido …hídric» s'usa quan està dissolt en agua.",
+    ions: { cat: H_CATION, an, nC, nA: 1, acid: true },
+  });
+}
+
+function familyLevel(id) {
+  return FAMILIES.find((f) => f.id === id).level;
+}
+
+/* ---------- Llistes revisades a mà ---------- */
+
+const SIMPLES = [
+  ["H2", [["dihidrógeno", "comp"], ["hidrógeno", "com"]]],
+  ["N2", [["dinitrógeno", "comp"], ["nitrógeno", "com"]]],
+  ["O2", [["dioxígeno", "comp"], ["oxígeno", "com"]]],
+  ["O3", [["trioxígeno", "comp"], ["ozono", "com"]]],
+  ["F2", [["diflúor", "comp"], ["flúor", "com"]]],
+  ["Cl2", [["dicloro", "comp"], ["cloro", "com"]]],
+  ["Br2", [["dibromo", "comp"], ["bromo", "com"]]],
+  ["I2", [["diyodo", "comp"], ["yodo", "com"]]],
+  ["P4", [["tetrafósforo", "comp"], ["fósforo blanc", "com"]]],
+  ["S8", [["octaazufre", "comp"], ["azufre", "com"]]],
+  ["He", [["helio", "elem"]]],
+  ["Ne", [["neón", "elem"]]],
+  ["Ar", [["argón", "elem"]]],
+  ["Fe", [["hierro", "elem"]]],
+  ["Cu", [["cobre", "elem"]]],
+  ["Au", [["or", "elem"]]],
+  ["Hg", [["mercurio", "elem"]]],
+  ["Na", [["sodio", "elem"]]],
+];
+
+// Óxidos de no-metalls: fórmula, composició, nombre d'oxidació.
+const NONMETAL_OXIDES = [
+  ["CO", "monóxido de carbono", "óxido de carbono(II)"],
+  ["CO2", "dióxido de carbono", "óxido de carbono(IV)"],
+  ["SiO2", "dióxido de silicio", "óxido de silicio"],
+  ["SO2", "dióxido de azufre", "óxido de azufre(IV)"],
+  ["SO3", "trióxido de azufre", "óxido de azufre(VI)"],
+  ["N2O", "óxido de dinitrógeno", "óxido de nitrógeno(I)"],
+  ["NO", "monóxido de nitrógeno", "óxido de nitrógeno(II)"],
+  ["N2O3", "trióxido de dinitrógeno", "óxido de nitrógeno(III)"],
+  ["NO2", "dióxido de nitrógeno", "óxido de nitrógeno(IV)"],
+  ["N2O5", "pentóxido de dinitrógeno", "óxido de nitrógeno(V)"],
+  ["P2O3", "trióxido de difósforo", "óxido de fósforo(III)"],
+  ["P2O5", "pentóxido de difósforo", "óxido de fósforo(V)"],
+  ["B2O3", "trióxido de diboro", "óxido de boro"],
+  ["Cl2O", "óxido de dicloro", "óxido de cloro(I)"],
+  ["Cl2O3", "trióxido de dicloro", "óxido de cloro(III)"],
+  ["Cl2O5", "pentóxido de dicloro", "óxido de cloro(V)"],
+  ["Cl2O7", "heptóxido de dicloro", "óxido de cloro(VII)"],
+  ["Br2O", "óxido de dibromo", "óxido de bromo(I)"],
+  ["I2O5", "pentóxido de diyodo", "óxido de yodo(V)"],
+  ["SeO2", "dióxido de selenio", "óxido de selenio(IV)", 3],
+];
+
+// Compuestos entre no metales: fórmula, composició, nombre d'oxidació (si n'hi ha).
+const NONMETAL_BINARIES = [
+  ["PCl3", "tricloruro de fósforo", "cloruro de fósforo(III)"],
+  ["PCl5", "pentacloruro de fósforo", "cloruro de fósforo(V)"],
+  ["CCl4", "tetracloruro de carbono", "cloruro de carbono(IV)"],
+  ["CS2", "disulfuro de carbono", "sulfuro de carbono(IV)"],
+  ["SF6", "hexafluoruro de azufre", "fluoruro de azufre(VI)"],
+  ["NCl3", "tricloruro de nitrógeno", "cloruro de nitrógeno(III)"],
+  ["BF3", "trifluoruro de boro", "fluoruro de boro"],
+  ["SiCl4", "tetracloruro de silicio", "cloruro de silicio"],
+  ["SiC", "carburo de silicio", null],
+  ["OF2", "difluoruro de oxígeno", null],
+  ["BrF3", "trifluoruro de bromo", "fluoruro de bromo(III)", 3],
+  ["IF5", "pentafluoruro de yodo", "fluoruro de yodo(V)", 3],
+];
+
+// Hidruroos progenitors: nom comú acceptat i nom sistemàtic.
+const PARENT_HYDRIDES = [
+  ["H2O", [["agua", "com"]], 1],
+  ["NH3", [["amoníaco", "com"], ["azano", "acc"]], 1],
+  ["CH4", [["metano", "acc"]], 1],
+  ["PH3", [["fosfano", "acc"]], 3, ["fosfina"]],
+  ["SiH4", [["silano", "acc"]], 3],
+];
+
+// Contextos de la vida quotidiana.
+const CONTEXT = {
+  NaCl: "Sal de cuina.",
+  KCl: "Substitut de la sal de cuina.",
+  KI: "S'afegeix a la sal iodada.",
+  CaCl2: "Sal per desglaçar les carreteres.",
+  NaF: "Pasta de dents.",
+  CaF2: "Fluorita, un mineral.",
+  AgBr: "Pel·lícules fotogràfiques antigues.",
+  PbS: "Galena, el mineral del plomo.",
+  HgS: "Cinabri, el mineral del mercurio.",
+  NH4Cl: "Piles seques i soldadura.",
+  Fe2O3: "Rovell: el hierro s'oxida a l'aire humit.",
+  CaO: "Calç viva, per fer morter.",
+  Al2O3: "Corindó: els robins i els safirs.",
+  ZnO: "Cremes solars de protecció.",
+  SnO2: "Cassiterita, el mineral de l'estaño.",
+  MnO2: "Piles alcalines.",
+  Cu2O: "Pigment vermell.",
+  MgO: "Magnèsia dels gimnastes i escaladors.",
+  CO2: "Bombolles de les begudes i gas de la respiració.",
+  CO: "Gas tòxic de les combustions incompletes.",
+  SO2: "Conservant del vi i causa de la pluja àcida.",
+  NO2: "Fum marronós de la contaminació del trànsit.",
+  N2O: "Gas hilarant, anestèsic.",
+  SiO2: "Sorra i quars.",
+  H2O: "Aigua.",
+  NH3: "Netejadors amoniacals i adobs.",
+  CH4: "Gas natural.",
+  HCl: "Salfumant (dissolt en agua) i suc gàstric.",
+  H2S: "Olor de ous podrits.",
+  NaH: "Agent reductor al laboratori.",
+  H2O2: "Aigua oxigenada, desinfectant.",
+  NaOH: "Sosa càustica, per fer sabó.",
+  KOH: "Fabricació de sabons tous.",
+  "Ca(OH)2": "Calç apagada, per fer morter.",
+  "Mg(OH)2": "Antiàcid (llet de magnèsia).",
+  "Al(OH)3": "Antiàcid per a l'estómac.",
+  H2SO4: "Àcid de les bateries dels cotxes.",
+  HNO3: "Fabricació de adobs i explosius.",
+  H3PO4: "Refrescs de cola.",
+  H2CO3: "Es forma quan el CO₂ es dissol a l'agua amb gas.",
+  H3BO3: "Antisèptic suau (agua bòrica).",
+  CaCO3: "Marbre, pedra calcària i closques.",
+  Na2CO3: "Sosa de rentar.",
+  NaClO: "Lleixiu.",
+  "Ca(ClO)2": "Desinfectant de piscines.",
+  CaSO4: "Guix.",
+  MgSO4: "Sal d'Epsom.",
+  CuSO4: "Tractament de les vinyes (brou bordelès).",
+  BaSO4: "Contrast per a radiografies de l'aparell digestiu.",
+  KNO3: "Salnitre, de la pólvora.",
+  NH4NO3: "Adob agrícola.",
+  NaNO2: "Conservant dels embotits (E-250).",
+  NaNO3: "Nitrat de Xile, un adob.",
+  "Ca3(PO4)2": "Ossos i dents.",
+  AgNO3: "Tintes de cabell antigues i cauteritzar berrugues.",
+  KMnO4: "Desinfectant de color lila.",
+  K2Cr2O7: "Antics controls de alcoholèmia.",
+  NaHCO3: "Bicarbonat de cuina i llevat químic.",
+  O3: "Capa de ozono, que ens protegeix dels raigs UV.",
+  N2: "El 78 % de l'aire.",
+  O2: "El 21 % de l'aire; el respirem.",
+  Hg: "Termòmetres antics.",
+};
+
+/* ---------- Catàleg ---------- */
+
+const COMMON_SALT_CATIONS = ["Na1", "K1", "Li1", "Mg2", "Ca2", "Ba2", "Al3", "Zn2", "Ag1", "NH4", "Fe2", "Fe3", "Cu1", "Cu2", "Pb2", "Ni2", "Co2", "Hg2"];
+const ADVANCED_SALT_CATIONS = ["Na1", "K1", "Mg2", "Ca2", "Ba2", "Ag1", "NH4", "Fe3", "Cu2"];
+const ACID_SALT_CATIONS = ["Na1", "K1", "Li1", "Mg2", "Ca2", "Ba2", "NH4", "Fe2", "Cu2"];
+const HYDRIDE_METALS = ["Li1", "Na1", "K1", "Mg2", "Ca2", "Ba2", "Al3"];
+const PEROXIDE_CATIONS = ["H1", "Li1", "Na1", "K1", "Mg2", "Ca2", "Ba2", "Zn2"];
+
+const catById = (id) => (id === "H1" ? H_CATION : CATIONS.find((c) => c.id === id));
+const allows = (cat, family, an) => {
+  if (cat.only) return cat.only.includes(family);
+  if (cat.rare) return family === "oxid" || family === "hidroxid" || (family === "salBinaria" && an?.formula === "Cl");
+  return true;
+};
+
+function buildCatalog() {
+  const list = [];
+  SIMPLES.forEach(([formula, names]) =>
+    list.push(record({ formula, family: "simple", level: 1, names: names.map(([t, k]) => nm(t, k)) }))
+  );
+
+  const metals = CATIONS.filter((c) => !c.poly);
+  metals.filter((c) => allows(c, "oxid")).forEach((c) => list.push(binaryIonic(c, byFormula(MONO_ANIONS, "O"), "oxid")));
+  NONMETAL_OXIDES.forEach(([formula, comp, ox, level = 1]) => {
+    const names = [nm(comp, "comp"), nm(ox, "ox")];
+    const accept = /^òxid de di/.test(comp) ? [comp.replace(/^òxid/, "monóxido")] : [];
+    list.push(record({ formula, family: "oxid", level, names, accept }));
+  });
+
+  HYDRIDE_METALS.forEach((id) => list.push(binaryIonic(catById(id), byFormula(MONO_ANIONS, "H"), "hidrur")));
+  [["F", "fluorhídrico"], ["Cl", "clorhídrico"], ["Br", "bromhídrico"], ["I", "yodhídrico"], ["S", "sulfhídrico"], ["Se", "selenhídrico"]].forEach(
+    ([f, acid]) => list.push(hydracid(byFormula(MONO_ANIONS, f), acid))
+  );
+  PARENT_HYDRIDES.forEach(([formula, names, level, accept = []]) =>
+    list.push(record({ formula, family: "hidrur", level, names: names.map(([t, k]) => nm(t, k)), accept }))
+  );
+
+  const binaryAnions = MONO_ANIONS.filter((a) => ["F", "Cl", "Br", "I", "S"].includes(a.formula));
+  CATIONS.forEach((c) =>
+    binaryAnions.forEach((a) => {
+      if (allows(c, "salBinaria", a)) list.push(binaryIonic(c, a, "salBinaria"));
+    })
+  );
+  NONMETAL_BINARIES.forEach(([formula, comp, ox, level = 1]) => {
+    const names = [nm(comp, "comp")];
+    if (ox) names.push(nm(ox, "ox"));
+    list.push(record({ formula, family: "nometalls", level, names }));
+  });
+
+  PEROXIDE_CATIONS.forEach((id) => list.push(peroxide(catById(id))));
+  metals.filter((c) => allows(c, "hidroxid")).forEach((c) => list.push(binaryIonic(c, OH, "hidroxid")));
+  OXOANIONS.forEach((a) => list.push(oxoacid(a)));
+  OXOANIONS.forEach((a) => {
+    const cats = a.level >= 3 ? ADVANCED_SALT_CATIONS : COMMON_SALT_CATIONS;
+    cats.forEach((id) => list.push(oxosalt(catById(id), a, "oxosal")));
+  });
+  ACID_ANIONS.forEach((a) => ACID_SALT_CATIONS.forEach((id) => list.push(oxosalt(catById(id), a, "salAcida"))));
+
+  // La fórmula és única i serveix d'identificador estable per al progrés desat.
+  return list.map((c) => ({ ...c, id: c.formula }));
+}
+
+// Ions agrupats per a la taula de referència.
+function ionTable() {
+  return {
+    cations: [...CATIONS, H_CATION],
+    monoAnions: MONO_ANIONS,
+    polyAnions: [OH, PEROXIDE, ...OXOANIONS, ...ACID_ANIONS],
+  };
+}
+
+return {LEVELS,FAMILIES,KINDS,ELEMENT_NAMES,ROMAN,elides,de,CATIONS,H_CATION,MONO_ANIONS,OH,PEROXIDE,OXOANIONS,ACID_ANIONS,ionLabel,cationName,ionName,ionCounts,ionicFormula,CONTEXT,buildCatalog,ionTable};
+})();
+const mod_exercicis = (()=>{
+// Correcció de respostes, opcions errònies plausibles i pistes per a cada tipus d'exercici.
+// No depèn del DOM.
+
+const { cleanFormulaInput, parseFormula, sameCounts, multipleOf, formulaText } = mod_formula;
+const {
+  FAMILIES, CATIONS, H_CATION, MONO_ANIONS, OXOANIONS, ACID_ANIONS, OH, PEROXIDE, ROMAN,
+  ionicFormula, ionCounts, ionLabel, cationName, elides,
+} = mod_nomenclatura;
+
+const withArticle = (word) => `el ${word}`;
+
+const family = (id) => FAMILIES.find((f) => f.id === id);
+const article = (fam) => (/^(Óxido|Hidruro|Hidróxido|Oxoácido|Oxosal)/.test(fam.name) ? "un" : fam.id === "nometalls" ? "un" : "una");
+const familyWithArticle = (id) => {
+  const fam = family(id);
+  return `${article(fam)} ${fam.name.toLowerCase()}`;
+};
+
+const pick = (list) => list[Math.floor(Math.random() * list.length)];
+function shuffle(list) {
+  const a = [...list];
+  for (let i = a.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [a[i], a[j]] = [a[j], a[i]];
+  }
+  return a;
+}
+const gcd = (a, b) => (b ? gcd(b, a % b) : Math.abs(a));
+
+/* ---------- Noms ---------- */
+
+function normalizeName(text) {
+  return String(text ?? "")
+    .toLowerCase()
+    .replace(/[’‘´`]/g, "'")
+    .replace(/\s+/g, " ")
+    .replace(/\s*\(\s*/g, "(")
+    .replace(/\s*\)/g, ")")
+    .replace(/d'\s+/g, "d'")
+    .trim();
+}
+
+const stripAccents = (text) => text.normalize("NFD").replace(/[̀-ͯ]/g, "").replace(/·/g, "");
+
+const acceptedNames = (comp) => [...comp.names.map((n) => n.text), ...comp.accept];
+
+// Noms que es poden fer servir com a enunciat segons els nivells triats.
+function promptNames(comp, maxLevel) {
+  const list = comp.names.filter((n) => n.level <= maxLevel);
+  return list.length ? list : comp.names;
+}
+
+function checkName(comp, input, catalog) {
+  const value = normalizeName(input);
+  if (!value) return { ok: false, message: "Escribe el nombre del compost." };
+  const names = acceptedNames(comp).map(normalizeName);
+  const exact = comp.names.find((n) => normalizeName(n.text) === value);
+  if (names.includes(value)) return { ok: true, matched: exact ?? null };
+  const loose = acceptedNames(comp).find((n) => stripAccents(normalizeName(n)) === stripAccents(value));
+  if (loose) return { ok: true, note: `Compte amb els accents: s'escriu «${loose}».` };
+
+  const ions = comp.ions;
+  if (ions?.cat.variable) {
+    const stock = normalizeName(comp.names.find((n) => n.kinds.includes("ox") || n.kinds.includes("trad"))?.text ?? "");
+    if (stock && value === stock.replace(/\([ivx]+\)/, "")) {
+      return { ok: false, message: `Falta el nombre d'oxidació: el ${ions.cat.name} pot actuar amb diverses càrregues. S'indica en xifres romanes entre parèntesis.` };
+    }
+    if (stock && value.replace(/\([ivx]+\)/, "(n)") === stock.replace(/\([ivx]+\)/, "(n)")) {
+      return { ok: false, message: "Revisa el nombre d'oxidació (les xifres romanes): ha de coincidir amb la càrrega del catió." };
+    }
+  }
+  const other = catalog.find((c) => c !== comp && acceptedNames(c).some((n) => normalizeName(n) === value));
+  if (other) return { ok: false, message: `Aquest nom correspon a ${formulaText(other.formula)}, no a aquest compost.` };
+
+  const swapEnding = (t) => t.replace(/(at|it)\b/g, (m) => (m === "at" ? "it" : "at")).replace(/(ic|ós)\b/g, (m) => (m === "ic" ? "ós" : "ic"));
+  if (names.some((n) => swapEnding(n) === value)) {
+    return { ok: false, message: "Revisa la terminació. Recorda: àcid -ic → anió -at; àcid -ós → anió -it." };
+  }
+  const noPrefix = (t) => t.replace(/monòxid/g, "òxid").replace(/\b(mono|di|tri|tetra|penta|hexa|hepta|octa)(?=[a-zàèéíòóú])/g, "").replace(/d'|de /g, "");
+  if (names.some((n) => noPrefix(n) === noPrefix(value))) {
+    return { ok: false, message: "Gairebé! Revisa els prefixos (mono-, di-, tri-…): han de coincidir amb els subíndexs de la fórmula." };
+  }
+  if (names.some((n) => n.replace(/d'|de /g, "") === value.replace(/d'|de /g, ""))) {
+    return { ok: false, message: "Revisa l'apostrofació: «de» s'apostrofa davant de vocal o h (d'alumini, d'hidrogen), però no davant de iode." };
+  }
+  return { ok: false, message: `No és correcte. Pista: és ${familyWithArticle(comp.family)}.` };
+}
+
+/* ---------- Fórmules ---------- */
+
+function checkFormula(comp, input) {
+  const clean = cleanFormulaInput(input);
+  if (!clean) return { ok: false, message: "Escribe la fórmula." };
+  if (clean === comp.formula) return { ok: true };
+  if (/\(/.test(comp.formula) && clean === comp.formula.replace(/[()]/g, "")) {
+    return { ok: false, message: "Falten els parèntesis: quan hi ha més d'un ió poliatòmic, el grup va entre parèntesis, com a Fe₂(SO₄)₃." };
+  }
+  if (clean.toLowerCase() === comp.formula.toLowerCase()) {
+    return { ok: false, message: "Compte amb les majúscules: cada símbol comença amb majúscula i la segona lletra va en minúscula (Co és cobalt; CO són carboni i oxigen)." };
+  }
+  let counts;
+  try {
+    counts = parseFormula(clean);
+  } catch (error) {
+    const tip = /caràcter/.test(error.message) ? " Escriu els subíndexs com a números: Fe2O3." : "";
+    return { ok: false, message: `${error.message}${tip}` };
+  }
+  const target = parseFormula(comp.formula);
+  if (sameCounts(target, counts)) {
+    if (/\(/.test(clean) && !/\(/.test(comp.formula)) {
+      return { ok: false, message: "Sobren els parèntesis: només calen quan hi ha més d'un grup poliatòmic." };
+    }
+    return { ok: false, message: "Els àtoms són correctes, però l'ordre no: escriu primer la part positiva (metall, amoni o hidrogen) i després la negativa." };
+  }
+  if (comp.family === "peroxid" && multipleOf(counts, target)) {
+    return { ok: false, message: "En un peròxid, el grup O₂ no es pot separar ni simplificar: és l'ió O₂²⁻." };
+  }
+  const factor = multipleOf(target, counts);
+  if (factor) return { ok: false, message: `Es pot simplificar: divideix tots els subíndexs per ${factor}.` };
+  const sameElements = Object.keys(target).length === Object.keys(counts).length && Object.keys(target).every((k) => counts[k]);
+  if (sameElements) {
+    return { ok: false, message: comp.ions ? "Els elements són correctes, però els subíndexs no: la suma de càrregues ha de ser zero." : "Els elements són correctes, però els subíndexs no: fixa't en els prefixos del nom." };
+  }
+  return { ok: false, message: "Hi ha elements que no corresponen al nom. Revisa quins ions o elements formen el compost." };
+}
+
+/* ---------- Construeix el compost amb ions ---------- */
+
+const sameElement = (a, b) => a.element && a.element === b.element;
+const central = (an) => an.formula.replace(/^H\d?/, "").replace(/O\d*$/, "").replace(/\d/g, "");
+
+function ionChoices(comp, maxLevel) {
+  const { cat, an } = comp.ions;
+  const cationPool = [...CATIONS, H_CATION].filter((c) => c.level <= maxLevel && c.id !== cat.id);
+  const cats = [cat, ...cationPool.filter((c) => sameElement(c, cat))];
+  shuffle(cationPool).forEach((c) => {
+    if (cats.length < 4 && !cats.includes(c)) cats.push(c);
+  });
+  const anionPool = [...MONO_ANIONS, OH, PEROXIDE, ...OXOANIONS, ...ACID_ANIONS].filter((a) => a.level <= Math.max(maxLevel, an.level) && a.id !== an.id);
+  const related = anionPool.filter((a) => central(a) && central(a) === central(an));
+  const ans = [an, ...shuffle(related).slice(0, 2)];
+  shuffle(anionPool).forEach((a) => {
+    if (ans.length < 4 && !ans.includes(a)) ans.push(a);
+  });
+  return { cations: shuffle(cats.slice(0, 4)), anions: shuffle(ans.slice(0, 4)) };
+}
+
+function buildFormula(cat, an, nC, nA) {
+  return ionicFormula(cat, an, nC, nA, cat.id === "H1" && an.charge < 0 && !an.acidSalt && an.id !== PEROXIDE.id);
+}
+
+function checkBuild(comp, cat, an, nC, nA) {
+  if (!cat || !an) return { ok: false, message: "Elige un catión (part positiva) i un anió (part negativa)." };
+  const target = comp.ions;
+  if (cat.id !== target.cat.id) {
+    if (sameElement(cat, target.cat)) return { ok: false, message: "El catió és de l'element correcte, però no amb aquesta càrrega: fixa't en el nombre d'oxidació del nom." };
+    return { ok: false, message: "Aquest catió no correspon al nom. Quin element o grup positiu s'anomena al final?" };
+  }
+  if (an.id !== target.an.id) {
+    if (an.oxo && target.an.oxo && central(an) === central(target.an)) {
+      return { ok: false, message: "L'anió és de l'element correcte, però no és aquest. Recorda: hipo-…-it < -it < -at < per-…-at." };
+    }
+    return { ok: false, message: "Aquest anió no correspon al nom. Quina part negativa s'anomena primer?" };
+  }
+  const total = cat.charge * nC + an.charge * nA;
+  if (total !== 0) {
+    const sign = total > 0 ? "+" : "−";
+    return { ok: false, message: `La càrrega total és ${sign}${Math.abs(total)}: ha de ser zero. ${total > 0 ? "Hi ha massa càrrega positiva." : "Hi ha massa càrrega negativa."}` };
+  }
+  const g = gcd(nC, nA);
+  if (g > 1) return { ok: false, message: `La càrrega és zero, però es pot simplificar: divideix ${nC} i ${nA} per ${g}.` };
+  return { ok: true };
+}
+
+/* ---------- Opcions errònies plausibles (tria la resposta) ---------- */
+
+function uniqueOptions(correct, candidates, exclude, count = 3) {
+  const seen = new Set([correct, ...exclude].map((x) => normalizeName(x)));
+  const out = [];
+  candidates.forEach((c) => {
+    const key = normalizeName(c);
+    if (c && !seen.has(key) && out.length < count) {
+      seen.add(key);
+      out.push(c);
+    }
+  });
+  return out;
+}
+
+function nameDistractors(comp, correctName, catalog, maxLevel) {
+  const muts = [];
+  const roman = correctName.match(/\(([IVX]+)\)/);
+  if (roman) {
+    // Altres nombres d'oxidació reals del mateix element; si no n'hi ha, el veí més proper.
+    const n = ROMAN.indexOf(roman[1]);
+    const el = comp.ions?.cat.element;
+    const real = el ? CATIONS.filter((c) => c.element === el && c.charge !== n).map((c) => c.charge) : [];
+    const options = real.length ? real : [n > 1 ? n - 1 : n + 1];
+    options.forEach((k) => muts.push(correctName.replace(`(${roman[1]})`, `(${ROMAN[k]})`)));
+    muts.push(correctName.replace(/\([IVX]+\)/, ""));
+  }
+  const sibling = { at: "it", it: "at", ic: "ós", "ós": "ic" };
+  muts.push(correctName.replace(/(at|it|ic|ós)\b/, (m) => sibling[m]));
+  const prefixes = ["", "mono", "di", "tri", "tetra", "penta", "hexa", "hepta"];
+  const pre = correctName.match(/^(di|tri|tetra|penta|hexa|hepta)/);
+  if (pre) {
+    const i = prefixes.indexOf(pre[1]);
+    muts.push(correctName.replace(pre[1], prefixes[i + 1] ?? "di"));
+    muts.push(correctName.replace(pre[1], i > 2 ? prefixes[i - 1] : "tri"));
+  } else if (comp.family === "oxid" || comp.family === "nometalls") {
+    muts.push(`di${correctName}`);
+  }
+  if (comp.family === "oxid" && comp.ions && !correctName.startsWith("peròxid")) muts.push(correctName.replace(/^(mon|di|tri|tetra|penta|hepta)?òxid/, "peròxid"));
+  const neighbours = shuffle(
+    catalog.filter(
+      (c) =>
+        c !== comp &&
+        c.level <= maxLevel &&
+        (c.family === comp.family || (c.ions && comp.ions && (c.ions.cat.id === comp.ions.cat.id || c.ions.an.id === comp.ions.an.id)))
+    )
+  ).map((c) => pick(promptNames(c, maxLevel)).text);
+  return uniqueOptions(correctName, [...shuffle(muts), ...neighbours], acceptedNames(comp));
+}
+
+function formulaDistractors(comp, catalog, maxLevel) {
+  const muts = [];
+  if (comp.ions) {
+    const { cat, an, nC, nA } = comp.ions;
+    const make = (c, a, x, y) => buildFormula(c, a, x, y);
+    muts.push(make(cat, an, nA, nC));
+    muts.push(make(cat, an, -an.charge, cat.charge));
+    muts.push(make(cat, an, 1, 1));
+    if (/\(/.test(comp.formula)) muts.push(comp.formula.replace(/[()]/g, ""));
+    CATIONS.filter((c) => sameElement(c, cat) && c.id !== cat.id).forEach((c) => {
+      const k = ionCounts(c, an);
+      muts.push(make(c, an, k.nC, k.nA));
+    });
+    if (an.oxo) {
+      OXOANIONS.filter((a) => central(a) === central(an) && a.id !== an.id).forEach((a) => {
+        const k = ionCounts(cat, a);
+        muts.push(make(cat, a, k.nC, k.nA));
+      });
+    }
+  } else {
+    const m = comp.formula.match(/^([A-Z][a-z]?)(\d*)([A-Z][a-z]?)(\d*)$/);
+    if (m) {
+      const [, a, x, b, y] = m;
+      muts.push(`${a}${y}${b}${x}`);
+      muts.push(`${a}${b}${Number(y || 1) + 1}`);
+      muts.push(`${a}2${b}${y}`);
+      muts.push(`${b}${y}${a}${x}`);
+    }
+  }
+  const sameElements = (c) => {
+    try {
+      const a = Object.keys(parseFormula(c.formula)).sort().join();
+      return a === Object.keys(parseFormula(comp.formula)).sort().join();
+    } catch {
+      return false;
+    }
+  };
+  const neighbours = shuffle(catalog.filter((c) => c !== comp && c.level <= maxLevel && (sameElements(c) || c.family === comp.family))).map((c) => c.formula);
+  const valid = (f) => {
+    try {
+      parseFormula(f);
+      return f !== comp.formula && !/^[A-Z][a-z]?1/.test(f);
+    } catch {
+      return false;
+    }
+  };
+  const out = [];
+  [...shuffle(muts), ...neighbours].forEach((f) => {
+    const clean = f.replace(/([A-Za-z)])1(?!\d)/g, "$1");
+    if (valid(clean) && !out.includes(clean) && out.length < 3) out.push(clean);
+  });
+  return out;
+}
+
+/* ---------- Pistas progressives ---------- */
+
+function hints(comp, type) {
+  const fam = family(comp.family);
+  const first = `És ${familyWithArticle(comp.family)}: ${fam.rule.charAt(0).toLowerCase()}${fam.rule.slice(1)}`;
+  if (type === "classifica") {
+    const els = Object.keys(parseFormula(comp.formula));
+    return [
+      `Fixa't en quins elements hi ha: ${els.join(", ")}. Hi ha oxigen? Hi ha hidrogen? Hi ha algun metall?`,
+      els.length === 1 ? "Només hi ha un element." : `Hi ha ${els.length} elements diferents.`,
+      first,
+    ];
+  }
+  if (comp.ions) {
+    const { cat, an, nC, nA } = comp.ions;
+    const ions = `Els ions són ${withArticle(cationName(cat))}, ${formulaText(ionLabel(cat))}, i ${withArticle(an.name)}, ${formulaText(ionLabel(an))}.`;
+    const qc = cat.charge * nC;
+    const balance = `Per compensar les càrregues calen ${nC} ${formulaText(ionLabel(cat))} (${qc > 0 ? "+" : ""}${qc}) i ${nA} ${formulaText(ionLabel(an))} (−${qc}).`;
+    if (type === "formulaNom") {
+      const name = comp.names[0].text;
+      return [first, ions, `El nom comença per «${name.split(" ")[0]} …».`];
+    }
+    return [first, ions, balance];
+  }
+  if (type === "formulaNom") {
+    return [first, "Compta els àtoms de cada element: els prefixos (di-, tri-, tetra-…) indiquen quants n'hi ha.", `El nom comença per «${comp.names[0].text.split(" ")[0]} …».`];
+  }
+  return [first, "Los prefijos del nom (di = 2, tri = 3, tetra = 4, penta = 5…) són els subíndexs.", `La fórmula comença per ${comp.formula.match(/^[A-Z][a-z]?/)[0]}.`];
+}
+
+return {family,familyWithArticle,shuffle,normalizeName,acceptedNames,promptNames,checkName,checkFormula,ionChoices,buildFormula,checkBuild,nameDistractors,formulaDistractors,hints};
+})();
+const mod_aprenentatge = (()=>{
+// Fitxes del mode «Aprende»: un mòdul per a cada bloc de l'índex de continguts.
+// Les fórmules s'escriuen entre claudàtors dobles, [[Fe2(SO4)3]], i l'app les converteix en HTML.
+// «examples» són fórmules del catàleg: l'app hi afegeix tots els noms acceptats.
+
+const MODULES = [
+  {
+    id: "m0",
+    num: 0,
+    title: "Las piezas del juego",
+    level: 1,
+    families: [],
+    intro:
+      "Formular és escriure la fórmula d'una substància; anomenar és dir-ne el nom. Gairebé tot es basa en una idea: les parts positives i les negatives s'han de compensar.",
+    cards: [
+      {
+        title: "Els ions: peces amb càrrega",
+        html: `<p>Un <b>catió</b> és una peça positiva: els metalls ([[Na^+]], [[Fe^3+]]), l'amoni ([[NH4^+]]) o l'hidrogen ([[H^+]]).</p>
+          <p>Un <b>anió</b> és una peça negativa: [[Cl^-]] (clorur), [[O^2-]] (òxid), [[SO4^2-]] (sulfat)…</p>
+          <p>Els ions <b>poliatòmics</b> són grups d'àtoms que es comporten com una sola peça.</p>`,
+      },
+      {
+        title: "El nombre d'oxidació",
+        html: `<p>És la càrrega que té (o tindria) cada àtom dins del compost.</p>
+          <ul>
+            <li>Els metalls sempre són <b>positius</b>. Alguns en tenen més d'un: el ferro pot ser +2 o +3. Per això escrivim <b>ferro(II)</b> o <b>ferro(III)</b>, en xifres romanes.</li>
+            <li>L'<b>hidrogen</b> és +1 amb els no-metalls ([[HCl]]) i −1 amb els metalls ([[NaH]]).</li>
+            <li>L'<b>oxigen</b> és −2 ([[CaO]]), excepte als peròxids, on és −1 ([[H2O2]]).</li>
+          </ul>`,
+      },
+      {
+        title: "La regla d'or: càrrega total zero",
+        html: `<ol class="steps-mini">
+            <li>Escriu els dos ions: [[Al^3+]] i [[O^2-]].</li>
+            <li>Busca quants de cada cal perquè la suma doni zero: 2 × (+3) + 3 × (−2) = 0.</li>
+            <li>Aquests nombres són els subíndexs: [[Al2O3]].</li>
+            <li>Simplifica si pots: [[Ca^2+]] i [[O^2-]] → 1 i 1 → [[CaO]] (no Ca₂O₂).</li>
+            <li>Si cal més d'un ió poliatòmic, va entre parèntesis: [[Ca(OH)2]], [[Fe2(SO4)3]].</li>
+          </ol>`,
+      },
+      {
+        title: "Les maneres d'anomenar",
+        html: `<table class="mini-table">
+            <thead><tr><th>Nomenclatura</th><th>Com funciona</th><th>Exemple: [[Fe2O3]]</th></tr></thead>
+            <tbody>
+              <tr><td><b>Composición</b></td><td>Prefixos que diuen quants àtoms hi ha</td><td>triòxid de diferro</td></tr>
+              <tr><td><b>Número de oxidación</b></td><td>La càrrega del metall en xifres romanes, només si en pot tenir més d'una</td><td>òxid de ferro(III)</td></tr>
+              <tr><td><b>Tradicional</b></td><td>Només per als oxoàcids i les oxosals</td><td>àcid sulfúric, sulfat de sodi</td></tr>
+            </tbody>
+          </table>
+          <p class="tip">El nom es diu al revés que la fórmula: primer la part negativa i després «de» + la positiva. [[NaCl]] → clorur <b>de</b> sodi.</p>`,
+      },
+      {
+        title: "Los prefijos",
+        html: `<div class="prefix-grid">
+            <span><b>1</b> mono-</span><span><b>2</b> di-</span><span><b>3</b> tri-</span><span><b>4</b> tetra-</span>
+            <span><b>5</b> penta-</span><span><b>6</b> hexa-</span><span><b>7</b> hepta-</span><span><b>8</b> octa-</span>
+          </div>
+          <p>«Mono-» normalment no s'escriu, excepte en casos com <b>monòxid de carboni</b> ([[CO]]).</p>`,
+      },
+    ],
+    errors: [
+      "Confondre majúscules i minúscules: [[Co]] és cobalt, però [[CO]] és monòxid de carboni.",
+      "Dir el nom en l'ordre de la fórmula: no és «sodi clorur», sinó «clorur de sodi».",
+      "Posar xifres romanes a metalls amb una sola càrrega: és «clorur de sodi», no «clorur de sodi(I)».",
+    ],
+    examples: [],
+  },
+  {
+    id: "m1",
+    num: 1,
+    title: "Sustancias simples",
+    level: 1,
+    families: ["simple"],
+    intro: "Una substància simple està formada per un sol element. N'hi ha que són àtoms solts i d'altres que formen molècules.",
+    cards: [
+      {
+        title: "Metales y gases nobles",
+        html: `<p>S'escriuen amb el símbol de l'element: [[Fe]] (ferro), [[Cu]] (coure), [[He]] (heli), [[Ar]] (argó).</p>`,
+      },
+      {
+        title: "Las siete moléculas diatómicas",
+        html: `<p>Aquests elements van sempre en parelles quan estan sols: [[H2]], [[N2]], [[O2]], [[F2]], [[Cl2]], [[Br2]] i [[I2]].</p>
+          <p>Nom de composició: <b>dioxigen</b>, <b>diclor</b>… També s'accepta el nom comú: oxigen, clor…</p>`,
+      },
+      {
+        title: "Otras moléculas",
+        html: `<p>[[O3]] és l'<b>ozó</b> (trioxigen), [[P4]] és el fòsfor blanc (tetrafòsfor) i [[S8]] és el sofre (octasofre).</p>`,
+      },
+    ],
+    errors: ["Escriure el gas oxigen com a «O»: la molècula és [[O2]].", "Confondre [[O2]] (l'oxigen que respirem) amb [[O3]] (l'ozó)."],
+    examples: ["O2", "O3", "N2", "Cl2", "P4", "S8"],
+  },
+  {
+    id: "m2",
+    num: 2,
+    title: "Compuestos binarios",
+    level: 1,
+    families: ["oxid", "hidrur", "salBinaria", "nometalls", "peroxid"],
+    intro: "Estan formats per dos elements. La part negativa acaba en -ur (clorur, sulfur…) o és l'òxid.",
+    cards: [
+      {
+        title: "Aniones monoatómicos",
+        html: `<div class="ion-chips">
+            <span>[[F^-]] fluorur</span><span>[[Cl^-]] clorur</span><span>[[Br^-]] bromur</span><span>[[I^-]] iodur</span>
+            <span>[[S^2-]] sulfur</span><span>[[O^2-]] òxid</span><span>[[H^-]] hidrur</span><span>[[Se^2-]] selenur</span>
+          </div>`,
+      },
+      {
+        title: "Óxidos",
+        html: `<p>Element + [[O^2-]]. Amb un metall, s'acostuma a fer servir el nombre d'oxidació: [[Fe2O3]] <b>òxid de ferro(III)</b>.</p>
+          <p>Amb un no-metall, s'acostuma a fer servir la composició: [[CO2]] <b>diòxid de carboni</b>, [[N2O5]] <b>pentaòxid de dinitrogen</b>.</p>`,
+      },
+      {
+        title: "Hidruroos",
+        html: `<p><b>Metàl·lics</b>: metall + [[H^-]]. [[NaH]] hidrur de sodi, [[CaH2]] dihidrur de calci.</p>
+          <p><b>Amb no-metalls</b>: l'hidrogen va davant. [[HCl]] és el clorur d'hidrogen; dissolt en aigua és l'<b>àcid clorhídric</b>.</p>
+          <p>Alguns tenen nom propi: [[H2O]] aigua, [[NH3]] amoníac, [[CH4]] metà.</p>`,
+      },
+      {
+        title: "Sales binarias",
+        html: `<p>Metall (o amoni) + no-metall: [[NaCl]] clorur de sodi, [[FeCl3]] clorur de ferro(III) o triclorur de ferro, [[NH4Cl]] clorur d'amoni.</p>`,
+      },
+      {
+        title: "Compuestos entre no metales",
+        html: `<p>S'anomenen amb prefixos: [[PCl5]] pentaclorur de fòsfor, [[CCl4]] tetraclorur de carboni, [[SF6]] hexafluorur de sofre.</p>
+          <p class="tip">A la fórmula, l'element que va primer és el que apareix abans en aquesta llista: B, Si, C, P, N, H, S, I, Br, Cl, O, F.</p>`,
+      },
+      {
+        title: "Peróxidos (batxillerat)",
+        level: 3,
+        html: `<p>Contenen el grup [[O2^2-]], que <b>no es pot simplificar</b>: [[H2O2]] peròxid d'hidrogen (aigua oxigenada), [[Na2O2]] peròxid de sodi, [[BaO2]] peròxid de bari.</p>`,
+      },
+    ],
+    errors: [
+      "No simplificar: Ca₂O₂ s'ha d'escriure [[CaO]].",
+      "Oblidar el nombre d'oxidació quan el metall en té diversos: «òxid de ferro» no diu si és [[FeO]] o [[Fe2O3]].",
+      "Simplificar un peròxid: [[Na2O2]] no és «NaO».",
+    ],
+    examples: ["CaO", "Fe2O3", "CO2", "NaH", "HCl", "NH3", "FeCl3", "PCl5"],
+  },
+  {
+    id: "m3",
+    num: 3,
+    title: "Hidróxidos",
+    level: 2,
+    families: ["hidroxid"],
+    intro: "Un metall combinat amb l'ió hidròxid, [[OH^-]]. Són les bases: la sosa càustica, la calç apagada, els antiàcids…",
+    cards: [
+      {
+        title: "Com es formulen",
+        html: `<p>El grup [[OH^-]] té càrrega −1. Cal tants grups com la càrrega del metall: [[Na^+]] → [[NaOH]]; [[Ca^2+]] → [[Ca(OH)2]]; [[Fe^3+]] → [[Fe(OH)3]].</p>
+          <p class="tip">Si n'hi ha més d'un, el grup OH va entre parèntesis.</p>`,
+      },
+      {
+        title: "Com s'anomenen",
+        html: `<p>Número de oxidación: <b>hidròxid de ferro(III)</b>. Composición: <b>trihidròxid de ferro</b>.</p>`,
+      },
+    ],
+    errors: ["Oblidar els parèntesis: «CaOH2» voldria dir 1 oxigen i 2 hidrògens; la fórmula correcta és [[Ca(OH)2]]."],
+    examples: ["NaOH", "Ca(OH)2", "Fe(OH)3", "Al(OH)3", "Cu(OH)2"],
+  },
+  {
+    id: "m4",
+    num: 4,
+    title: "Oxoácidos",
+    level: 2,
+    families: ["oxoacid"],
+    intro: "Contenen hidrogen, un no-metall (o un metall de transició) i oxigen. Es poden veure com H⁺ + un oxoanió.",
+    cards: [
+      {
+        title: "Els noms tradicionals",
+        html: `<p>Quan un element en forma diversos, la terminació indica quant oxigen té:</p>
+          <table class="mini-table">
+            <thead><tr><th>Menys oxigen</th><th></th><th></th><th>Més oxigen</th></tr></thead>
+            <tbody>
+              <tr><td>hipo-…-ós</td><td>…-ós</td><td>…-ic</td><td>per-…-ic</td></tr>
+              <tr><td>[[HClO]] hipoclorós</td><td>[[HClO2]] clorós</td><td>[[HClO3]] clòric</td><td>[[HClO4]] perclòric</td></tr>
+            </tbody>
+          </table>`,
+      },
+      {
+        title: "Quants hidrògens?",
+        html: `<p>Tants com la càrrega de l'oxoanió: [[SO4^2-]] → [[H2SO4]]; [[NO3^-]] → [[HNO3]]; [[PO4^3-]] → [[H3PO4]]. A la fórmula dels àcids no es posen parèntesis.</p>`,
+      },
+      {
+        title: "Nomenclatura d'hidrogen (batxillerat)",
+        level: 3,
+        html: `<p>Nombre d'hidrògens + <b>hidrogen</b> + (prefix + <b>oxido</b> + arrel + <b>at</b>):</p>
+          <p>[[H2SO4]] → <b>dihidrogen(tetraoxidosulfat)</b>; [[HNO3]] → <b>hidrogen(trioxidonitrat)</b>.</p>`,
+      },
+    ],
+    errors: ["Confondre [[H2SO4]] (sulfúric) amb [[H2SO3]] (sulfurós).", "Posar parèntesis: no és «H2(SO4)», sinó [[H2SO4]]."],
+    examples: ["H2SO4", "H2SO3", "HNO3", "HNO2", "H2CO3", "H3PO4", "HClO", "HClO4"],
+    acidTable: true,
+  },
+  {
+    id: "m5",
+    num: 5,
+    title: "Oxosales",
+    level: 2,
+    families: ["oxosal", "salAcida"],
+    intro: "Un metall (o l'amoni) combinat amb un oxoanió. Són molt comunes: el marbre, el guix, el lleixiu, els adobs…",
+    cards: [
+      {
+        title: "De l'àcid a l'anió",
+        html: `<p>Treu els hidrògens a l'àcid: la càrrega de l'anió és el nombre d'hidrògens que has tret. I canvia la terminació:</p>
+          <div class="rule-pair"><span><b>-ic</b> → <b>-at</b></span><span><b>-ós</b> → <b>-it</b></span></div>
+          <p>[[H2SO4]] àcid sulfúric → [[SO4^2-]] <b>sulfat</b>; [[HNO2]] àcid nitrós → [[NO2^-]] <b>nitrit</b>.</p>`,
+      },
+      {
+        title: "Formula l'oxosal",
+        html: `<p>Com sempre, la càrrega total ha de ser zero: [[Na^+]] + [[SO4^2-]] → [[Na2SO4]]; [[Fe^3+]] + [[SO4^2-]] → [[Fe2(SO4)3]].</p>
+          <p>Nom: anió + «de» + catió (amb nombre d'oxidació si cal): <b>sulfat de ferro(III)</b>.</p>`,
+      },
+      {
+        title: "Sales ácidas (batxillerat)",
+        level: 3,
+        html: `<p>L'anió conserva algun hidrogen: [[HCO3^-]] <b>hidrogencarbonat</b>, [[H2PO4^-]] <b>dihidrogenfosfat</b>.</p>
+          <p>[[NaHCO3]] és l'hidrogencarbonat de sodi: el bicarbonat de la cuina.</p>`,
+      },
+    ],
+    errors: ["Confondre sulfat ([[SO4^2-]]) i sulfit ([[SO3^2-]]).", "Oblidar els parèntesis: «Fe2SO43» ha de ser [[Fe2(SO4)3]]."],
+    examples: ["Na2SO4", "CaCO3", "KNO3", "NaClO", "Fe2(SO4)3", "(NH4)2SO4", "NaHCO3"],
+  },
+  {
+    id: "m6",
+    num: 6,
+    title: "Ions poliatòmics",
+    level: 2,
+    families: ["oxosal", "salBinaria", "salAcida"],
+    intro: "Grups d'àtoms amb càrrega que es mouen junts. Convé conèixer-los bé: apareixen a moltes sals.",
+    cards: [
+      {
+        title: "Cations poliatòmics",
+        html: `<p>[[NH4^+]] <b>amoni</b>: forma sals com [[NH4Cl]] o [[(NH4)2SO4]], que s'usen com a adobs.</p>
+          <p>[[H3O^+]] <b>oxidani</b>: és la forma de l'H⁺ en aigua i explica l'acidesa.</p>`,
+      },
+      {
+        title: "Taula d'anions",
+        html: `<p>Tens la taula completa d'ions al botó <b>Tabla de iones</b> de la barra superior. Recorda també:</p>
+          <div class="ion-chips">
+            <span>[[OH^-]] hidròxid</span><span>[[CO3^2-]] carbonat</span><span>[[SO4^2-]] sulfat</span><span>[[NO3^-]] nitrat</span>
+            <span>[[PO4^3-]] fosfat</span><span>[[ClO^-]] hipoclorit</span><span>[[MnO4^-]] permanganat</span><span>[[Cr2O7^2-]] dicromat</span>
+          </div>`,
+      },
+    ],
+    errors: ["Escriure l'amoni com «NH3»: [[NH3]] és l'amoníac, una molècula neutra; l'ió amoni és [[NH4^+]]."],
+    examples: ["NH4Cl", "(NH4)2SO4", "NH4NO3", "KMnO4", "K2Cr2O7"],
+  },
+  {
+    id: "m7",
+    num: 7,
+    title: "La química de cada dia",
+    level: 1,
+    families: [],
+    intro: "Moltes substàncies que fem servir cada dia tenen una fórmula i un nom químic. Les reconeixes?",
+    cards: [],
+    errors: [],
+    examples: [],
+    gallery: true,
+  },
+];
+
+return {MODULES};
+})();
+const mod_app = (()=>{
+// Laboratorio de formulación inorgànica: modes Aprende, Practica i Reto, activitats i progrés.
+
+const { formulaHTML, formulaText } = mod_formula;
+const { buildCatalog, LEVELS, FAMILIES, KINDS, OXOANIONS, ionTable, ionLabel, cationName } = mod_nomenclatura;
+const {
+  family, familyWithArticle, shuffle, normalizeName, promptNames, checkName, checkFormula,
+  ionChoices, buildFormula, checkBuild, nameDistractors, formulaDistractors, hints,
+} = mod_exercicis;
+const { MODULES } = mod_aprenentatge;
+
+const CHALLENGE_SIZE = 10;
+const CHALLENGE_TRIES = 2;
+const STORAGE = { settings: "fi_settings_v1", stats: "fi_stats_v1", progress: "fi_progress_v1" };
+
+const ACTIVITIES = [
+  { id: "barreja", name: "Mezcla", desc: "Todos los tipos de actividad alternados" },
+  { id: "construeix", name: "Construye con iones", desc: "Une los iones hasta que la carga total sea cero" },
+  { id: "nomFormula", name: "Del nombre a la fórmula", desc: "Escribe la fórmula" },
+  { id: "formulaNom", name: "De la fórmula al nombre", desc: "Escribe el nombre" },
+  { id: "tria", name: "Elige la respuesta", desc: "Cuatro opciones, una correcta" },
+  { id: "classifica", name: "Clasifica", desc: "Indica a qué familia pertenece" },
+];
+const MIX_WEIGHTS = { construeix: 2, nomFormula: 2, formulaNom: 2, tria: 2, classifica: 1 };
+
+const $ = (id) => document.getElementById(id);
+const el = {
+  levelChips: $("levelChips"),
+  familyDropdown: $("familyDropdown"),
+  familyTrigger: $("familyTrigger"),
+  familyMenu: $("familyMenu"),
+  newQuestionBtn: $("newQuestionBtn"),
+  ionsBtn: $("ionsBtn"),
+  progressBtn: $("progressBtn"),
+  projectorBtn: $("projectorBtn"),
+  learnView: $("learnView"),
+  moduleNav: $("moduleNav"),
+  moduleCard: $("moduleCard"),
+  practiceView: $("practiceView"),
+  qTags: $("qTags"),
+  challengeBar: $("challengeBar"),
+  statusBox: $("statusBox"),
+  statusIcon: $("statusIcon"),
+  statusText: $("statusText"),
+  qLabel: $("qLabel"),
+  qPrompt: $("qPrompt"),
+  qKind: $("qKind"),
+  workArea: $("workArea"),
+  checkBtn: $("checkBtn"),
+  hintBtn: $("hintBtn"),
+  solutionBtn: $("solutionBtn"),
+  nextBtn: $("nextBtn"),
+  feedback: $("feedback"),
+  activityList: $("activityList"),
+  helpBody: $("helpBody"),
+  attemptCount: $("attemptCount"),
+  correctCount: $("correctCount"),
+  streakCount: $("streakCount"),
+  infoDialog: $("infoDialog"),
+  ionTables: $("ionTables"),
+  statCards: $("statCards"),
+  levelCards: $("levelCards"),
+  familyProgress: $("familyProgress"),
+  resetProgressBtn: $("resetProgressBtn"),
+  resultDialog: $("resultDialog"),
+  resultStars: $("resultStars"),
+  resultPoints: $("resultPoints"),
+  resultDetail: $("resultDetail"),
+  playAgainBtn: $("playAgainBtn"),
+  backPracticeBtn: $("backPracticeBtn"),
+};
+
+const state = {
+  catalog: [],
+  mode: "practica",
+  settings: { levels: [1], families: [], activity: "barreja", projector: false, module: "m0", infoTab: "ions" },
+  stats: { attempts: 0, correct: 0, streak: 0, bestStreak: 0 },
+  progress: {},
+  bag: [],
+  q: null,
+  challenge: null,
+};
+
+const fm = (formula) => `<span class="fm">${formulaHTML(formula)}</span>`;
+const richText = (html) => html.replace(/\[\[(.+?)\]\]/g, (_, f) => fm(f));
+const maxLevel = () => Math.max(...state.settings.levels);
+
+/* ---------- Desament al navegador ---------- */
+
+function load(key, fallback) {
+  try {
+    const raw = localStorage.getItem(key);
+    return raw ? { ...fallback, ...JSON.parse(raw) } : fallback;
+  } catch {
+    return fallback;
+  }
+}
+
+function save(key, value) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {}
+}
+
+/* ---------- Escala de la interfície ----------
+   Pensada per a 1440 × 800 px útils: s'amplia en pantalles grans i es redueix en portàtils
+   perquè tot càpiga sense desplaçar-se. En mòbils (menys de 900 px) no s'escala.
+   El mode projector fa servir una base més petita: tot surt més gran. */
+const MOBILE_W = 900;
+function fitScale() {
+  const w = window.innerWidth;
+  const h = window.innerHeight;
+  const [baseW, baseH] = state.settings.projector ? [1200, 680] : [1440, 800];
+  let z = Math.min(w / baseW, h / baseH);
+  z = Math.min(1.6, Math.max(0.7, Math.floor(z * 20) / 20));
+  if (w < MOBILE_W) z = 1;
+  document.documentElement.style.setProperty("--ui-zoom", String(z));
+  document.documentElement.classList.toggle("is-mobile", w < MOBILE_W);
+  document.documentElement.classList.toggle("compact", w >= MOBILE_W && w / z < 1400);
+}
+
+/* ---------- Filtres ---------- */
+
+function renderFilters() {
+  el.levelChips.innerHTML = LEVELS.map(
+    (l) => `<button type="button" class="level-chip l${l.id}" data-level="${l.id}" aria-pressed="${state.settings.levels.includes(l.id)}" title="${l.course}">${l.name}</button>`
+  ).join("");
+  el.levelChips.querySelectorAll(".level-chip").forEach((chip) =>
+    chip.addEventListener("click", () => {
+      const id = Number(chip.dataset.level);
+      const levels = state.settings.levels.includes(id) ? state.settings.levels.filter((x) => x !== id) : [...state.settings.levels, id];
+      if (!levels.length) return;
+      state.settings.levels = levels.sort();
+      onFiltersChanged();
+    })
+  );
+  el.familyMenu.innerHTML = FAMILIES.map(
+    (f) => `<label class="check-row"><input type="checkbox" value="${f.id}" ${state.settings.families.includes(f.id) ? "checked" : ""} />${f.plural}${f.level === 3 ? ' <small class="badge-l3">Batx.</small>' : ""}</label>`
+  ).join("");
+  el.familyMenu.querySelectorAll("input").forEach((input) =>
+    input.addEventListener("change", () => {
+      state.settings.families = [...el.familyMenu.querySelectorAll("input:checked")].map((i) => i.value);
+      onFiltersChanged();
+    })
+  );
+  const n = state.settings.families.length;
+  el.familyTrigger.textContent = n === 0 ? "Todas las familias" : n === 1 ? family(state.settings.families[0]).plural : `${n} famílies`;
+}
+
+function onFiltersChanged() {
+  save(STORAGE.settings, state.settings);
+  state.bag = [];
+  renderFilters();
+  if (state.mode === "apren") renderModule();
+  else if (state.mode === "repte") startChallenge();
+  else newQuestion();
+}
+
+function pool() {
+  const { levels, families } = state.settings;
+  return state.catalog.filter((c) => levels.includes(c.level) && (!families.length || families.includes(c.family)));
+}
+
+function renderActivities() {
+  el.activityList.innerHTML = ACTIVITIES.map(
+    (a) => `<button type="button" role="radio" class="activity-opt" data-activity="${a.id}" aria-checked="${state.settings.activity === a.id}">
+        <span class="activity-name">${a.name}</span><span class="activity-desc">${a.desc}</span></button>`
+  ).join("");
+  el.activityList.querySelectorAll(".activity-opt").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      state.settings.activity = btn.dataset.activity;
+      save(STORAGE.settings, state.settings);
+      renderActivities();
+      if (state.mode === "practica") newQuestion();
+    })
+  );
+}
+
+/* ---------- Tria de la pregunta ---------- */
+
+function weightedType(comp) {
+  const types = Object.entries(MIX_WEIGHTS).filter(([t]) => t !== "construeix" || comp.ions);
+  const total = types.reduce((s, [, w]) => s + w, 0);
+  let r = Math.random() * total;
+  for (const [t, w] of types) {
+    r -= w;
+    if (r < 0) return t;
+  }
+  return types[0][0];
+}
+
+function nextCompound(filter = () => true) {
+  const list = pool().filter(filter);
+  if (!list.length) return null;
+  // De tant en tant, una substància de la vida quotidiana.
+  const daily = list.filter((c) => c.context);
+  if (daily.length && Math.random() < 0.3) return daily[Math.floor(Math.random() * daily.length)];
+  state.bag = state.bag.filter((id) => list.some((c) => c.id === id));
+  if (!state.bag.length) state.bag = shuffle(list.map((c) => c.id));
+  const id = state.bag.pop();
+  return list.find((c) => c.id === id);
+}
+
+function makeQuestion(forcedType) {
+  const activity = forcedType ?? (state.settings.activity === "barreja" ? null : state.settings.activity);
+  let comp = nextCompound(activity === "construeix" ? (c) => c.ions : undefined);
+  let type = activity;
+  if (!comp && activity === "construeix") {
+    comp = nextCompound();
+    type = "nomFormula";
+  }
+  if (!comp) return null;
+  if (!type) type = weightedType(comp);
+  const names = promptNames(comp, maxLevel()).filter((n) => type !== "construeix" || !n.kinds.includes("com"));
+  const name = (names.length ? names : comp.names)[Math.floor(Math.random() * (names.length || comp.names.length))];
+  const q = { comp, type, name, hintStep: 0, solved: false, solutionShown: false, hintsShown: [] };
+  if (type === "tria") {
+    q.direction = Math.random() < 0.5 ? "toName" : "toFormula";
+    const correct = q.direction === "toName" ? name.text : comp.formula;
+    const wrong = q.direction === "toName" ? nameDistractors(comp, name.text, state.catalog, maxLevel()) : formulaDistractors(comp, state.catalog, maxLevel());
+    q.correct = correct;
+    q.options = shuffle([correct, ...wrong]);
+    q.disabled = [];
+  }
+  if (type === "classifica") {
+    q.families = FAMILIES.filter((f) => f.level <= maxLevel() || f.id === comp.family).map((f) => f.id);
+    q.disabled = [];
+  }
+  if (type === "construeix") {
+    q.choices = ionChoices(comp, maxLevel());
+    q.build = { cat: null, an: null, nC: 1, nA: 1 };
+  }
+  return q;
+}
+
+/* ---------- Pintar la pregunta ---------- */
+
+function kindsLabel(kinds) {
+  return kinds.map((k) => KINDS[k]).join(" · ");
+}
+
+function renderQuestion() {
+  const q = state.q;
+  const { comp, type } = q;
+  const fam = family(comp.family);
+  const showFamily = type !== "classifica" || q.solved;
+  el.qTags.innerHTML = [
+    `<span class="tag activity">${ACTIVITIES.find((a) => a.id === type).name}</span>`,
+    showFamily ? `<span class="tag family">${fam.name}</span>` : "",
+    `<span class="tag level l${comp.level}">${LEVELS.find((l) => l.id === comp.level).name}</span>`,
+  ].join("");
+
+  const nameHTML = `<span class="q-name">${q.name.text}</span>`;
+  const formulaPrompt = `<span class="q-formula">${formulaHTML(comp.formula)}</span>`;
+  const labels = {
+    construeix: ["Construye el compuesto con los iones:", nameHTML, `Nomenclatura: ${kindsLabel(q.name.kinds)}`],
+    nomFormula: ["Escribe la fórmula de:", nameHTML, `Nomenclatura: ${kindsLabel(q.name.kinds)}`],
+    formulaNom: ["Escribe el nombre de:", formulaPrompt, "Puedes utilizar cualquier nomenclatura aceptada."],
+    classifica: ["¿A qué familia pertenece?", formulaPrompt, ""],
+    tria:
+      q.direction === "toName"
+        ? ["¿Cuál es el nombre de:", formulaPrompt, "Elige la opción correcta."]
+        : ["¿Cuál es la fórmula de:", nameHTML, `Nomenclatura: ${kindsLabel(q.name.kinds)}`],
+  };
+  const [label, prompt, kind] = labels[type];
+  el.qLabel.textContent = label;
+  el.qPrompt.innerHTML = prompt;
+  el.qPrompt.classList.toggle("is-formula", prompt === formulaPrompt);
+  el.qKind.textContent = kind;
+
+  const renderers = { construeix: renderBuild, nomFormula: renderFormulaInput, formulaNom: renderNameInput, tria: renderOptions, classifica: renderClassify };
+  renderers[type]();
+  const autoCheck = type === "tria" || type === "classifica";
+  el.checkBtn.hidden = autoCheck;
+  renderHelp();
+}
+
+function renderFormulaInput() {
+  el.workArea.innerHTML = `
+    <div class="answer-box">
+      <label class="answer-label" for="answerInput">Fórmula</label>
+      <input id="answerInput" class="answer-input formula-input" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="Por ejemplo: Fe2O3" />
+      <p class="preview">Se lee: <span id="preview" class="fm">—</span></p>
+      <p class="input-tip">Escriu els subíndexs com a números normals (H2SO4) i fes servir parèntesis per als grups: Ca(OH)2.</p>
+    </div>`;
+  const input = $("answerInput");
+  const preview = $("preview");
+  input.addEventListener("input", () => {
+    const v = input.value.replace(/\s+/g, "");
+    preview.innerHTML = v ? formulaHTML(v) : "—";
+  });
+  bindEnter(input);
+  focusInput(input);
+}
+
+const ACCENT_KEYS = ["à", "è", "é", "í", "ï", "ò", "ó", "ú", "ü", "ç", "l·l", "'", "(", ")", "I", "V"];
+function renderNameInput() {
+  el.workArea.innerHTML = `
+    <div class="answer-box">
+      <label class="answer-label" for="answerInput">Nom</label>
+      <input id="answerInput" class="answer-input" autocomplete="off" spellcheck="false" placeholder="Por ejemplo: òxid de ferro(III)" />
+      <div class="key-row" aria-label="Caràcters especials">${ACCENT_KEYS.map((k) => `<button type="button" class="key" data-key="${k}">${k}</button>`).join("")}</div>
+      <p class="input-tip">El nom comença per la part negativa: clorur <b>de</b> sodi. Els nombres d'oxidació van en xifres romanes: ferro(III).</p>
+    </div>`;
+  const input = $("answerInput");
+  el.workArea.querySelectorAll(".key").forEach((key) =>
+    key.addEventListener("click", () => {
+      const { selectionStart: a, selectionEnd: b, value } = input;
+      input.value = value.slice(0, a) + key.dataset.key + value.slice(b);
+      const pos = a + key.dataset.key.length;
+      input.focus();
+      input.setSelectionRange(pos, pos);
+    })
+  );
+  bindEnter(input);
+  focusInput(input);
+}
+
+function bindEnter(input) {
+  input.addEventListener("keydown", (event) => {
+    if (event.key !== "Enter") return;
+    event.preventDefault();
+    if (state.q.solved) handleNext();
+    else handleCheck();
+  });
+}
+
+function focusInput(input) {
+  if (!document.documentElement.classList.contains("is-mobile")) requestAnimationFrame(() => input.focus({ preventScroll: true }));
+}
+
+function renderOptions() {
+  const q = state.q;
+  const asFormula = q.direction === "toFormula";
+  el.workArea.innerHTML = `<div class="options${asFormula ? " formulas" : ""}">${q.options
+    .map((opt, i) => {
+      const cls = q.solved && opt === q.correct ? " correct" : q.disabled.includes(opt) ? " wrong" : "";
+      return `<button type="button" class="opt${cls}" data-i="${i}" ${q.solved || q.disabled.includes(opt) ? "disabled" : ""}>
+        <span class="opt-letter">${"ABCD"[i]}</span><span class="opt-text">${asFormula ? fm(opt) : opt}</span></button>`;
+    })
+    .join("")}</div>`;
+  el.workArea.querySelectorAll(".opt").forEach((btn) => btn.addEventListener("click", () => handleChoice(q.options[Number(btn.dataset.i)])));
+}
+
+function renderClassify() {
+  const q = state.q;
+  el.workArea.innerHTML = `<div class="families">${q.families
+    .map((id) => {
+      const f = family(id);
+      const cls = q.solved && id === q.comp.family ? " correct" : q.disabled.includes(id) ? " wrong" : "";
+      return `<button type="button" class="fam-btn${cls}" data-family="${id}" ${q.solved || q.disabled.includes(id) ? "disabled" : ""}>${f.name}</button>`;
+    })
+    .join("")}</div>`;
+  el.workArea.querySelectorAll(".fam-btn").forEach((btn) => btn.addEventListener("click", () => handleChoice(btn.dataset.family)));
+}
+
+/* Construye con iones */
+
+function ionTileHTML(ion, attrs = "") {
+  const sign = ion.charge > 0 ? "pos" : "neg";
+  const name = ion.charge > 0 ? cationName(ion) : ion.name;
+  return `<button type="button" class="ion-tile ${sign}" ${attrs} aria-label="${formulaText(ionLabel(ion))}, ${name}">${fm(ionLabel(ion))}</button>`;
+}
+
+function renderBuild() {
+  const q = state.q;
+  const { cat, an, nC, nA } = q.build;
+  const tray = (list, side, selected) =>
+    list.map((ion, i) => ionTileHTML(ion, `data-side="${side}" data-i="${i}" aria-pressed="${selected === ion}" ${q.solved ? "disabled" : ""}`)).join("");
+  const plus = cat ? cat.charge * nC : 0;
+  const minus = an ? -an.charge * nA : 0;
+  const cells = (n, cls) => Array.from({ length: Math.min(n, 24) }, () => `<i class="${cls}"></i>`).join("");
+  const total = plus - minus;
+  const formula = cat && an ? buildFormula(cat, an, nC, nA) : "";
+  const stepper = (side, n, ion) => `
+    <div class="stepper">
+      <button type="button" class="step-btn" data-step="${side}" data-d="-1" ${!ion || n <= 1 || q.solved ? "disabled" : ""} aria-label="Treu-ne un"><span class="pm minus" aria-hidden="true"></span></button>
+      <span class="step-num">${n}</span>
+      <button type="button" class="step-btn" data-step="${side}" data-d="1" ${!ion || n >= 6 || q.solved ? "disabled" : ""} aria-label="Afegeix-ne un"><span class="pm plus" aria-hidden="true"></span></button>
+    </div>`;
+  el.workArea.innerHTML = `
+    <div class="build">
+      <div class="trays">
+        <div class="tray"><span class="tray-label pos">Catión (+)</span><div class="tiles">${tray(q.choices.cations, "cat", cat)}</div></div>
+        <div class="tray"><span class="tray-label neg">Anión (−)</span><div class="tiles">${tray(q.choices.anions, "an", an)}</div></div>
+      </div>
+      <div class="assembly">
+        <div class="slot pos">${cat ? fm(ionLabel(cat)) : '<span class="slot-empty">Elige un catión</span>'}<span class="times">×</span>${stepper("cat", nC, cat)}</div>
+        <div class="slot neg">${an ? fm(ionLabel(an)) : '<span class="slot-empty">Elige un anión</span>'}<span class="times">×</span>${stepper("an", nA, an)}</div>
+        <div class="charge-meter${cat && an && total === 0 ? " zero" : ""}" aria-label="Càrrega total ${total}">
+          <div class="meter-row"><span class="meter-label">+${plus}</span><span class="cells">${cells(plus, "p")}</span></div>
+          <div class="meter-row"><span class="meter-label">−${minus}</span><span class="cells">${cells(minus, "m")}</span></div>
+          <p class="meter-total">Càrrega total: <b>${total > 0 ? "+" : ""}${total}</b>${cat && an && total === 0 ? " ✓" : ""}</p>
+        </div>
+        <div class="build-formula" aria-live="polite">${formula ? fm(formula) : "<span class='slot-empty'>La fórmula apareixerà aquí</span>"}</div>
+      </div>
+    </div>`;
+  el.workArea.querySelectorAll(".ion-tile[data-side]").forEach((tile) =>
+    tile.addEventListener("click", () => {
+      const list = tile.dataset.side === "cat" ? q.choices.cations : q.choices.anions;
+      q.build[tile.dataset.side] = list[Number(tile.dataset.i)];
+      renderBuild();
+    })
+  );
+  el.workArea.querySelectorAll(".step-btn").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      const key = btn.dataset.step === "cat" ? "nC" : "nA";
+      q.build[key] = Math.min(6, Math.max(1, q.build[key] + Number(btn.dataset.d)));
+      renderBuild();
+    })
+  );
+}
+
+/* ---------- Panell d'ajuda ---------- */
+
+const TYPE_TIPS = {
+  construeix: ["Tria el catió i l'anió que diu el nom.", "Canvia quants n'hi ha fins que la càrrega total sigui zero.", "Si els dos nombres es poden dividir, simplifica."],
+  nomFormula: ["A la fórmula, primer va la part positiva.", "La suma de càrregues ha de ser zero.", "Els grups de més d'un ió van entre parèntesis."],
+  formulaNom: ["Primer la part negativa, després «de» + la positiva.", "Si el metall té diverses càrregues, indica-la en xifres romanes.", "També pots fer servir prefixos (di-, tri-…)."],
+  tria: ["Llegeix totes les opcions abans de triar.", "Fixa't en els subíndexs, els parèntesis i les terminacions."],
+  classifica: ["Mira quins elements hi ha: oxigen? hidrogen? un metall?", "Compta quants elements diferents té."],
+};
+
+function compoundCard(comp) {
+  const names = comp.names.map((n) => `<li><span class="name-text">${n.text}</span><span class="kind">${kindsLabel(n.kinds)}</span></li>`).join("");
+  return `
+    <div class="comp-card">
+      <div class="comp-formula">${fm(comp.formula)}</div>
+      <p class="comp-family">${family(comp.family).name}</p>
+      <ul class="name-list">${names}</ul>
+      ${comp.note ? `<p class="comp-note">${comp.note}</p>` : ""}
+      ${comp.context ? `<p class="comp-context"><b>A la vida real:</b> ${comp.context}</p>` : ""}
+    </div>`;
+}
+
+function renderHelp() {
+  const q = state.q;
+  if (!q) {
+    el.helpBody.innerHTML = "";
+    return;
+  }
+  if (q.solved) {
+    el.helpBody.innerHTML = compoundCard(q.comp);
+    return;
+  }
+  const tips = TYPE_TIPS[q.type].map((t) => `<li>${t}</li>`).join("");
+  const given = q.hintsShown.map((h, i) => `<li><b>Pista ${i + 1}.</b> ${h}</li>`).join("");
+  el.helpBody.innerHTML = `
+    <ul class="tips-list">${tips}</ul>
+    ${given ? `<ol class="hints-list">${given}</ol>` : ""}`;
+}
+
+/* ---------- Estat, missatges i marcador ---------- */
+
+function setStatus(kind) {
+  const map = { idle: ["?", "Sin responder", ""], ok: ["✓", "Correcto", "ok"], bad: ["✗", "Torna-ho a provar", "bad"] };
+  const [icon, text, cls] = map[kind];
+  el.statusBox.className = `status ${cls}`;
+  el.statusIcon.textContent = icon;
+  el.statusText.textContent = text;
+}
+
+function setFeedback(html, kind = "neutral") {
+  el.feedback.className = `feedback ${kind}`;
+  el.feedback.innerHTML = html;
+}
+
+function updateScoreboard() {
+  el.attemptCount.textContent = state.stats.attempts;
+  el.correctCount.textContent = state.stats.correct;
+  el.streakCount.textContent = state.stats.streak;
+  save(STORAGE.stats, state.stats);
+}
+
+function lockControls(solved) {
+  el.checkBtn.disabled = solved;
+  el.hintBtn.disabled = solved;
+  el.solutionBtn.disabled = solved;
+  el.nextBtn.hidden = !solved || state.mode === "repte";
+  const input = $("answerInput");
+  if (input) input.readOnly = solved;
+}
+
+/* ---------- Preguntes ---------- */
+
+function newQuestion() {
+  const q = makeQuestion();
+  state.q = q;
+  if (!q) {
+    el.qTags.innerHTML = "";
+    el.qLabel.textContent = "No hi ha compostos amb aquests filtres.";
+    el.qPrompt.innerHTML = "";
+    el.qKind.textContent = "Activa un altre nivell (per exemple, Bachillerato) o tria més famílies.";
+    el.workArea.innerHTML = "";
+    setFeedback("");
+    setStatus("idle");
+    renderHelp();
+    return;
+  }
+  setStatus("idle");
+  setFeedback("");
+  renderQuestion();
+  lockControls(false);
+}
+
+function handleCheck() {
+  const q = state.q;
+  if (!q || q.solved) return;
+  let result;
+  if (q.type === "nomFormula") result = checkFormula(q.comp, $("answerInput").value);
+  else if (q.type === "formulaNom") result = checkName(q.comp, $("answerInput").value, state.catalog);
+  else if (q.type === "construeix") {
+    const { cat, an, nC, nA } = q.build;
+    result = checkBuild(q.comp, cat, an, nC, nA);
+    if (!cat || !an) {
+      setFeedback(result.message, "hint");
+      return;
+    }
+  } else return;
+  if (/^Escriu/.test(result.message ?? "")) {
+    setFeedback(result.message, "hint");
+    return;
+  }
+  if (result.ok) onCorrect(result.note);
+  else onWrong(result.message);
+}
+
+function handleChoice(value) {
+  const q = state.q;
+  if (!q || q.solved) return;
+  const correct = q.type === "tria" ? value === q.correct : value === q.comp.family;
+  if (correct) {
+    onCorrect();
+    return;
+  }
+  q.disabled.push(value);
+  let message;
+  if (q.type === "classifica") {
+    const f = family(value);
+    message = `No és ${familyWithArticle(value)}. (${f.name}: ${f.rule.charAt(0).toLowerCase()}${f.rule.slice(1)})`;
+  }
+  else if (q.direction === "toFormula") message = `${formulaText(value)} no és correcta. ${checkFormula(q.comp, value).message}`;
+  else message = `«${value}» no és correcte. ${checkName(q.comp, value, state.catalog).message}`;
+  onWrong(message);
+}
+
+function onWrong(message) {
+  state.stats.attempts += 1;
+  state.stats.streak = 0;
+  updateScoreboard();
+  setStatus("bad");
+  if (state.mode === "repte") {
+    onChallengeMiss(message);
+    return;
+  }
+  setFeedback(message, "error");
+  if (state.q.type === "tria") renderOptions();
+  if (state.q.type === "classifica") renderClassify();
+}
+
+function onCorrect(note) {
+  const q = state.q;
+  q.solved = true;
+  state.stats.attempts += 1;
+  setStatus("ok");
+  if (q.solutionShown) {
+    state.stats.streak = 0;
+  } else {
+    state.stats.correct += 1;
+    state.stats.streak += 1;
+    state.stats.bestStreak = Math.max(state.stats.bestStreak ?? 0, state.stats.streak);
+    state.progress[q.comp.id] = true;
+    save(STORAGE.progress, state.progress);
+    celebrate();
+  }
+  updateScoreboard();
+  const others = acceptedNamesShown(q);
+  const parts = [`<strong>Molt bé!</strong>`];
+  if (note) parts.push(note);
+  if (others) parts.push(others);
+  if (q.comp.context) parts.push(`<span class="ctx">${q.comp.context}</span>`);
+  setFeedback(parts.join(" "), "success");
+  renderQuestion();
+  lockControls(true);
+  if (state.mode === "repte") onChallengeSolved();
+  else el.nextBtn.focus({ preventScroll: true });
+}
+
+function acceptedNamesShown(q) {
+  if (q.type === "classifica") return `${fm(q.comp.formula)} és ${familyWithArticle(q.comp.family)}.`;
+  if (q.type === "formulaNom" || (q.type === "tria" && q.direction === "toName")) {
+    const list = q.comp.names.map((n) => `«${n.text}»`);
+    return list.length > 1 ? `Noms acceptats: ${list.join(", ")}.` : "";
+  }
+  const others = q.comp.names.filter((n) => normalizeName(n.text) !== normalizeName(q.name.text)).map((n) => `«${n.text}»`);
+  return others.length ? `També es pot dir ${others.join(" o ")}.` : "";
+}
+
+function handleHint() {
+  const q = state.q;
+  if (!q || q.solved || state.mode === "repte") return;
+  const list = hints(q.comp, q.type === "tria" ? (q.direction === "toName" ? "formulaNom" : "nomFormula") : q.type);
+  if (q.hintStep >= list.length) {
+    setFeedback("Ja has vist totes les pistes. Si vols, mira la solució.", "hint");
+    return;
+  }
+  const hint = list[q.hintStep];
+  q.hintStep += 1;
+  q.hintsShown.push(hint);
+  setFeedback(`<strong>Pista ${q.hintStep} de ${list.length}:</strong> ${hint}`, "hint");
+  renderHelp();
+}
+
+function handleSolution() {
+  const q = state.q;
+  if (!q || q.solved || state.mode === "repte") return;
+  q.solutionShown = true;
+  q.solved = true;
+  state.stats.streak = 0;
+  updateScoreboard();
+  if (q.type === "construeix") {
+    const { cat, an, nC, nA } = q.comp.ions;
+    q.build = { cat, an, nC, nA };
+  }
+  const input = $("answerInput");
+  if (input) input.value = q.type === "nomFormula" ? q.comp.formula : q.comp.names[0].text;
+  setStatus("idle");
+  renderQuestion();
+  if (input && $("answerInput")) $("answerInput").value = q.type === "nomFormula" ? q.comp.formula : q.comp.names[0].text;
+  setFeedback(`Aquesta és la solució: ${fm(q.comp.formula)} — ${q.comp.names.map((n) => `«${n.text}»`).join(", ")}. No compta com a encert.`, "hint");
+  lockControls(true);
+}
+
+function handleNext() {
+  if (state.mode === "repte") nextChallengeQuestion();
+  else newQuestion();
+}
+
+/* ---------- Mode Reto ---------- */
+
+function startChallenge() {
+  state.challenge = { index: 0, points: 0, results: [], tries: CHALLENGE_TRIES, seen: new Set() };
+  nextChallengeQuestion(true);
+}
+
+function nextChallengeQuestion(first = false) {
+  const c = state.challenge;
+  if (!first) c.index += 1;
+  if (c.index >= CHALLENGE_SIZE) {
+    finishChallenge();
+    return;
+  }
+  c.tries = CHALLENGE_TRIES;
+  let q = null;
+  for (let i = 0; i < 12; i += 1) {
+    q = makeQuestion(null);
+    if (!q || !c.seen.has(q.comp.id)) break;
+  }
+  state.q = q;
+  if (!q) {
+    newQuestion();
+    return;
+  }
+  c.seen.add(q.comp.id);
+  setStatus("idle");
+  setFeedback("");
+  renderQuestion();
+  lockControls(false);
+  renderChallengeBar();
+}
+
+function renderChallengeBar() {
+  const c = state.challenge;
+  el.challengeBar.hidden = state.mode !== "repte" || !c;
+  if (!c) return;
+  const dots = Array.from({ length: CHALLENGE_TRIES }, (_, i) => `<i class="${i < c.tries ? "on" : ""}"></i>`).join("");
+  el.challengeBar.innerHTML = `
+    <span class="cb-item">Pregunta <b>${Math.min(c.index + 1, CHALLENGE_SIZE)}</b> de ${CHALLENGE_SIZE}</span>
+    <span class="cb-item">Intents <span class="tries-dots">${dots}</span></span>
+    <span class="cb-item"><span class="star-sm">★</span> <b>${c.points}</b> punts</span>`;
+}
+
+function onChallengeMiss(message) {
+  const c = state.challenge;
+  c.tries -= 1;
+  renderChallengeBar();
+  if (c.tries > 0) {
+    setFeedback(`${message} <strong>Et queda un intent.</strong>`, "error");
+    if (state.q.type === "tria") renderOptions();
+    if (state.q.type === "classifica") renderClassify();
+    return;
+  }
+  const q = state.q;
+  q.solved = true;
+  q.solutionShown = true;
+  c.results.push(0);
+  if (q.type === "construeix") q.build = { ...q.comp.ions };
+  renderQuestion();
+  setFeedback(`${message} La resposta era ${fm(q.comp.formula)}: ${q.comp.names.map((n) => `«${n.text}»`).join(", ")}.`, "error");
+  lockControls(true);
+  showChallengeNext();
+}
+
+function onChallengeSolved() {
+  const c = state.challenge;
+  const pts = c.tries === CHALLENGE_TRIES ? 2 : 1;
+  c.points += pts;
+  c.results.push(pts);
+  renderChallengeBar();
+  el.feedback.insertAdjacentHTML("afterbegin", `<b class="pts">+${pts} ${pts === 1 ? "punt" : "punts"}</b> `);
+  showChallengeNext();
+}
+
+function showChallengeNext() {
+  el.nextBtn.hidden = false;
+  el.nextBtn.innerHTML = `${state.challenge.index + 1 >= CHALLENGE_SIZE ? "Mostra el resultat" : "Siguiente pregunta"} <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+  el.nextBtn.focus({ preventScroll: true });
+}
+
+function finishChallenge() {
+  const c = state.challenge;
+  const max = CHALLENGE_SIZE * 2;
+  const ratio = c.points / max;
+  const stars = ratio >= 0.9 ? 3 : ratio >= 0.7 ? 2 : ratio >= 0.4 ? 1 : 0;
+  el.resultStars.innerHTML = [1, 2, 3].map((i) => `<span class="${i <= stars ? "on" : ""}">★</span>`).join("");
+  el.resultPoints.textContent = `${c.points} punts de ${max}`;
+  const first = c.results.filter((p) => p === 2).length;
+  const second = c.results.filter((p) => p === 1).length;
+  el.resultDetail.textContent = `${first} a la primera, ${second} a la segona i ${CHALLENGE_SIZE - first - second} sense encertar. Aciertoar a la primera val 2 punts; a la segona, 1.`;
+  el.resultDialog.showModal();
+  if (stars >= 2) celebrate();
+}
+
+/* ---------- Modes ---------- */
+
+function setMode(mode) {
+  state.mode = mode;
+  document.querySelectorAll(".mode-tab").forEach((tab) => {
+    const on = tab.dataset.mode === mode;
+    tab.classList.toggle("active", on);
+    tab.setAttribute("aria-selected", String(on));
+  });
+  el.learnView.hidden = mode !== "apren";
+  el.practiceView.hidden = mode === "apren";
+  el.newQuestionBtn.hidden = mode === "apren";
+  el.newQuestionBtn.textContent = mode === "repte" ? "Nou repte" : "Nueva pregunta";
+  el.hintBtn.hidden = mode === "repte";
+  el.solutionBtn.hidden = mode === "repte";
+  document.querySelector(".activity-panel").hidden = mode === "repte";
+  el.nextBtn.innerHTML = `Siguiente pregunta <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg>`;
+  if (mode === "apren") {
+    state.challenge = null;
+    renderModule();
+  } else if (mode === "repte") {
+    startChallenge();
+  } else {
+    state.challenge = null;
+    renderChallengeBar();
+    newQuestion();
+  }
+}
+
+/* ---------- Mode Aprende ---------- */
+
+function renderModule() {
+  const current = MODULES.find((m) => m.id === state.settings.module) ?? MODULES[0];
+  el.moduleNav.innerHTML = `<h2 class="panel-title">Módulos</h2>${MODULES.map(
+    (m) => `<button type="button" class="module-link${m === current ? " active" : ""}" data-module="${m.id}" aria-current="${m === current}">
+      <span class="module-num">${m.num}</span><span class="module-title">${m.title}</span>${m.level > 1 ? `<span class="tag level l${m.level}">${LEVELS[m.level - 1].name}</span>` : ""}</button>`
+  ).join("")}`;
+  el.moduleNav.querySelectorAll(".module-link").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      state.settings.module = btn.dataset.module;
+      save(STORAGE.settings, state.settings);
+      renderModule();
+      el.moduleCard.scrollTop = 0;
+    })
+  );
+
+  const cards = current.cards
+    .map(
+      (c) => `<section class="learn-box${c.level === 3 ? " batx" : ""}">
+        <h3>${c.title}${c.level === 3 ? ' <span class="tag level l3">Bachillerato</span>' : ""}</h3>${richText(c.html)}</section>`
+    )
+    .join("");
+  const examples = current.examples.length
+    ? `<h3 class="pane-title">Exemples</h3>
+       <div class="example-table">${current.examples
+         .map((f) => state.catalog.find((c) => c.formula === f))
+         .filter(Boolean)
+         .map(
+           (c) => `<div class="example-row"><span class="ex-formula">${fm(c.formula)}</span>
+             <span class="ex-names">${c.names.filter((n) => n.level <= Math.max(maxLevel(), 2)).map((n) => `<span class="ex-name">${n.text}<small>${kindsLabel(n.kinds)}</small></span>`).join("")}</span></div>`
+         )
+         .join("")}</div>`
+    : "";
+  const acidTable = current.acidTable
+    ? `<h3 class="pane-title">Taula d'oxoàcids</h3>
+       <div class="acid-table">${OXOANIONS.filter((a) => a.level <= maxLevel())
+         .map((a) => {
+           const acid = state.catalog.find((c) => c.family === "oxoacid" && c.ions?.an === a);
+           return `<div class="acid-row"><span>${fm(acid.formula)}</span><span>àcid ${a.acid}</span><span>${fm(ionLabel(a))}</span><span>${a.name}</span></div>`;
+         })
+         .join("")}</div>
+       ${maxLevel() < 3 ? '<p class="muted">Activa el nivell Bachillerato per veure també els oxoàcids del brom, el iode, el seleni, el crom i el manganès.</p>' : ""}`
+    : "";
+  const gallery = current.gallery
+    ? `<div class="gallery">${state.catalog
+        .filter((c) => c.context && state.settings.levels.includes(c.level))
+        .map((c) => `<div class="gallery-card"><span class="g-formula">${fm(c.formula)}</span><span class="g-name">${c.names[0].text}</span><span class="g-ctx">${c.context}</span></div>`)
+        .join("")}</div>`
+    : "";
+  const errors = current.errors.length
+    ? `<section class="learn-box errors"><h3>Errors habituals</h3><ul>${current.errors.map((e) => `<li>${richText(e)}</li>`).join("")}</ul></section>`
+    : "";
+  const idx = MODULES.indexOf(current);
+  const practice = current.families.length
+    ? `<button type="button" class="primary-btn" id="practiseModuleBtn">Practica aquest mòdul</button>`
+    : current.gallery
+      ? `<button type="button" class="primary-btn" id="practiseDailyBtn">Practica amb aquestes substàncies</button>`
+      : "";
+  el.moduleCard.innerHTML = `
+    <header class="learn-head">
+      <span class="learn-kicker">Mòdul ${current.num}</span>
+      <h2>${current.title}</h2>
+      <p class="learn-intro">${richText(current.intro)}</p>
+    </header>
+    <div class="learn-boxes">${cards}</div>
+    ${acidTable}${examples}${gallery}${errors}
+    <footer class="learn-foot">
+      ${idx > 0 ? `<button type="button" class="action-btn ghost" data-go="${MODULES[idx - 1].id}">← ${MODULES[idx - 1].title}</button>` : "<span></span>"}
+      ${practice}
+      ${idx < MODULES.length - 1 ? `<button type="button" class="action-btn ghost" data-go="${MODULES[idx + 1].id}">${MODULES[idx + 1].title} →</button>` : "<span></span>"}
+    </footer>`;
+  el.moduleCard.querySelectorAll("[data-go]").forEach((btn) =>
+    btn.addEventListener("click", () => {
+      state.settings.module = btn.dataset.go;
+      save(STORAGE.settings, state.settings);
+      renderModule();
+      el.moduleCard.scrollTop = 0;
+    })
+  );
+  $("practiseModuleBtn")?.addEventListener("click", () => {
+    state.settings.families = [...current.families];
+    if (current.level > Math.max(...state.settings.levels)) state.settings.levels = [...new Set([...state.settings.levels, current.level])].sort();
+    save(STORAGE.settings, state.settings);
+    state.bag = [];
+    renderFilters();
+    setMode("practica");
+  });
+  $("practiseDailyBtn")?.addEventListener("click", () => {
+    state.settings.families = [];
+    save(STORAGE.settings, state.settings);
+    renderFilters();
+    setMode("practica");
+  });
+}
+
+/* ---------- Diàleg: taula d'ions i progrés ---------- */
+
+function renderIonTables() {
+  const { cations, monoAnions, polyAnions } = ionTable();
+  const row = (ion, name, extra = "") =>
+    `<div class="ion-row${ion.level === 3 ? " batx" : ""}"><span class="ion-f">${fm(ionLabel(ion))}</span><span class="ion-n">${name}</span>${extra}</div>`;
+  const acidOf = (a) => (a.acid ? `<span class="ion-x">de l'àcid ${a.acid}</span>` : "");
+  el.ionTables.innerHTML = `
+    <div class="ion-columns">
+      <section><h3 class="pane-title pos">Cations</h3>${cations.map((c) => row(c, cationName(c))).join("")}</section>
+      <section><h3 class="pane-title neg">Aniones monoatómicos</h3>${monoAnions.map((a) => row(a, a.name)).join("")}
+        <p class="muted small">Els anions d'un sol element acaben en <b class="nowrap">-ur</b>, excepte l'òxid.</p></section>
+      <section class="wide"><h3 class="pane-title neg">Anions poliatòmics</h3><div class="ion-grid">${polyAnions.map((a) => row(a, a.name, acidOf(a))).join("")}</div></section>
+    </div>
+    <p class="muted small">Els ions marcats amb fons lila són de batxillerat.</p>`;
+}
+
+const pct = (done, total) => (total ? Math.round((done / total) * 100) : 0);
+
+function renderProgress() {
+  const solved = state.catalog.filter((c) => state.progress[c.id]);
+  const { attempts, correct, bestStreak = 0, streak } = state.stats;
+  const cards = [
+    ["Compostos resolts", solved.length, "blue"],
+    ["Aciertos", correct, "green"],
+    ["Intents", attempts, "slate"],
+    ["Precisió", attempts ? `${pct(correct, attempts)}<small>%</small>` : "—", "amber"],
+    ["Millor ratxa", Math.max(bestStreak, streak), "violet"],
+  ];
+  el.statCards.innerHTML = cards
+    .map(([label, value, tone]) => `<div class="stat-card ${tone}"><span class="stat-value">${value}</span><span class="stat-label">${label}</span></div>`)
+    .join("");
+  el.levelCards.innerHTML = LEVELS.map((level) => {
+    const list = state.catalog.filter((c) => c.level === level.id);
+    const done = list.filter((c) => state.progress[c.id]).length;
+    const p = pct(done, list.length);
+    return `<div class="level-card l${level.id}">
+        <div class="ring" style="--p:${Math.max(p, done ? 2 : 0)}" role="progressbar" aria-valuenow="${done}" aria-valuemin="0" aria-valuemax="${list.length}" aria-label="${level.name}"><span>${p}%</span></div>
+        <div class="level-info"><strong>${level.name}</strong><span class="level-num">${done}/${list.length}</span><small>${level.course}</small></div>
+      </div>`;
+  }).join("");
+  el.familyProgress.innerHTML = FAMILIES.map((f) => {
+    const list = state.catalog.filter((c) => c.family === f.id);
+    const done = list.filter((c) => state.progress[c.id]).length;
+    return `<div class="progress-row"><span class="progress-name">${f.plural}</span>
+        <div class="progress-track" role="progressbar" aria-valuenow="${done}" aria-valuemin="0" aria-valuemax="${list.length}" aria-label="${f.plural}"><span style="width:${Math.max(pct(done, list.length), done ? 2 : 0)}%"></span></div>
+        <span class="progress-num">${done}/${list.length}</span></div>`;
+  }).join("");
+}
+
+function showInfoTab(tab) {
+  document.querySelectorAll(".info-tab").forEach((btn) => {
+    const on = btn.dataset.tab === tab;
+    btn.setAttribute("aria-selected", String(on));
+    btn.tabIndex = on ? 0 : -1;
+  });
+  document.querySelectorAll(".info-pane").forEach((pane) => {
+    pane.hidden = pane.id !== `pane-${tab}`;
+  });
+  el.infoDialog.querySelector(".info-body").scrollTop = 0;
+  state.settings.infoTab = tab;
+  save(STORAGE.settings, state.settings);
+}
+
+function openInfo(tab) {
+  if (!el.ionTables.childElementCount) renderIonTables();
+  renderProgress();
+  showInfoTab(tab);
+  el.infoDialog.showModal();
+}
+
+/* ---------- Celebració ---------- */
+
+function celebrate() {
+  try {
+    if (matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+  } catch {}
+  const box = document.createElement("div");
+  box.className = "confetti";
+  box.setAttribute("aria-hidden", "true");
+  const colors = ["#2563eb", "#22c55e", "#f59e0b", "#ef4444", "#a855f7", "#06b6d4"];
+  for (let i = 0; i < 40; i += 1) {
+    const piece = document.createElement("i");
+    piece.style.left = `${Math.random() * 100}%`;
+    piece.style.background = colors[i % colors.length];
+    piece.style.animationDelay = `${Math.random() * 0.35}s`;
+    piece.style.setProperty("--dx", `${Math.random() * 160 - 80}px`);
+    piece.style.setProperty("--rot", `${Math.random() * 720 - 360}deg`);
+    box.appendChild(piece);
+  }
+  document.body.appendChild(box);
+  setTimeout(() => box.remove(), 2000);
+}
+
+/* ---------- Esdeveniments ---------- */
+
+function applyProjector() {
+  document.documentElement.classList.toggle("projector", state.settings.projector);
+  el.projectorBtn.setAttribute("aria-pressed", String(state.settings.projector));
+  fitScale();
+}
+
+function attachEvents() {
+  el.newQuestionBtn.addEventListener("click", () => (state.mode === "repte" ? startChallenge() : newQuestion()));
+  el.checkBtn.addEventListener("click", handleCheck);
+  el.hintBtn.addEventListener("click", handleHint);
+  el.solutionBtn.addEventListener("click", handleSolution);
+  el.nextBtn.addEventListener("click", handleNext);
+
+  document.querySelectorAll(".mode-tab").forEach((tab) =>
+    tab.addEventListener("click", () => {
+      if (tab.dataset.mode !== state.mode) setMode(tab.dataset.mode);
+    })
+  );
+
+  el.familyTrigger.addEventListener("click", () => {
+    const open = el.familyDropdown.classList.toggle("open");
+    el.familyTrigger.setAttribute("aria-expanded", String(open));
+  });
+  document.addEventListener("click", (event) => {
+    if (!el.familyDropdown.contains(event.target)) {
+      el.familyDropdown.classList.remove("open");
+      el.familyTrigger.setAttribute("aria-expanded", "false");
+    }
+  });
+  document.addEventListener("keydown", (event) => {
+    if (event.key === "Escape") el.familyDropdown.classList.remove("open");
+  });
+
+  el.projectorBtn.addEventListener("click", () => {
+    state.settings.projector = !state.settings.projector;
+    save(STORAGE.settings, state.settings);
+    applyProjector();
+  });
+
+  el.ionsBtn.addEventListener("click", () => openInfo("ions"));
+  el.progressBtn.addEventListener("click", () => openInfo("progres"));
+  const tabs = [...document.querySelectorAll(".info-tab")];
+  tabs.forEach((btn, i) => {
+    btn.addEventListener("click", () => showInfoTab(btn.dataset.tab));
+    btn.addEventListener("keydown", (event) => {
+      const step = { ArrowRight: 1, ArrowLeft: -1 }[event.key];
+      if (!step) return;
+      const next = tabs[(i + step + tabs.length) % tabs.length];
+      showInfoTab(next.dataset.tab);
+      next.focus();
+    });
+  });
+
+  let resetArmed = false;
+  el.resetProgressBtn.addEventListener("click", () => {
+    if (!resetArmed) {
+      resetArmed = true;
+      el.resetProgressBtn.textContent = "Segur? Torna-hi a clicar per esborrar-ho";
+      return;
+    }
+    resetArmed = false;
+    el.resetProgressBtn.textContent = "Esborra el progrés i el marcador";
+    state.progress = {};
+    state.stats = { attempts: 0, correct: 0, streak: 0, bestStreak: 0 };
+    save(STORAGE.progress, state.progress);
+    updateScoreboard();
+    renderProgress();
+  });
+
+  document.querySelectorAll("dialog").forEach((dialog) =>
+    dialog.addEventListener("click", (event) => {
+      if (event.target === dialog || event.target.closest("[data-close]")) dialog.close();
+    })
+  );
+
+  el.playAgainBtn.addEventListener("click", () => {
+    el.resultDialog.close();
+    startChallenge();
+  });
+  el.backPracticeBtn.addEventListener("click", () => {
+    el.resultDialog.close();
+    setMode("practica");
+  });
+
+  let resizeTimer;
+  window.addEventListener("resize", () => {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(fitScale, 60);
+  });
+}
+
+function init() {
+  state.settings = load(STORAGE.settings, state.settings);
+  state.stats = load(STORAGE.stats, state.stats);
+  state.progress = load(STORAGE.progress, {});
+  state.catalog = buildCatalog();
+  applyProjector();
+  renderFilters();
+  renderActivities();
+  attachEvents();
+  updateScoreboard();
+  setMode("practica");
+}
+
+init();
+
+return {};
+})();
+</script>
+  <footer style="text-align:center;padding:12px;font-size:13px">Adaptación parcial al castellano para uso educativo (SDN). Autor original: Felip Sarroca. <a href="https://felipsarroca.github.io/edu-apps/FormulacioInorganica/">Aplicación original</a> · <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.es">CC BY-NC-SA 4.0</a>. Versión de prueba: algunos textos siguen en catalán.</footer></body>
+</html>
